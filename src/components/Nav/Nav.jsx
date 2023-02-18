@@ -5,7 +5,7 @@ function Nav() {
         <nav>
             <Link to="/">Home</Link>
             {/* Base url / origin / domain */}
-            <Link to="/project">Project</Link>
+            {/* <Link to="/project">Project</Link> */}
             {/* Path parameter */}
         </nav>
     );

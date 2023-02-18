@@ -23,10 +23,11 @@ const router = createBrowserRouter([
     element: <HeaderLayout />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/project", element: <ProjectPage /> },
+      { path: "/project/:id", element: <ProjectPage /> },
     ],
   },
 ]);
+// : = path param
 
 function App() {
   return <RouterProvider router={router} />;
