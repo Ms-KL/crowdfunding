@@ -53,8 +53,17 @@ function HomePage() {
 
   // runs the first time after the first render
 
+  // calc totals
   const projectsTotal = projectList.length;
   const pledgesTotal = pledgeList.length;
+  const pledgesTotalFunds = pledgeList
+    .map(pledge => pledge.amount)
+    .reduce((runningTotal, amount) => runningTotal + amount,0);
+
+    // map = create new array that only contains the pledge amounts
+    // reduce = sum up pledge amounts in the new array, return the total
+      // 0 = initial value of reduce = 0
+      // https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d
   
   return (
     <div>
@@ -65,7 +74,7 @@ function HomePage() {
       <p className="kl-to-do">Add Activity Feed - sideways scroll? Feed like ASX?</p>
 
       <h2>Communitree Support Totals</h2>
-      <p>Communitree projects: {projectsTotal} | Communitree pledges: {pledgesTotal} | Communitree funds raised: INSERT </p> 
+      <p>Communitree projects: {projectsTotal} | Communitree pledges: {pledgesTotal} | Communitree funds raised: {pledgesTotalFunds} </p> 
       <p className="kl-to-do"> need to figure out how to sum a field imported from DRF and return total</p>
 
       <h3>All Projects</h3>
@@ -89,4 +98,4 @@ export default HomePage;
 
 // Resources:
   // https://stackoverflow.com/questions/54002792/in-general-is-it-better-to-use-one-or-many-useeffect-hooks-in-a-single-component#:~:text=It's%20perfectly%20fine%20to%20have%20have%20multiple%20useEffect.
-  // 
+  // https://stackoverflow.com/questions/62358365/react-js-get-sum-of-numbers-in-array

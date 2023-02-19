@@ -12,17 +12,6 @@ function ProjectPage() {
     const { id } = useParams();
 
     // Effects
-    // useEffect(() => {
-    //     fetch(`${import.meta.env.VITE_API_URL}projects/${id}`)
-    //     .then(results => {
-    //         return results.json();
-    //     })
-    //     .then((data) => {
-    //         setProject(data);
-    //     });
-
-    // }, []);
-
     // ---- ASYNC change
     useEffect(() => {
     const fetchProject = async () => {
@@ -60,3 +49,14 @@ function ProjectPage() {
 export default ProjectPage;
 
 // Ctrl + D = select all the same fields
+// Alt to ASYNC change:
+    // useEffect(() => {
+    //     fetch(`${import.meta.env.VITE_API_URL}projects/${id}`)
+    //     .then(results => {
+    //         return results.json();
+    //     })
+    //     .then((data) => {
+    //         setProject(data);
+    //     });
+
+    // }, []);
