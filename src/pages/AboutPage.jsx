@@ -5,7 +5,7 @@ function AboutPage () {
     return (
         <>
             <h1>This is the about page</h1>
-            <p>Add info on Communitree, tree-huggers, where the money goes etc</p>
+            <p className="kl-to-do">Add info on Communitree, tree-huggers, where the money goes etc</p>
         </>
     );
 }

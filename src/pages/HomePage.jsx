@@ -51,8 +51,12 @@ function HomePage() {
 
   return (
     <div>
+      <p className="kl-to-do">RED: to do / issues / in progress</p>
       <h1>Communitree</h1>
       <p className="kl-to-do">This is subtitle</p>
+
+      <p className="kl-to-do">Add Dark-mode Toggle (see comments for link)</p>
+      {/* https://www.makeuseof.com/how-to-add-dark-mode-to-a-react-application/ */}
 
       <h2>Tree-Hugger Activity</h2>
       <p className="kl-to-do">Add Activity Feed - sideways scroll? Feed like ASX?</p>
