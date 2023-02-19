@@ -45,6 +45,15 @@ function HomePage() {
     <div>
       <h1>Communitree</h1>
       <p>This is subtitle</p>
+
+      <h2>Tree-Hugger Activity</h2>
+      <p>Add Activity Feed - sideways scroll? Feed like ASX?</p>
+
+      <h2>Communitree Support</h2>
+      <p>Add totals</p>
+      <p># projects funded, $, Pledges, Tree-Huggers</p>
+
+      <h3>All Projects</h3>
       <div id="project-list">
         {projectList.map((project, key) => {
           return <ProjectCard key={key} projectData={project} />;
