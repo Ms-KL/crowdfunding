@@ -13,11 +13,12 @@ function HomePage() {
 
   // State
   const [projectList, setProjectList] = useState([]);
+  const [pledgeList, setPledgeList] = useState([]);
 
-  console.log(import.meta.env.VITE_API_URL)
+  // ACTIONS
 
+  // Project Data
   useEffect(() => {
-
     // REQUEST DATA + PROMISE
     fetch(`${import.meta.env.VITE_API_URL}projects`)
       .then((results) => {
@@ -25,6 +26,18 @@ function HomePage() {
       })
       .then((data) => {
         setProjectList(data);
+      });
+  }, []);
+    
+  // Pledge Data
+  useEffect(() => {
+    // REQUEST DATA + PROMISE
+    fetch(`${import.meta.env.VITE_API_URL}pledges`)
+      .then((results) => {
+        return results.json();
+      })
+      .then((data) => {
+        setPledgeList(data);
       });
 
     // fetch: built in request in browser to server
@@ -37,21 +50,23 @@ function HomePage() {
 
 
   }, []);
+
   // runs the first time after the first render
 
-
-
+  const projectsTotal = projectList.length;
+  const pledgesTotal = pledgeList.length;
+  
   return (
     <div>
       <h1>Communitree</h1>
-      <p>This is subtitle</p>
+      <p className="kl-to-do">This is subtitle</p>
 
       <h2>Tree-Hugger Activity</h2>
-      <p>Add Activity Feed - sideways scroll? Feed like ASX?</p>
+      <p className="kl-to-do">Add Activity Feed - sideways scroll? Feed like ASX?</p>
 
-      <h2>Communitree Support</h2>
-      <p>Add totals</p>
-      <p># projects funded, $, Pledges, Tree-Huggers</p>
+      <h2>Communitree Support Totals</h2>
+      <p>Communitree projects: {projectsTotal} | Communitree pledges: {pledgesTotal} | Communitree funds raised: INSERT </p> 
+      <p className="kl-to-do"> need to figure out how to sum a field imported from DRF and return total</p>
 
       <h3>All Projects</h3>
       <div id="project-list">
@@ -66,3 +81,12 @@ function HomePage() {
 export default HomePage;
 // you then need to import without { }
 // without default you import using { }
+
+
+
+
+
+
+// Resources:
+  // https://stackoverflow.com/questions/54002792/in-general-is-it-better-to-use-one-or-many-useeffect-hooks-in-a-single-component#:~:text=It's%20perfectly%20fine%20to%20have%20have%20multiple%20useEffect.
+  // 
