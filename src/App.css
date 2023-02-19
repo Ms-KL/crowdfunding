@@ -4,3 +4,10 @@
     column-gap: 10px;
     row-gap: 10px;
 }
+
+.project-detail img {
+    width: calc(60% - 5px);
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: cover;
+    }
