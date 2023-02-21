@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
+import LoginPage from "./pages/LoginPage";
 
 // Components
 import Nav from "./components/Nav/nav";
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { path: "/project/:id", element: <ProjectPage /> },
       { path: "/about", element: <AboutPage />},
       { path: "/contact", element: <ContactPage />},
+      { path: "/login", element: <LoginPage />},
     ],
   },
 ]);
