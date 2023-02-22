@@ -1,13 +1,7 @@
-// import React from "react";
-// not required as it's already a jsx file
-
 import { useState, useEffect } from "react";
 
 // Components
 import ProjectCard from "../components/ProjectCard/ProjectCard";
-
-// // Data
-import { allProjects } from "../data";
 
 function HomePage() {
 
@@ -97,4 +91,6 @@ export default HomePage;
     // reduce = sum up pledge amounts in the new array, return the total
       // 0 = initial value of reduce = 0
       // https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d
+
+      // import React from "react"; not required as it's already a jsx file
   
