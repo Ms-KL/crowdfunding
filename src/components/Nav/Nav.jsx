@@ -25,9 +25,6 @@ function Nav() {
 
 return (
     <nav>
-        {/* <div id="logo">
-            <img src="src/images/Communitarian.png" alt="communitarian-logo" />
-        </div> */}
         <div id="nav-right">
             {!loggedIn && <Link to="/login" className="btn">Login In</Link>}
             <div id="nav-controls">
