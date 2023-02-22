@@ -8,7 +8,6 @@ function PledgePage() {
 
     // State
     const [pledgeList, setPledgeList] = useState([]);
-
     // ACTIONS
 
     // Pledge Data
@@ -39,13 +38,16 @@ function PledgePage() {
                 {pledgeList.map((pledge, key) => {
                     return <PledgeCard key={key} pledgeData={pledge} />;
                 })}
-            </div>        
+            </div>
+
             <PledgeForm />
         </div>
     );
 };
 
 export default PledgePage;
+
+
 
 
 // trying to link to Project Page within pledge card. Not working. Starter code below:

@@ -8,6 +8,7 @@ import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import LoginPage from "./pages/LoginPage";
 import PledgePage from "./pages/PledgePage";
+import RegistrationPage from "./pages/RegistrationPage";
 
 // Components
 import Nav from "./components/Nav/nav";
@@ -25,7 +26,8 @@ import "./App.css";
 // );
 
 const Layout = () => {
-  const [loggedIn, setLoggedIn] = useState(window.localStorage.getItem("token") != null)
+  const [loggedIn, setLoggedIn] = useState(
+    window.localStorage.getItem("token") != null)
   return (
     <>
       <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
@@ -45,7 +47,8 @@ const router = createBrowserRouter([
       { path: "/about", element: <AboutPage />},
       { path: "/contact", element: <ContactPage />},
       { path: "/login", element: <LoginPage />},
-      { path: "/pledges", element: <PledgePage />},        
+      { path: "/pledges", element: <PledgePage />},   
+      { path: "/register", element: <RegistrationPage />},        
     ],
   },
 ]);

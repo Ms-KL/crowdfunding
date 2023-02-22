@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 
 function PledgeForm() {
-
     // state 
 
     const [pledges, setPledges] = useState({
@@ -50,46 +49,48 @@ function PledgeForm() {
         event.preventDefault();
         if (window.localStorage.getItem("token")) {
             await postData();
-            navigate("/");
+            navigate("pledges");
         }
     };
 
     // navigate: ideas - redirect, rerender w/ data or success
 
     return (
-        <form onSubmit={handleSubmit}>
         <div>
-        <label htmlFor="amount">Amount:</label>
-        <input
-            type="number"
-            id="amount"
-            placeholder="Enter amount"
-            onChange={handleChange}
+            <form onSubmit={handleSubmit}>
+                <div>
+                <label htmlFor="amount">Amount:</label>
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Enter amount"
+                    onChange={handleChange}
 
-        />
+                />
+                </div>
+                <div>
+                <label htmlFor="comment">Comment:</label>
+                <input
+                    type="text"
+                    id="comment"
+                    placeholder="Enter Comment"
+                    onChange={handleChange}
+                />
+                </div>
+                <div>
+                <label htmlFor="anonymous">Anonymous:</label>
+                <input
+                    type="checkbox"
+                    id="anonymous"
+                    onChange={handleChange}
+                />
+                </div>
+                
+                <button type="submit">
+                    Pledge
+                </button>
+                </form>
         </div>
-        <div>
-        <label htmlFor="comment">Comment:</label>
-        <input
-            type="text"
-            id="comment"
-            placeholder="Enter Comment"
-            onChange={handleChange}
-        />
-        </div>
-        <div>
-        <label htmlFor="anonymous">Anonymous:</label>
-        <input
-            type="checkbox"
-            id="anonymous"
-            onChange={handleChange}
-        />
-        </div>
-        
-        <button type="submit">
-        Pledge
-        </button>
-        </form>
     );
 }
 
