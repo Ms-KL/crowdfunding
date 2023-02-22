@@ -9,6 +9,7 @@ import AboutPage from "./pages/AboutPage";
 import LoginPage from "./pages/LoginPage";
 import PledgePage from "./pages/PledgePage";
 import RegistrationPage from "./pages/RegistrationPage";
+import CreateProjectPage from "./pages/CreateProjectPage";
 
 // Components
 import Nav from "./components/Nav/nav";
@@ -48,7 +49,8 @@ const router = createBrowserRouter([
       { path: "/contact", element: <ContactPage />},
       { path: "/login", element: <LoginPage />},
       { path: "/pledges", element: <PledgePage />},   
-      { path: "/register", element: <RegistrationPage />},        
+      { path: "/register", element: <RegistrationPage />},   
+      { path: "/create-project", element: <CreateProjectPage />},        
     ],
   },
 ]);

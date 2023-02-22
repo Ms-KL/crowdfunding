@@ -3,13 +3,11 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function PledgeForm() {
     const [pledges, setPledges] = useState({
-        amount: 0,
-        comment: "",
-        anonymous: false,
-        id: 0,
-        project: "",
-        supporter: "",
-        date_pledged: "",
+        "amount": null,
+        "comment": "",
+        "anonymous": false,
+        "project": null,
+        "date_pledged": null
     });
 
     const navigate = useNavigate();
@@ -69,15 +67,6 @@ function PledgeForm() {
                 type="text"
                 id="comment"
                 placeholder="Enter Comment"
-                onChange={handleChange}
-            />
-            </div>
-            <div>
-            <label htmlFor="supporter">Supporter:</label>
-            <input
-                type="text"
-                id="supporter"
-                placeholder="needs to be autofilled with loggedin user"
                 onChange={handleChange}
             />
             </div>
