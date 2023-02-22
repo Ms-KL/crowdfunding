@@ -6,10 +6,11 @@ import { useParams } from "react-router-dom";
 
 // Components
 import PledgeForm from "../components/PledgeForm/PledgeForm";
+import ProjectCommentForm from "../components/ProjectCommentForm/ProjectCommentForm";
 
 function ProjectPage() {
     // State
-    const [project, setProject] = useState({pledges: []});
+    const [project, setProject] = useState({});
 
     // Hooks
     const { id } = useParams();
@@ -34,38 +35,59 @@ function ProjectPage() {
         <div className="project-detail">
             <h2>{project.title}</h2>
             <img src={project.image} />
-            {/* move image formatting to css */}
             <h3>Created at: {project.date_created}</h3>
             <h3>Owner: {project.owner}</h3>
             <h3>Project Deadline: {project.deadline}</h3>
             <h3>{`Status: ${project.is_open}`}</h3>
-            <p className="kl-to-do">Make this section a box</p>
+            <p>-------------------------------</p>
             <h3>Funding Status: {project.funding_status}</h3>
             <h3>Goal: ${project.goal}</h3>
             <h3>Total Pledges: ${project.sum_pledges}</h3>
             <h3>Goal Balance: ${project.goal_balance}</h3>
-            <PledgeForm />
-            <p className="kl-to-do">Pledges and comments on right? Media Query to stack</p>
-            <h3>Pledges:</h3>
-            <ul>
-                {project.pledges.map((pledgeData, key) => {
-                    return (
-                        <li key={key}>
-                        {pledgeData.amount} from {pledgeData.supporter}
-                        <p className="kl-to-do">Avatar next to pledge item? part of diff model (users) how to call?</p>
-                        </li>
-                    );
-                })}
-            </ul>
-            <p className="kl-to-do">Add comments: w/ avatar (usermodel),</p>
 
-            <p className="kl-to-do">Will I need to change db scheme to FK avatar to be accessible to pledge and comment?</p>
-            
+            <p>-------------------------------</p>
+            {/* if project comments exist, post them */}
+            <ProjectCommentForm />
+                <div>
+                    <h3>Comments:</h3>
+                    <ul>
+                    {project.comments &&
+                        project.comments.map((commentData, key) => (
+                            <li key={key}>
+                            {commentData.created}: {commentData.commenter} says {commentData.body}
+                            </li>
+                        ))
+                    }
+                    </ul>
+                </div>
+
+            <p>-------------------------------</p>
+            {/* if pledges exist, post them */}
+            <PledgeForm />
+                <div>
+                    <h3>Pledges:</h3>
+                    <ul>
+                        {project.pledges &&
+                            project.pledges.map((pledgeData, key) => (
+                                <li key={key}>
+                                    {pledgeData.amount} from {pledgeData.supporter}
+                                </li>
+                            ))}
+                    </ul>
+                </div>
         </div>
     );
 }
 
 export default ProjectPage;
+
+{/* <p className="kl-to-do">Add comments: w/ avatar (usermodel),</p>
+<p className="kl-to-do">Avatar next to pledge item? part of diff model (users) how to call?</p>
+<p className="kl-to-do">Will I need to change db scheme to FK avatar to be accessible to pledge and comment?</p>  */}
+
+
+
+
 
 // Ctrl + D = select all the same fields
 // Alt to ASYNC change:
