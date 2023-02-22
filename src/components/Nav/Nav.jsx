@@ -4,7 +4,7 @@ import './Nav.css'
 function Nav(props) {
     const { loggedIn, setLoggedIn } = props
     const handleClick = () => {
-        window.localStorage.removeItem("token")
+        window.localStorage.removeItem("token");
         setLoggedIn(false)
     }
 

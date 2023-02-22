@@ -10,7 +10,6 @@ function LoginForm() {
         username: "",
         password: "",
     });
-    console.log(LoginForm)
 
     // HOOKS
     const navigate = useNavigate();
