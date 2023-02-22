@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 
 function LoginForm() {
+
+    const [, setLoggedIn] = useOutletContext();
 
     // state 
 
@@ -48,6 +51,7 @@ function LoginForm() {
         if (credentials.username && credentials.password) {
             const { token } = await postData();
             window.localStorage.setItem("token", token);
+            setLoggedIn(true);
             navigate("/");
         }
     };
@@ -76,7 +80,7 @@ function LoginForm() {
         />
         </div>
         <button type="submit">
-        Login
+            Login
         </button>
         </form>
     );
