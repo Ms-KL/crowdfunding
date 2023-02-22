@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 // Dummy Data
-import { oneProject } from "../data";
+// import { oneProject } from "../data";
+
+// Components
+import PledgeForm from "../components/PledgeForm/PledgeForm";
 
 function ProjectPage() {
     // State
@@ -41,6 +44,7 @@ function ProjectPage() {
             <h3>Goal: ${project.goal}</h3>
             <h3>Total Pledges: ${project.sum_pledges}</h3>
             <h3>Goal Balance: ${project.goal_balance}</h3>
+            <PledgeForm />
             <p className="kl-to-do">Pledges and comments on right? Media Query to stack</p>
             <h3>Pledges:</h3>
             <ul>
