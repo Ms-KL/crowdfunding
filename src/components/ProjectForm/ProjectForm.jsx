@@ -39,74 +39,79 @@ function ProjectForm() {
                 },
                 body: JSON.stringify(projects),
                 }
-            );
-            navigate(`/`);
-        } catch (err) {
-            console.error(err);
+                );
+                if (!response.ok) {
+                    throw new Error(await response.text());
+                }
+                location.reload();
+            } catch (err) {
+                console.error(err);
+                alert(`Error: ${err.message}`);
+            }
+        } else {
+        // redirect to login page
+        navigate(`/login`);
         }
-    } else {
-    // redirect to login page
-    navigate(`/login`);
-    }
     };
 
     return (
-        <div>
-        <form onSubmit={handleSubmit}>
             <div>
-            <label htmlFor="title">Title:</label>
-            <input
-                type="text"
-                id="title"
-                placeholder="Enter title"
-                onChange={handleChange}
-            />
+            <form onSubmit={handleSubmit}>
+                <div>
+                <label htmlFor="title">Title:</label>
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Enter title"
+                    onChange={handleChange}
+                />
+                </div>
+                <div>
+                <label htmlFor="description">Description:</label>
+                <input
+                    type="text"
+                    id="description"
+                    placeholder="Enter description"
+                    onChange={handleChange}
+                />
+                </div>
+                <div>
+                <label htmlFor="goal">Goal:</label>
+                <input
+                    type="number"
+                    id="goal"
+                    placeholder="enter a goal"
+                    onChange={handleChange}
+                />
+                </div>
+                <div>
+                <label htmlFor="image">Image URL:</label>
+                <input 
+                    type="text"
+                    id="image" 
+                    onChange={handleChange} 
+                />
+                </div>
+                <div>
+                <label htmlFor="is_open">Activate Project:</label>
+                <input 
+                    type="checkbox"
+                    id="is_open" 
+                    onChange={handleChange} 
+                />
+                </div>
+                <div>
+                <label htmlFor="deadline">Project Deadline:</label>
+                <input 
+                    type="datetime-local" 
+                    id="deadline" 
+                    onChange={handleChange} 
+                />
+                </div>
+                <button type="submit">Create Project</button>
+            </form>
             </div>
-            <div>
-            <label htmlFor="description">Description:</label>
-            <input
-                type="text"
-                id="description"
-                placeholder="Enter description"
-                onChange={handleChange}
-            />
-            </div>
-            <div>
-            <label htmlFor="goal">Goal:</label>
-            <input
-                type="number"
-                id="goal"
-                placeholder="enter a goal"
-                onChange={handleChange}
-            />
-            </div>
-            <div>
-            <label htmlFor="image">Image URL:</label>
-            <input 
-                type="text"
-                id="image" 
-                onChange={handleChange} 
-            />
-            </div>
-            <div>
-            <label htmlFor="is_open">Activate Project:</label>
-            <input 
-                type="checkbox"
-                id="is_open" 
-                onChange={handleChange} 
-            />
-            </div>
-            <div>
-            <label htmlFor="deadline">Project Deadline:</label>
-            <input 
-                type="datetime-local" 
-                id="deadline" 
-                onChange={handleChange} 
-            />
-            </div>
-            <button type="submit">Create Project</button>
-        </form>
-        </div>
+
     );
 }
 

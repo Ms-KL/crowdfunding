@@ -38,15 +38,20 @@ function ProjectCommentForm(props) {
                 },
                 body: JSON.stringify(comments),
                 }
-            );
-            navigate(`/`);
-        } catch (err) {
-            console.error(err);
+                );
+                if (!response.ok) {
+                    throw new Error(await response.text());
+                }
+                location.reload();
+            } catch (err) {
+                console.error(err);
+                alert(`Error: ${err.message}`);
+            }
+        } else {
+        // redirect to login page
+        navigate(`/login`);
         }
-    } else {
-    // redirect to login page
-    navigate(`/login`);
-    }
+
     };
 
     return (

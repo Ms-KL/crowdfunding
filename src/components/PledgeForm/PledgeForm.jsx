@@ -58,16 +58,19 @@ function PledgeForm(props) {
                 },
                 body: JSON.stringify(pledges),
                 }
-            );
-            navigate(`/`);
-        } catch (err) {
-            console.error(err);
+                );
+                if (!response.ok) {
+                    throw new Error(await response.text());
+                }
+                location.reload();
+            } catch (err) {
+                console.error(err);
+                alert(`Error: ${err.message}`);
+            }
+        } else {
+        // redirect to login page
+        navigate(`/login`);
         }
-    } else {
-    // redirect to login page
-    navigate(`/login`);
-    }
-
     };
 
     return (
@@ -110,3 +113,6 @@ function PledgeForm(props) {
 }
 
 export default PledgeForm;
+
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#checking_that_the_fetch_was_successful

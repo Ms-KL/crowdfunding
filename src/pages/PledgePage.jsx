@@ -39,8 +39,6 @@ function PledgePage() {
                     return <PledgeCard key={key} pledgeData={pledge} />;
                 })}
             </div>
-
-            <PledgeForm />
         </div>
     );
 };
