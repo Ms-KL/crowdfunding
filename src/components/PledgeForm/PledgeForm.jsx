@@ -20,7 +20,7 @@ function PledgeForm(props) {
     // accesses project ID so the pledge can be connected to it
     const { id } = useParams();
 
-    // copies the original data, replaces the old data for each id/value pair to what is input in the form (changes state). this will be submitted to API below
+    // copies the original data, replaces the old data for each id/value pair to what is input in the form (changes state). this will be submitted to API below. 
     const handleChange = (event) => {
         const { id, value } = event.target;
         setPledges((prevPledges) => ({
@@ -42,8 +42,8 @@ function PledgeForm(props) {
             // TRY to POST the data to your deployed, using fetch.
             // send the token with it to authorise the ability to post
                 // wait for the response - 
-                // if successful, return the JSON payload and display, redirect to / (homepage): I need to change this
-                // if not successful, CATCH the error and display in console
+                // if successful, return the JSON payload and reload the page with the data
+                // if not successful, CATCH the error and display as a pop up alert
         // if not logged in, redirect to login page
 
         if (authToken) {
