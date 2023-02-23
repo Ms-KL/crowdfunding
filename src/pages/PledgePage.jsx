@@ -8,6 +8,7 @@ function PledgePage() {
 
     // State
     const [pledgeList, setPledgeList] = useState([]);
+
     // ACTIONS
 
     // Pledge Data

@@ -46,21 +46,18 @@ function HomePage() {
 
   return (
     <div>
-      <p className="kl-to-do">RED: to do / issues / in progress</p>
       <h1>Communitree</h1>
-      <p className="kl-to-do">This is subtitle</p>
+      <p>
+      Welcome to Communitree, the crowdfunding website where tree-huggers gather to make a real impact on the urban forest of our community; register now to join us in creating a greener, healthier future for all by accessing funds for your urban forest strategy plans or supporting community projects for busy bees and planting days/events.</p>
 
-      <p className="kl-to-do">Add Dark-mode Toggle (see comments for link)</p>
-      {/* https://www.makeuseof.com/how-to-add-dark-mode-to-a-react-application/ */}
+      <h2>Communitree Impact</h2>
+      <p>Get inspired by our "Communitree Impact", displaying the total funds raised and number of projects supported by our enthusiastic tree-huggers.</p>
 
-      <h2>Tree-Hugger Activity</h2>
-      <p className="kl-to-do">Add Activity Feed - sideways scroll? Feed like ASX?</p>
-
-      <h2>Communitree Support Totals</h2>
       <p>Total Projects: {projectsTotal} | Total Pledges: {pledgesTotal} | Total Funds Raised: ${pledgesTotalFunds} </p> 
       
       <Link to="/create-project">Create a Project!</Link>
-      <h3>All Projects</h3>
+      
+      <h3>Communitree Projects</h3>
       <div id="project-list">
         {projectList.map((project, key) => {
           return <ProjectCard key={key} projectData={project} />;
@@ -74,10 +71,6 @@ export default HomePage;
 // you then need to import without { }
 // without default you import using { }
 
-
-// Resources:
-  // https://stackoverflow.com/questions/54002792/in-general-is-it-better-to-use-one-or-many-useeffect-hooks-in-a-single-component#:~:text=It's%20perfectly%20fine%20to%20have%20have%20multiple%20useEffect.
-  // https://stackoverflow.com/questions/62358365/react-js-get-sum-of-numbers-in-array
 
 // NOTES:
   // 
