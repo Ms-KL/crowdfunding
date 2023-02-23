@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // Components
 import ProjectCard from "../components/ProjectCard/ProjectCard";
@@ -57,7 +58,8 @@ function HomePage() {
 
       <h2>Communitree Support Totals</h2>
       <p>Total Projects: {projectsTotal} | Total Pledges: {pledgesTotal} | Total Funds Raised: ${pledgesTotalFunds} </p> 
-
+      
+      <Link to="/create-project">Create a Project!</Link>
       <h3>All Projects</h3>
       <div id="project-list">
         {projectList.map((project, key) => {
