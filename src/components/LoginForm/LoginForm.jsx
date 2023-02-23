@@ -14,7 +14,6 @@ function LoginForm() {
     // HOOKS
     const navigate = useNavigate();
 
-
     const handleChange = (event) => {
         const { id, value } = event.target;
         // grab the id and value from target
@@ -49,7 +48,8 @@ function LoginForm() {
             if(token !== undefined) {
                 window.localStorage.setItem("token", token);
                 setLoggedIn(true);
-                navigate("/");
+                navigate(-1);
+
             } else {
                 setLoggedIn(false);
                 const response = await postData();

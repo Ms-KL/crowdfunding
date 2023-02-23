@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function PledgeForm(props) {
     const { project } = props;
+    const authToken = window.localStorage.getItem("token")
     
     const [pledges, setPledges] = useState({
         // from JSON Raw Body in Deployed (default values)
@@ -74,41 +75,45 @@ function PledgeForm(props) {
     };
 
     return (
-        <div>
-        <form onSubmit={handleSubmit}>
+        <>
+        {authToken ? 
             <div>
-            <label htmlFor="amount">Amount:</label>
-            <input
-                type="number"
-                id="amount"
-                placeholder="Enter amount"
-                onChange={handleChange}
-            />
+            <form onSubmit={handleSubmit}>
+                <div>
+                <label htmlFor="amount">Amount:</label>
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Enter amount"
+                    onChange={handleChange}
+                />
+                </div>
+                <div>
+                <label htmlFor="comment">Comment:</label>
+                <input
+                    type="text"
+                    id="comment"
+                    placeholder="Enter Comment"
+                    onChange={handleChange}
+                />
+                </div>
+                <div>
+                <label htmlFor="anonymous">Anonymous:</label>
+                <input 
+                    type="checkbox"
+                    id="anonymous" 
+                    onChange={handleChange} 
+                />
+                </div>
+                {/* <div>
+                <label htmlFor="date_pledged">Date Pledged:</label>
+                <input type="datetime-local" id="date_pledged" onChange={handleChange} />
+                </div> */}
+                <button type="submit">Pledge</button>
+            </form>
             </div>
-            <div>
-            <label htmlFor="comment">Comment:</label>
-            <input
-                type="text"
-                id="comment"
-                placeholder="Enter Comment"
-                onChange={handleChange}
-            />
-            </div>
-            <div>
-            <label htmlFor="anonymous">Anonymous:</label>
-            <input 
-                type="checkbox"
-                id="anonymous" 
-                onChange={handleChange} 
-            />
-            </div>
-            {/* <div>
-            <label htmlFor="date_pledged">Date Pledged:</label>
-            <input type="datetime-local" id="date_pledged" onChange={handleChange} />
-            </div> */}
-            <button type="submit">Pledge</button>
-        </form>
-        </div>
+        : (<p>Login to pledge</p>) }
+        </>
     );
 }
 

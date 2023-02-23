@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function ProjectForm() {
+function ProjectForm(props) {
+    const authToken = window.localStorage.getItem("token")
     const [projects, setProjects] = useState({
         "title": "",
         "description": "",
@@ -43,7 +44,7 @@ function ProjectForm() {
                 if (!response.ok) {
                     throw new Error(await response.text());
                 }
-                location.reload();
+                navigate(-1);
             } catch (err) {
                 console.error(err);
                 alert(`Error: ${err.message}`);
@@ -55,6 +56,8 @@ function ProjectForm() {
     };
 
     return (
+        <>
+        {authToken ? 
             <div>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -111,6 +114,8 @@ function ProjectForm() {
                 <button type="submit">Create Project</button>
             </form>
             </div>
+        : (<p>Login to create a project</p>) }
+        </>
 
     );
 }

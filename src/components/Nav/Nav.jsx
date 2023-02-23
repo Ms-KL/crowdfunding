@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import './Nav.css'
 
 function Nav(props) {
     const { loggedIn, setLoggedIn } = props
+
     const handleClick = () => {
         window.localStorage.removeItem("token");
         setLoggedIn(false);
-    };
+    }
 
     return (
         <nav>

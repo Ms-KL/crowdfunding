@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 function ProjectCommentForm(props) {
+    const authToken = window.localStorage.getItem("token")
     const { project } = props;
 
     const [comments, setComments] = useState({
@@ -55,6 +56,8 @@ function ProjectCommentForm(props) {
     };
 
     return (
+        <>
+        {authToken ? 
         <div>
         <form onSubmit={handleSubmit}>
             <div>
@@ -69,6 +72,8 @@ function ProjectCommentForm(props) {
             <button type="submit">Submit Comment</button>
         </form>
         </div>
+        : (<p>Login to send a comment</p>) }
+        </>
     );
 }
 
