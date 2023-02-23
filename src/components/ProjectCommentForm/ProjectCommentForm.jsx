@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function ProjectCommentForm() {
+function ProjectCommentForm(props) {
+    const { project } = props;
+
     const [comments, setComments] = useState({
         "body": "",
         "project": null
@@ -15,6 +17,7 @@ function ProjectCommentForm() {
         setComments((prevComments) => ({
         ...prevComments,
         [id]: value,
+        project: project.title, 
         }));
     };
 
@@ -55,15 +58,6 @@ function ProjectCommentForm() {
                 type="text"
                 id="body"
                 placeholder="Enter Comment"
-                onChange={handleChange}
-            />
-            </div>
-            <div>
-            <label htmlFor="project">Project:</label>
-            <input
-                type="text"
-                id="project"
-                placeholder="needs to be auto-filled with current project"
                 onChange={handleChange}
             />
             </div>

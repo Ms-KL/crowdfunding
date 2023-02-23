@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-
-function PledgeForm(props) {
-    const { project } = props;
-    
+function PledgeForm() {
     const [pledges, setPledges] = useState({
         // from JSON Raw Body in Deployed (default values)
         "amount": null,
         "comment": "",
         "anonymous": false,
         "project": null,
-        // "date_pledged": null
+        "date_pledged": null
     });
 
     // enables redirect
@@ -26,48 +23,40 @@ function PledgeForm(props) {
         setPledges((prevPledges) => ({
         ...prevPledges,
         [id]: value,
-        project: project.title, 
         }));
     };
 
-    // submit the new data (state change) from handleChange.
-        // POST has been moved from separate function to be embedded and actioned when the submit button is pressed. 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    // get auth token from local storage
+    const authToken = window.localStorage.getItem("token")
 
-        // get auth token from local storage
-        const authToken = window.localStorage.getItem("token")
 
-        // if the auth token exists (if logged in) 
-            // TRY to POST the data to your deployed, using fetch.
-            // send the token with it to authorise the ability to post
-                // wait for the response - 
-                // if successful, return the JSON payload and display, redirect to / (homepage): I need to change this
-                // if not successful, CATCH the error and display in console
-        // if not logged in, redirect to login page
-
-        if (authToken) {
-            try {
-                const response = await fetch(
-                    `${import.meta.env.VITE_API_URL}pledges/`,
-                    {
-                    method: "post",
-                    headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Token ${authToken}`,
+    // POST the data to your deployed, using fetch.
+    // send the token with it to authorise the ability to post
+        // wait for the response - 
+        // if successful, return the JSON payload and display, redirect to / (homepage): I need to change this
+        // if not successful, return the json response display in console
+    const postData = async () => {
+        const response = await fetch(
+            `${import.meta.env.VITE_API_URL}pledges/`,
+            {
+                method: "post",
+                headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${authToken}`,
                 },
                 body: JSON.stringify(pledges),
-                }
-            );
-            navigate(`/`);
-        } catch (err) {
-            console.error(err);
-        }
-    } else {
-    // redirect to login page
-    navigate(`/login`);
-    }
+            }
+        );
+        return response.json();
+    };
 
+    // if authtoken exists, post the data on submit, wait for the response and nav back to home page
+    const handleSubmit = async(event) => {
+        event.preventDefault();
+        if (authToken) {
+            const postPledge = await postData();
+            navigate("/");
+        }
     };
 
     return (
@@ -99,10 +88,19 @@ function PledgeForm(props) {
                 onChange={handleChange} 
             />
             </div>
-            {/* <div>
+            <div>
+            <label htmlFor="project">Project:</label>
+            <input
+                type="text"
+                id="project"
+                placeholder="needs to be auto-filled with current project"
+                onChange={handleChange}
+            />
+            </div>
+            <div>
             <label htmlFor="date_pledged">Date Pledged:</label>
             <input type="datetime-local" id="date_pledged" onChange={handleChange} />
-            </div> */}
+            </div>
             <button type="submit">Pledge</button>
         </form>
         </div>

@@ -18,16 +18,16 @@ function ProjectPage() {
     // Effects
     // ---- ASYNC change
     useEffect(() => {
-    const fetchProject = async () => {
-        try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}projects/${id}`);
-            const data = await res.json();
-            setProject(data);
-        } catch (err) {
-            console.log(err);
-        }
-    };
-    fetchProject();
+        const fetchProject = async () => {
+            try {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}projects/${id}`);
+                const data = await response.json();
+                setProject(data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchProject();
 }, []);
 
 
@@ -47,7 +47,7 @@ function ProjectPage() {
 
             <p>-------------------------------</p>
             {/* if project comments exist, post them */}
-            <ProjectCommentForm />
+            <ProjectCommentForm project={project} />
                 <div>
                     <h3>Comments:</h3>
                     <ul>
@@ -63,14 +63,17 @@ function ProjectPage() {
 
             <p>-------------------------------</p>
             {/* if pledges exist, post them */}
-            <PledgeForm />
+            {/* passes project from project page into the pledge form. so can use as project in form */}
+
+            <PledgeForm project={project} />
                 <div>
                     <h3>Pledges:</h3>
                     <ul>
                         {project.pledges &&
                             project.pledges.map((pledgeData, key) => (
                                 <li key={key}>
-                                    {pledgeData.amount} from {pledgeData.supporter}
+                                    {pledgeData.date_pledged}: {pledgeData.amount} from {pledgeData.supporter}
+                                    <p>{pledgeData.comment}</p>
                                 </li>
                             ))}
                     </ul>
