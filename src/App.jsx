@@ -13,7 +13,7 @@ import CreateProjectPage from "./pages/CreateProjectPage";
 import UserPage from "./pages/UserPage";
 
 // Components
-import Nav from "./components/Nav/nav";
+import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 
 // CSS
