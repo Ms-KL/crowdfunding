@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import './Nav.css'
-import logo from './assets/communitree_logo.png';
 
 function Nav(props) {
     const { loggedIn, setLoggedIn } = props
@@ -14,7 +13,6 @@ function Nav(props) {
     return (
         <nav>
             <div>
-                <img src={logo} alt="Communitree Logo" />
                 {!loggedIn && <Link to="/login" className="btn">Login</Link>}
                 {!loggedIn && <Link to="/register" className="btn">Register</Link>}
                 {loggedIn && <button onClick={handleClick}>Log Out</button>}
