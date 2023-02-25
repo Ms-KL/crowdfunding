@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useOutletContext } from "react-router-dom";
 
 function ProjectCommentForm(props) {
     const authToken = window.localStorage.getItem("token")
     const { project } = props;
+    const [loggedIn] = useOutletContext();
 
     const [comments, setComments] = useState({
         "body": "",
@@ -25,9 +26,7 @@ function ProjectCommentForm(props) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const authToken = window.localStorage.getItem("token")
-
-        if (authToken) {
+        if (loggedIn) {
             try {
                 const response = await fetch(
                     `${import.meta.env.VITE_API_URL}comments/`,
@@ -57,7 +56,7 @@ function ProjectCommentForm(props) {
 
     return (
         <>
-        {authToken ? 
+        {loggedIn ? 
         <div>
         <form onSubmit={handleSubmit}>
             <div>

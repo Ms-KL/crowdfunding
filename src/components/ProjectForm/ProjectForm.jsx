@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useOutletContext } from "react-router-dom";
 
 function ProjectForm(props) {
+    const { project } = props;
     const authToken = window.localStorage.getItem("token")
+    const [loggedIn] = useOutletContext();
     const [projects, setProjects] = useState({
         "title": "",
         "description": "",
@@ -26,9 +28,7 @@ function ProjectForm(props) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const authToken = window.localStorage.getItem("token")
-
-        if (authToken) {
+        if (loggedIn) {
             try {
                 const response = await fetch(
                     `${import.meta.env.VITE_API_URL}projects/`,
@@ -57,7 +57,7 @@ function ProjectForm(props) {
 
     return (
         <>
-        {authToken ? 
+        {loggedIn ? 
             <div>
             <form onSubmit={handleSubmit}>
                 <div>

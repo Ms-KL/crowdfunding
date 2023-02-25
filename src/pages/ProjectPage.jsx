@@ -8,10 +8,10 @@ import { useParams } from "react-router-dom";
 import PledgeForm from "../components/PledgeForm/PledgeForm";
 import ProjectCommentForm from "../components/ProjectCommentForm/ProjectCommentForm";
 
+
 function ProjectPage() {
     // State
     const [project, setProject] = useState({});
-    const authToken = window.localStorage.getItem("token")
 
     // Hooks
     const { id } = useParams();

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useOutletContext } from "react-router-dom";
 
 function RegistrationForm() {
+    const authToken = window.localStorage.getItem("token")
     const [users, setUsers] = useState({
         "username": "",
         "email": "",
@@ -23,8 +24,6 @@ function RegistrationForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const authToken = window.localStorage.getItem("token")
 
         if (!authToken) {
             try {
