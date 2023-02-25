@@ -20,6 +20,7 @@ function Nav(props) {
                     <Link to="/" >Home</Link>
                     <Link to="/about">About</Link>
                     <Link to="/contact">Contact</Link>
+                    {/* {loggedIn && <Link to="/user/:id">Your Profile</Link>} */}
                 </div>
             </div>
             

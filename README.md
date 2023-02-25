@@ -4,6 +4,7 @@
 * make contact page functional
 
 ## create
+* all users page
 * logged in user profile
 * point logged in user profile (nav)
 * Add activity feed
