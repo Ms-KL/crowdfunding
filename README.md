@@ -1,7 +1,6 @@
 # To complete
 
 ## issues:
-* need to refresh current or previous page when logging out so forms change based on this
 * make contact page functional
 
 ## create
