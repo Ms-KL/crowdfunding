@@ -9,6 +9,10 @@ function UserCard(props) {
             <div className="user-card">
                 <img src={user.avatar} />
                 <h3>Bio: {user.bio}</h3>
+
+
+
+                
                 <p>-------------------------------</p>
                     <div>
                         <h3>{user.username}'s Projects:</h3>
