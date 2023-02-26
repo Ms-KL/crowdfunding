@@ -11,6 +11,7 @@ import PledgePage from "./pages/PledgePage";
 import RegistrationPage from "./pages/RegistrationPage";
 import CreateProjectPage from "./pages/CreateProjectPage";
 import UserPage from "./pages/UserPage";
+import SessionUserPage from "./pages/SessionUserPage";
 
 // Components
 import Nav from "./components/Nav/Nav";
@@ -52,8 +53,8 @@ const router = createBrowserRouter([
       { path: "/pledges", element: <PledgePage />},   
       { path: "/register", element: <RegistrationPage />},   
       { path: "/create-project", element: <CreateProjectPage />},
-      // { path: "/user/:id", element: <UserPage /> },   
-      // { path: "/user/", element: <UsersPage /> },       
+      { path: "/user/:id", element: <UserPage /> },   
+      { path: "/user/session-user", element: <SessionUserPage /> },       
     ],
   },
 ]);
