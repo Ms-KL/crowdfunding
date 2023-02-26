@@ -8,12 +8,16 @@ function Nav(props) {
     const handleClick = () => {
         window.localStorage.removeItem("token");
         setLoggedIn(false);
+
+    
     }
 
     return (
             <nav>
                 <div className="logo-container">
-                    <img src="../src/assets/communitree_logo.png" alt="Communitree Logo" className="logo-image" />
+                    <Link to="/" >
+                        <img src="../src/assets/communitree_logo.png" alt="Communitree Logo" className="logo-image" />
+                    </Link>
                 </div>
                 <div className="nav-container">
                     <div className="nav-app">
@@ -28,6 +32,11 @@ function Nav(props) {
                         </Link>
                     </div>
                     <div className="nav-user">
+                        {loggedIn && (
+                            <Link to="/user/session" className="button-link">
+                            Profile
+                            </Link>
+                        )}
                         {!loggedIn && (
                             <Link to="/register" className="button-link">
                             Register
