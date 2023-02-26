@@ -55,7 +55,7 @@ function HomePage() {
 
       <p>Total Projects: {projectsTotal} | Total Pledges: {pledgesTotal} | Total Funds Raised: ${pledgesTotalFunds} </p> 
       
-      <Link to="/create-project">Create a Project!</Link>
+      <Link to="/create-project" className="button-link">Create a Project!</Link>
       
       <h3>Communitree Projects</h3>
       <div id="project-list">

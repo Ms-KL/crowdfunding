@@ -11,20 +11,42 @@ function Nav(props) {
     }
 
     return (
-        <nav>
-            <div>
-                {!loggedIn && <Link to="/login" className="btn">Login</Link>}
-                {!loggedIn && <Link to="/register" className="btn">Register</Link>}
-                {loggedIn && <button onClick={handleClick}>Log Out</button>}
-                <div id="nav-controls">
-                    <Link to="/" >Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/contact">Contact</Link>
-                    {/* {loggedIn && <Link to="/user/:id">Your Profile</Link>} */}
+            <nav>
+                <div className="logo-container">
+                    <img src="../src/assets/communitree_logo.png" alt="Communitree Logo" className="logo-image" />
                 </div>
-            </div>
-            
-        </nav>
-    );
+                <div className="nav-container">
+                    <div className="nav-app">
+                        <Link to="/" className="button-link">
+                            Home
+                        </Link>
+                        <Link to="/about" className="button-link">
+                            About
+                        </Link>
+                        <Link to="/contact" className="button-link">
+                            Contact
+                        </Link>
+                    </div>
+                    <div className="nav-user">
+                        {!loggedIn && (
+                            <Link to="/register" className="button-link">
+                            Register
+                            </Link>
+                        )}
+                        {!loggedIn && (
+                            <Link to="/login" className="button">
+                            Login
+                            </Link>
+                        )}
+                        {loggedIn && (
+                            <button onClick={handleClick} className="button">
+                            Log Out
+                            </button>
+                        )}
+                    </div>
+                </div>
+            </nav>
+        );
+
 }
 export default Nav;

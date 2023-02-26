@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useParams, useOutletContext } from "react-router-dom";
+import { useNavigate, useParams, useOutletContext, Link } from "react-router-dom";
 
 function ProjectCommentForm(props) {
     const authToken = window.localStorage.getItem("token")
@@ -71,7 +71,11 @@ function ProjectCommentForm(props) {
             <button type="submit">Submit Comment</button>
         </form>
         </div>
-        : (<p>Login to send a comment</p>) }
+        : (
+        <Link to="/login" className="button-link">
+        Login to Comment
+        </Link>
+        ) }
         </>
     );
 }

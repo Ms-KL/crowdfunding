@@ -37,3 +37,38 @@ td {
     padding: 5px;
 
     }
+
+
+/* -------- ALL Buttons & button links through app */
+
+.button-link,
+.button {
+    display: inline-block;
+    text-align: center;
+    padding: 8px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 90px; /* set the width to be the same for all buttons */
+}
+
+.button-link:hover, .button:hover {
+    background-color: #eee;
+}
+
+/* button {
+    border: none;
+    color: #fff;
+    background-color: #333;
+} */
+
+.button:hover, button:hover {
+    background-color: #555;
+    color: #fff;
+    cursor: pointer;
+}

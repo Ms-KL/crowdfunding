@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useParams, useOutletContext } from "react-router-dom";
+import { useNavigate, useParams, useOutletContext, Link } from "react-router-dom";
 
 
 function PledgeForm(props) {
@@ -110,7 +110,11 @@ function PledgeForm(props) {
                 <button type="submit">Pledge</button>
             </form>
             </div>
-        : (<p>Login to pledge</p>) }
+        : (
+            <Link to="/login" className="button-link">
+            Login to Pledge
+            </Link>
+        ) }
         </>
     );
 }

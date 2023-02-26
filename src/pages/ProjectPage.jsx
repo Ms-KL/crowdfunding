@@ -40,16 +40,18 @@ function ProjectPage() {
 
             <br />
             <table>
-                <tr>
-                    <th>Start Date</th>
-                    <th>Deadline</th>
-                    <th>Status:</th>
-                </tr>
-                <tr>
-                    <td>{new Date(project.date_created).toLocaleDateString()}</td>
-                    <td>{new Date(project.deadline).toLocaleDateString()}</td>
-                    <td>{project.is_open ? <p>Active</p> : <p>Inactive</p>}</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <th>Start Date</th>
+                        <th>Deadline</th>
+                        <th>Status:</th>
+                    </tr>
+                    <tr>
+                        <td>{new Date(project.date_created).toLocaleDateString()}</td>
+                        <td>{new Date(project.deadline).toLocaleDateString()}</td>
+                        <td>{project.is_open ? <p>Active</p> : <p>Inactive</p>}</td>
+                    </tr>
+                </tbody>
             </table>
             {/* <p>Project Started: {new Date(project.date_created).toLocaleDateString()} by {project.owner} </p>
             <p>Project Deadline: {project.deadline}</p> */}
