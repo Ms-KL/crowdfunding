@@ -1,9 +1,22 @@
-#project-list {
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    column-gap: 10px;
-    row-gap: 10px;
+
+/* --------------- HEADINGS  ---------------  */
+
+h1 {
+    /* font-size: 2rem;
+    line-height: 3rem; */
+    text-align: center;
+    margin: 20px;
+    padding: auto;
 }
+
+
+/* --------------- HOMEPAGE  ---------------  */
+
+#project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
 
 .project-detail img {
     width: calc(60% - 5px);
@@ -11,6 +24,8 @@
     max-height: 500px;
     object-fit: cover;
     }
+
+/* --------------- PROJECT PAGE  ---------------  */
 
 table {
     margin: 20px 0px;
@@ -39,7 +54,7 @@ td {
     }
 
 
-/* -------- ALL Buttons & button links through app */
+/* --------------- ALL BUTTONS & LINKS ---------------  */
 
 .button-link,
 .button {
@@ -72,3 +87,5 @@ td {
     color: #fff;
     cursor: pointer;
 }
+
+
