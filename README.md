@@ -4,9 +4,8 @@
 * make contact page functional
 
 ## create
+* burger nav
 * all users page
-* logged in user profile
-* point logged in user profile (nav)
 * Add activity feed
 * add message box (JS exercise) for comments
 * funded bar on project page
