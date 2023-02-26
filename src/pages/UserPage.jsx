@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 // Dummy Data
 // import { oneProject } from "../data";
 
+// Components
+import UserCard from "../components/UserCard/UserCard";
+import AdminBlock from "../components/AdminBlock/AdminBlock";
+
 function UserPage() {
     // State
     const [user, setUser] = useState({});
-
     // Hooks
     const { id } = useParams();
+    // enables redirect
+    const navigate = useNavigate();
 
     // Effects
     // ---- ASYNC change
@@ -24,55 +29,25 @@ function UserPage() {
             }
         };
         fetchUser();
-}, []);
+    }, []);
 
+    const isUser = () => {
+        return user.id;
+    };
 
     return (
-        <div className="user-detail">
-            <h2>{user.username}</h2>
-            <img src={user.avatar} />
-            <h3>Bio: {user.bio}</h3>
-            <p>-------------------------------</p>
-                <div>
-                    <h3>{user.username}'s Projects:</h3>
-                    <ul>
-                    {user.projects &&
-                        user.projects.map((projectData, key) => (
-                            <li key={key}>
-                            {projectData.title} - {projectData.date_created}
-                            </li>
-                        ))
-                    }
-                    </ul>
-                </div>
-
-            <p>-------------------------------</p>
-                <div>
-                    <h3>{user.username} Comment Feed:</h3>
-                    <ul>
-                    {user.comments &&
-                        user.comments.map((commentData, key) => (
-                            <li key={key}>
-                            {commentData.created} - {commentData.project}: says {commentData.body}
-                            </li>
-                        ))
-                    }
-                    </ul>
-                </div>
-
-            <p>-------------------------------</p>
-                <div>
-                    <h3>{user.username} Pledges Feed:</h3>
-                    <ul>
-                        {user.pledges &&
-                            user.pledges.map((pledgeData, key) => (
-                                <li key={key}>
-                                    {pledgeData.date_pledged}: ${pledgeData.amount} for {pledgeData.project}
-                                    <p>{pledgeData.comment}</p>
-                                </li>
-                            ))}
-                    </ul>
-                </div>
+        <div id="user-block">
+            {user.id && (
+                <>
+                <h1>{user.username}'s Profile</h1>
+                <UserCard user={user}/>
+                </>
+            )}
+            {!user.id && (
+                <>
+                <h1>Sorry, No Tree-Huggers here!</h1>
+                </>
+            )}
         </div>
     );
 }
@@ -99,3 +74,53 @@ export default UserPage;
     //     });
 
     // }, []);
+
+//     return (
+//         <div className="user-detail">
+//             <h2>{user.username}</h2>
+//             <img src={user.avatar} />
+//             <h3>Bio: {user.bio}</h3>
+//             <p>-------------------------------</p>
+//                 <div>
+//                     <h3>{user.username}'s Projects:</h3>
+//                     <ul>
+//                     {user.projects &&
+//                         user.projects.map((projectData, key) => (
+//                             <li key={key}>
+//                             {projectData.title} - {projectData.date_created}
+//                             </li>
+//                         ))
+//                     }
+//                     </ul>
+//                 </div>
+
+//             <p>-------------------------------</p>
+//                 <div>
+//                     <h3>{user.username} Comment Feed:</h3>
+//                     <ul>
+//                     {user.comments &&
+//                         user.comments.map((commentData, key) => (
+//                             <li key={key}>
+//                             {commentData.created} - {commentData.project}: says {commentData.body}
+//                             </li>
+//                         ))
+//                     }
+//                     </ul>
+//                 </div>
+
+//             <p>-------------------------------</p>
+//                 <div>
+//                     <h3>{user.username} Pledges Feed:</h3>
+//                     <ul>
+//                         {user.pledges &&
+//                             user.pledges.map((pledgeData, key) => (
+//                                 <li key={key}>
+//                                     {pledgeData.date_pledged}: ${pledgeData.amount} for {pledgeData.project}
+//                                     <p>{pledgeData.comment}</p>
+//                                 </li>
+//                             ))}
+//                     </ul>
+//                 </div>
+//         </div>
+//     );
+// }
