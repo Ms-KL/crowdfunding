@@ -46,7 +46,7 @@ function HomePage() {
 
   return (
     <div>
-      <h1>Communitree</h1>
+      <h1>Welcome Tree-Hugger</h1>
       <p>
       Welcome to Communitree, the crowdfunding website where tree-huggers gather to make a real impact on the urban forest of our community; register now to join us in creating a greener, healthier future for all by accessing funds for your urban forest strategy plans or supporting community projects for busy bees and planting days/events.</p>
 
