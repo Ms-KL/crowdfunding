@@ -18,6 +18,7 @@ function SessionUserPage() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
+                console.log(authToken)
                 const response = await fetch(
                     `${import.meta.env.VITE_API_URL}users/session`, 
                     {
@@ -34,7 +35,8 @@ function SessionUserPage() {
             }
         };
         fetchUser();
-}, []);
+}, [authToken]);
+
 
 
     return (
