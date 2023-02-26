@@ -9,7 +9,6 @@ function Nav(props) {
         window.localStorage.removeItem("token");
         setLoggedIn(false);
 
-    
     }
 
     return (
