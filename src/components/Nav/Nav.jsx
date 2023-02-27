@@ -15,7 +15,7 @@ function Nav(props) {
             <nav>
                 <div className="logo-container">
                     <Link to="/" >
-                        <img src="..\public\communitree__logo.png" alt="Communitree Logo" className="logo-image" />
+                        <img src="communitree__logo.png" alt="Communitree Logo" className="logo-image" />
                     </Link>
                 </div>
                 <div className="nav-container">
