@@ -4,11 +4,13 @@
 h1 {
     /* font-size: 2rem;
     line-height: 3rem; */
+    font-family: 'Open+Sans', Arial, sans-serif;
     text-decoration: none;
     text-align: center;
-    font-size: 2rem;
-    margin: 20px;
-    padding: auto;
+    font-size: 1.80rem;
+    margin: 20px 20px;
+    padding: 30px;
+    font-weight:bolder;
 }
 
 
@@ -74,20 +76,60 @@ td {
     width: 90px; /* set the width to be the same for all buttons */
 }
 
-.button-link:hover, .button:hover {
-    background-color: #eee;
-}
 
-/* button {
-    border: none;
-    color: #fff;
-    background-color: #333;
-} */
-
-.button:hover, button:hover {
-    background-color: #555;
+.button:hover, button:hover, .button-link:hover, .button:hover {
+    background-color:#385B4F;
     color: #fff;
     cursor: pointer;
 }
 
+/* --------------- ALL FORMS ---------------  */
 
+form {
+    background: white;
+    /* border: 1px solid #dedede; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 50px auto;
+    max-width: 500px;
+    padding: 20px 50px;
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 2px gray; */
+    box-sizing: border-box;
+}
+
+form h2 {
+    text-align: center;
+    color: #385B4F;
+}
+
+form div label {
+    color: #3d3d3d;
+    display: block;
+    /* font-family: sans-serif; */
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+form div input {
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+form button {
+    background-color: #385B4F;
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: 20px 0px;
+    border-radius: 10px;
+    padding: 10px;
+}

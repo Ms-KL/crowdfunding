@@ -14,12 +14,10 @@ function Nav(props) {
     return (
             <nav>
                 <div className="logo-container">
-                    <Link to="/" >
-                        <img src="communitree__logo.png" alt="Communitree Logo" className="logo-image" />
-                    </Link>
+                    <img src="communitree__logo.png" alt="Communitree Logo" className="logo-image" />
                 </div>
                 <div className="nav-container">
-                    <div className="nav-app">
+                        <div className="nav-control">
                         <Link to="/" className="button-link">
                             Home
                         </Link>
@@ -29,8 +27,8 @@ function Nav(props) {
                         <Link to="/contact" className="button-link">
                             Contact
                         </Link>
-                    </div>
-                    <div className="nav-user">
+                    {/* </div> */}
+                    {/* <div className="nav-user"> */}
                         {loggedIn && (
                             <Link to="/user/session" className="button-link">
                             Profile
@@ -42,16 +40,20 @@ function Nav(props) {
                             </Link>
                         )}
                         {!loggedIn && (
-                            <Link to="/login" className="button">
+                            <Link to="/login" className="button-link">
                             Login
                             </Link>
+                            
                         )}
-                        {loggedIn && (
-                            <button onClick={handleClick} className="button">
-                            Log Out
-                            </button>
+                        </div>
+                        <div id="logout-container">
+                            {loggedIn && (
+                                <button id="logout-button" onClick={handleClick} className="button">
+                                Log Out
+                                </button>
                         )}
-                    </div>
+                        </div>
+                    {/* </div> */}
                 </div>
             </nav>
         );
