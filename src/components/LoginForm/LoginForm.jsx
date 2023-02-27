@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
+import '/src/App.css'
 
 
 function LoginForm() {
@@ -61,29 +62,28 @@ function LoginForm() {
 
     return (
         <form onSubmit={handleSubmit}>
-        <div>
-        <label htmlFor="username">Username:</label>
-        <input
-            type="text"
-            id="username"
-            placeholder="Enter username"
-            onChange={handleChange}
-
-        />
-        </div>
-        <div>
-        <label htmlFor="password">Password:</label>
-        <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            onChange={handleChange}
-
-        />
-        </div>
-        <button type="submit">
-            Login
-        </button>
+            <h2>Welcome back</h2>
+            <div>
+                <label htmlFor="username">Username:</label>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter username"
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor="password">Password:</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    onChange={handleChange}
+                />
+            </div>
+            <button type="submit">
+                Submit
+            </button>
         </form>
     );
 }

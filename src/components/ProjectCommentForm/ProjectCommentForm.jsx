@@ -59,6 +59,7 @@ function ProjectCommentForm(props) {
         {loggedIn ? 
         <div>
         <form onSubmit={handleSubmit}>
+            <h2>Comment on this project</h2>
             <div>
             <label htmlFor="body">Comment:</label>
             <input
@@ -68,7 +69,7 @@ function ProjectCommentForm(props) {
                 onChange={handleChange}
             />
             </div>
-            <button type="submit">Submit Comment</button>
+            <button type="submit">Submit</button>
         </form>
         </div>
         : (

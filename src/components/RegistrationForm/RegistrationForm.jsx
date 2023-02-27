@@ -50,6 +50,7 @@ function RegistrationForm() {
     return (
         <div>
         <form onSubmit={handleSubmit}>
+        <h2>Register as a new Tree-Hugger</h2>
             <div>
             <label htmlFor="username">Username:</label>
             <input

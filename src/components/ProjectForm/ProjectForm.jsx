@@ -60,6 +60,7 @@ function ProjectForm(props) {
         {loggedIn ? 
             <div>
             <form onSubmit={handleSubmit}>
+            <h2>Create a project</h2>
                 <div>
                 <label htmlFor="title">Title:</label>
                 <input

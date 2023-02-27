@@ -10,7 +10,7 @@ function RegistrationPage(props) {
         <>
             {!authToken ? ( 
                 <>
-                <h1>Welcome, Tree-Hugger!</h1>
+                <h1>Join our Communitree</h1>
                 <p>Register now on the Communitree website to join us in making a real impact on the urban forest of our community through crowdfunding.</p>
                 <RegistrationForm />;
                 </>

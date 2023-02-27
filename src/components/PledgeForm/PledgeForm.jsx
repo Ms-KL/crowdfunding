@@ -77,6 +77,7 @@ function PledgeForm(props) {
         {loggedIn ? 
             <div>
             <form onSubmit={handleSubmit}>
+            <h2>Send a pledge</h2>
                 <div>
                 <label htmlFor="amount">Amount:</label>
                 <input
@@ -107,7 +108,7 @@ function PledgeForm(props) {
                 <label htmlFor="date_pledged">Date Pledged:</label>
                 <input type="datetime-local" id="date_pledged" onChange={handleChange} />
                 </div> */}
-                <button type="submit">Pledge</button>
+                <button type="submit">Submit</button>
             </form>
             </div>
         : (
