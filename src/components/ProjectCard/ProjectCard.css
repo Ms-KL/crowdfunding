@@ -6,8 +6,9 @@
     border-radius: 15px;
     background-color: white;
     box-shadow: 0px 4px 5px 0 #CAC7B7,0px 6px 20px 0 #CAC7B7;
-    min-height: 160px;
-    flex-basis: 20%;
+    min-height: 100px;
+    max-height: 700px;
+    flex-basis: 30%;
     flex-grow: 1;
 }
 
