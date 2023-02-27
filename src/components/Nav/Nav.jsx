@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import './Nav.css'
+import './Nav.css';
 
 function Nav(props) {
     const { loggedIn, setLoggedIn } = props
