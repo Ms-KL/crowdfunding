@@ -26,6 +26,12 @@ nav {
     margin: 5px 5px;
 }
 
+nav .button-link:focus {
+    background-color:#385B4F;
+    color: #fff;
+    cursor: pointer;
+}
+
 
 #logout-button {
     display: block;
