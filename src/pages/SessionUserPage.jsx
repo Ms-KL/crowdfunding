@@ -1,21 +1,14 @@
 import { useState, useEffect } from "react";
-import { useParams, useOutletContext, Link } from "react-router-dom";
 
-// Dummy Data
-// import { oneProject } from "../data";
-
+// components
 import UserCard from "../components/UserCard/UserCard";
 import AdminBlock from "../components/AdminBlock/AdminBlock";
 
 function SessionUserPage() {
-    const [loggedIn] = useOutletContext();
     const authToken = window.localStorage.getItem("token")
 
     // State
     const [user, setUser] = useState({});
-
-    // Hooks
-    const { id } = useParams();
 
     // Effects
     // ---- ASYNC change
@@ -43,7 +36,6 @@ function SessionUserPage() {
     const isAdmin = () => {
         return user.id === 1;
     };
-
 
     return (
             <div>
