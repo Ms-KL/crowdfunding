@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 
 // Components
 import ProjectCard from "../components/ProjectCard/ProjectCard";
+import CalculationsCard from "../components/CalculationsCard/CalculationsCard";
 
 function HomePage() {
 
   // State
   const [projectList, setProjectList] = useState([]);
   const [pledgeList, setPledgeList] = useState([]);
+  const [shuffledProjectList, setShuffledProjectList] = useState([]);
+
 
   // ACTIONS
 
@@ -35,14 +38,21 @@ function HomePage() {
 
   }, []);
 
-  // runs the first time after the first render
+  // https://flaviocopes.com/how-to-shuffle-array-javascript/
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  // create new list, make it random ordered and only return 6. 
+    // set the state when the function is called
+    // use for button in return
 
-  // calc totals
-  const projectsTotal = projectList.length;
-  const pledgesTotal = pledgeList.length;
-  const pledgesTotalFunds = pledgeList
-    .map(pledge => pledge.amount)
-    .reduce((runningTotal, amount) => runningTotal + amount,0);
+  const shuffleProjectList = () => {
+    const shuffledList = [...projectList].sort(() => Math.random() - 0.5).slice(0, 6);
+    setShuffledProjectList(shuffledList);
+  };
+
+  // shuffle the first project list (without pressing shuffle)
+  useEffect(() => {
+    shuffleProjectList();
+  }, [projectList]);
 
   return (
     <div>
@@ -53,13 +63,11 @@ function HomePage() {
       <h2>Communitree Impact</h2>
       <p>Get inspired by our "Communitree Impact", displaying the total funds raised and number of projects supported by our enthusiastic tree-huggers.</p>
 
-      <p>Total Projects: {projectsTotal} | Total Pledges: {pledgesTotal} | Total Funds Raised: ${pledgesTotalFunds} </p> 
-      
-      <Link to="/create-project" className="button-link">Create a Project!</Link>
-      
-      <h3>Communitree Projects</h3>
+      <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
+
+      <button onClick={shuffleProjectList} className="button">Shuffle</button> <h3>Featured Communitree Projects</h3>
       <div id="project-list">
-        {projectList.map((project, key) => {
+        {shuffledProjectList.map((project, key) => {
           return <ProjectCard key={key} projectData={project} />;
         })}
       </div>
