@@ -40,6 +40,7 @@ function HomePage() {
 
   // https://flaviocopes.com/how-to-shuffle-array-javascript/
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
   // create new list, make it random ordered and only return 6. 
     // set the state when the function is called
     // use for button in return
