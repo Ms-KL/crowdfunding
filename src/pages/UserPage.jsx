@@ -5,7 +5,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 // import { oneProject } from "../data";
 
 // Components
-import UserCard from "../components/UserCard/UserCard";
+import UserProfile from "../components/UserProfile/UserProfile";
 
 function UserPage() {
     // State
@@ -39,7 +39,7 @@ function UserPage() {
             {user.id && (
                 <>
                 <h1>{user.username}'s Profile</h1>
-                <UserCard user={user}/>
+                <UserProfile user={user}/>
                 </>
             )}
             {!user.id && (

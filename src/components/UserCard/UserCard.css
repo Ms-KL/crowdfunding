@@ -1,14 +1,31 @@
+/* --------------- USER CARD STRUCTURE  ---------------  */
 .user-card {
+    margin: 10px;
     padding: 15px;
-    margin: 30px;
+    border-radius: 15px;
+    min-height: 50px;
+    max-height: 700px;
     border: 1px solid #EBEAE8;
     text-align: center;
     background-color: #EBEAE8;
-    border-radius: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-basis: 15%;
+    flex-grow: 1;
+
+}
+
+.user-image-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.user-card-text {
+    text-decoration: none;
 }
 
 .user-card img {
@@ -16,6 +33,5 @@
     margin: 15px;
     max-width: 150px;
     max-height: 150px;
-    border-radius: 100px;
     box-shadow: 0px 4px 5px 0 #CAC7B7, 0px 6px 20px 0 #CAC7B7;
 }
