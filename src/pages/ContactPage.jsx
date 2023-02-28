@@ -8,8 +8,8 @@ import ContactForm from "../components/ContactForm/ContactForm";
 function ContactPage () {
     return (
         <>
-            <h1>This is the contact page</h1>
-            <p className="kl-to-do">Not functional yet - need to create somewhere for it to submit to and where to store info</p>
+            <h1>Contact Us</h1>
+            <p>We will be in touch within 48 hours.</p>
             <ContactForm />
         </>
     );

@@ -10,7 +10,7 @@ function HomePage() {
   // State
   const [projectList, setProjectList] = useState([]);
   const [pledgeList, setPledgeList] = useState([]);
-  const [shuffledProjectList, setShuffledProjectList] = useState([]);
+  const [shuffledSortedProjectList, setShuffledSortedProjectList] = useState([]);
 
 
   // ACTIONS
@@ -47,12 +47,18 @@ function HomePage() {
 
   const shuffleProjectList = () => {
     const shuffledList = [...projectList].sort(() => Math.random() - 0.5).slice(0, 6);
-    setShuffledProjectList(shuffledList);
+    setShuffledSortedProjectList(shuffledList);
   };
+
+  const sortProjectList = () => {
+    const sortedList = [...projectList].sort((a, b) => a.title.localeCompare(b.title));
+    setShuffledSortedProjectList(sortedList);
+  };
+
 
   // shuffle the first project list (without pressing shuffle)
   useEffect(() => {
-    shuffleProjectList();
+    sortProjectList();
   }, [projectList]);
 
   return (
@@ -65,10 +71,12 @@ function HomePage() {
       <p>Get inspired by our "Communitree Impact", displaying the total funds raised and number of projects supported by our enthusiastic tree-huggers.</p>
 
       <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
+      <h3>Featured Communitree Projects</h3>
+      <button onClick={shuffleProjectList} className="button">Shuffle</button>       
+      <button onClick={sortProjectList} className="button">A-Z</button>
 
-      <button onClick={shuffleProjectList} className="button">Shuffle</button> <h3>Featured Communitree Projects</h3>
       <div id="project-list">
-        {shuffledProjectList.map((project, key) => {
+        {shuffledSortedProjectList.map((project, key) => {
           return <ProjectCard key={key} projectData={project} />;
         })}
       </div>
