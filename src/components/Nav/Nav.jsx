@@ -24,9 +24,7 @@ function Nav(props) {
                         <Link to="/about" className="button-link">
                             About
                         </Link>
-                        <Link to="/contact" className="button-link">
-                            Contact
-                        </Link>
+
                         {loggedIn && (
                         <Link to="/create-project" className="button-link">
                             Create
@@ -37,6 +35,9 @@ function Nav(props) {
                         </Link>
                         <Link to="/users" className="button-link">
                             Users
+                        </Link>
+                        <Link to="/contact" className="button-link">
+                            Contact
                         </Link>
                     {/* </div> */}
                     {/* <div className="nav-user"> */}

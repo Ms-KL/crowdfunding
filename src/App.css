@@ -14,9 +14,9 @@ h1 {
 }
 
 
-/* --------------- HOMEPAGE  ---------------  */
+/* --------------- HOMEPAGE, USERS PAGE  ---------------  */
 
-#project-list {
+#project-list, #user-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
