@@ -2,20 +2,23 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { useState } from "react";
 
 // Pages
-import HomePage from "./pages/HomePage";
-import ProjectPage from "./pages/ProjectPage";
-import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
+import AllProjectsPage from "./pages/AllProjectsPage";
+import ContactPage from "./pages/ContactPage";
+import CreateProjectPage from "./pages/CreateProjectPage";
+import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import PledgePage from "./pages/PledgePage";
+import ProjectPage from "./pages/ProjectPage";
 import RegistrationPage from "./pages/RegistrationPage";
-import CreateProjectPage from "./pages/CreateProjectPage";
-import UserPage from "./pages/UserPage";
 import SessionUserPage from "./pages/SessionUserPage";
+import UserPage from "./pages/UserPage";
+import UsersPage from "./pages/UsersPage";
 
 // Components
-import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
+import Nav from "./components/Nav/Nav";
+
 
 // CSS
 import "./App.css";
@@ -46,15 +49,17 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/project/:id", element: <ProjectPage /> },
       { path: "/about", element: <AboutPage />},
       { path: "/contact", element: <ContactPage />},
-      { path: "/login", element: <LoginPage />},
-      { path: "/pledges", element: <PledgePage />},   
-      { path: "/register", element: <RegistrationPage />},   
       { path: "/create-project", element: <CreateProjectPage />},
+      { path: "/login", element: <LoginPage />},
+      { path: "/pledges", element: <PledgePage />},  
+      { path: "/projects", element: <AllProjectsPage /> },       
+      { path: "/project/:id", element: <ProjectPage /> }, 
+      { path: "/register", element: <RegistrationPage />},   
       { path: "/user/:id", element: <UserPage /> },   
-      { path: "/user/session", element: <SessionUserPage /> },      
+      { path: "/user/session", element: <SessionUserPage /> }, 
+      { path: "/users", element: <UsersPage /> },      
     ],
   },
 ]);

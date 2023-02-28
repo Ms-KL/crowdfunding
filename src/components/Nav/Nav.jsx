@@ -32,6 +32,12 @@ function Nav(props) {
                             Create
                         </Link>
                         )}
+                        <Link to="/projects" className="button-link">
+                            Projects
+                        </Link>
+                        <Link to="/users" className="button-link">
+                            Users
+                        </Link>
                     {/* </div> */}
                     {/* <div className="nav-user"> */}
                         {loggedIn && (
