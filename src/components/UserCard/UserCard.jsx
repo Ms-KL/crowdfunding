@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 //CSS
 import "./UserCard.css";
 
 function UserCard(props) {
     const { user } = props;
 
+    const isAdmin = () => {
+        return user.id === 1;
+    };
+
     return (
+        <>
+        {user.id > 1 && !isAdmin() && (
             <div className="user-card">
                 <img src={user.avatar} />
                 <h3>Bio: {user.bio}</h3>
-
-
-
-                
+        
                 <p>-------------------------------</p>
                     <div>
                         <h3>{user.username}'s Projects:</h3>
@@ -55,6 +60,8 @@ function UserCard(props) {
                         </ul>
                     </div>
             </div>
+        )}
+        </>
         );
 }
 
