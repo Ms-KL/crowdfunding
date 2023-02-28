@@ -1,0 +1,21 @@
+.user-profile {
+    padding: 15px;
+    margin: 30px;
+    border: 1px solid #EBEAE8;
+    text-align: center;
+    background-color: #EBEAE8;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-profile img {
+    object-fit: cover;
+    margin: 15px;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px 0 #CAC7B7, 0px 6px 20px 0 #CAC7B7;
+}

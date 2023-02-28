@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // components
-import UserCard from "../components/UserCard/UserCard";
+import UserProfile from "../components/UserProfile/UserProfile";
 import AdminBlock from "../components/AdminBlock/AdminBlock";
 
 function SessionUserPage() {
@@ -42,14 +42,14 @@ function SessionUserPage() {
                 {isAdmin() && (
                     <>
                         <AdminBlock />
-                        <UserCard user={user}/>
+                        <UserProfile user={user}/>
                     </>
                     )}
                 <div id="user-block">
                     {user.id > 1 && !isAdmin() && (
                         <>
                         <h1>Welcome back {user.username}!</h1>
-                        <UserCard user={user}/>
+                        <UserProfile user={user}/>
                         </>
                     )}
                     {!user.id && (

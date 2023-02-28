@@ -1,19 +1,19 @@
 import { useState, useEffect} from "react";
+import { useParams } from "react-router-dom";
 
 // Components
 import UserCard from "../components/UserCard/UserCard";
-import CalculationsCard from "../components/CalculationsCard/CalculationsCard";
 
 function UsersPage(props) {
 
   // State
     // State
     const [userList, setUserList] = useState([]);
-    const [projectList, setProjectList] = useState([]);
-    const [pledgeList, setPledgeList] = useState([]);
-    const [user, setUser] = useState({});
+    const [user,  ] = useState({});
+    const [shuffledSortedUserList, setShuffledSortedUserList] = useState([]);
 
     // ACTIONS
+    const { id } = useParams();
 
     // User Data
     useEffect(() => {
@@ -26,22 +26,37 @@ function UsersPage(props) {
         });
     }, []);
 
+    const shuffleUserList = () => {
+      const shuffledList = [...userList].sort(() => Math.random() - 0.5);
+      setShuffledSortedUserList(shuffledList);
+    };
+
+    const sortUserList = () => {
+      const sortedList = [...userList].sort((a, b) => a.username.localeCompare(b.username));
+      setShuffledSortedUserList(sortedList);
+    };
+
+      // sort the user list alphabetically on first render
+      useEffect(() => {
+        sortUserList();
+      }, [userList]);
+
+    // runs the first time after the first render
+
     const isAdmin = () => {
         return user.id === 1;
     };
         
     return (
         <div>
-        <h1>All Users</h1>
-
-        <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
-            <div id="user-list">
-                    <>
-                    {userList.map((user, key) => {
-                    return <UserCard key={key} user={user}/>;
-                    })};
-                    </>
-            </div>
+          <h1>All Users</h1>
+          <button onClick={shuffleUserList} className="button">Shuffle</button>
+          <button onClick={sortUserList} className="button">A--Z</button>
+          <div id="user-list">
+            {shuffledSortedUserList.map((user, key) => {
+            return <UserCard key={key} user={user} />;
+            })};
+          </div>
         </div>
     );
 }
