@@ -1,42 +1,59 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useForm, ValidationError } from '@formspree/react';
 
 //CSS
 import "./ContactForm.css";
 
 // TODO: Make form functional
 function ContactForm() {
+    const [state, handleSubmit] = useForm("xbjeygdj");
+    if (state.succeeded) {
+        return <p>Thank you for contacting Communitree. We will be in contact soon.</p>;
+    }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="contact-form">
                 <div>
                     <label>Name:</label>
                     <input
                         id="name-text"
                         type="text"
-                        placeholder="Your name here..."
+                        placeholder=""
                     />     
                 </div>
                 <div>
-                    <label>Email:</label>                   
+                    <label for="email">Email:</label>                   
                     <input
-                        id="email-text"
-                        type="text"
-                        placeholder="Your email here..."
-                    />    
+                        id="email"
+                        type="email" 
+                        name="email"
+                    />
+                    <ValidationError 
+                        prefix="Email" 
+                        field="email"
+                        errors={state.errors}
+                    />  
                 </div>
                 <div>
                     <label>Message:</label>                    
-                    <input
-                        id="message-text"
-                        type="text"
-                        placeholder="Your message here..."
-                    />
-                </div>                        
+                    <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Enter your message..."
+                />
+                <ValidationError 
+                    prefix="Message" 
+                    field="message"
+                    errors={state.errors}
+                />  
+                </div>
             </div>
-            <button type="submit">Submit Contact Form</button>
+            <button type="submit" disabled={state.submitting}>
+            Submit
+        </button>
         </form>
     );
-    }
+}
 
     export default ContactForm;
 
