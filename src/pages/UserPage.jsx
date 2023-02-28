@@ -6,7 +6,6 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 
 // Components
 import UserCard from "../components/UserCard/UserCard";
-import AdminBlock from "../components/AdminBlock/AdminBlock";
 
 function UserPage() {
     // State
