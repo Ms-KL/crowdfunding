@@ -10,6 +10,9 @@ import ProjectCommentForm from "../components/ProjectCommentForm/ProjectCommentF
 import PledgeCard from "../components/PledgeCard/PledgeCard";
 import CommentCard from "../components/CommentCard/CommentCard";
 
+//Progress Bar
+import ProgressBar from "../components/ProgressBar/ProgressBar";
+
 
 function ProjectPage() {
     // State
@@ -69,6 +72,10 @@ function ProjectPage() {
                 <h3>{project.funding_status} Project!</h3>
                 <h4>Goal: ${project.goal} | Total Pledges: ${project.sum_pledges}</h4>
                 <h4>Balance: ${project.goal_balance}</h4>
+                <ProgressBar
+                    bgcolor="#385B4F"
+                    completed={(project.sum_pledges / project.goal) * 100}
+                    />
             </div>
 
             <p>-------------------------------</p>
@@ -108,3 +115,6 @@ export default ProjectPage;
 // MAP ISSUE:
 // https://stackoverflow.com/questions/71135587/react-js-typeerror-cannot-read-properties-of-undefined-reading-map
 // https://java2blog.com/typeerror-map-is-not-function-javascript/
+
+// PROGRESS BAR:
+// https://dev.to/ramonak/react-how-to-create-a-custom-progress-bar-component-in-5-minutes-2lcl
