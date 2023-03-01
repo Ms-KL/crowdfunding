@@ -8,11 +8,16 @@ h1 {
     text-decoration: none;
     text-align: center;
     font-size: 1.80rem;
-    margin: 20px 20px;
+    margin: 0;
     padding: 30px;
     font-weight:bolder;
 }
 
+/* --------------- ALL PAGES ---------------  */
+
+.hero-container {
+    margin: auto 100px;
+}
 
 /* --------------- HOMEPAGE, USERS PAGE  ---------------  */
 
@@ -90,24 +95,27 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 50px auto;
+    margin: 0px auto;
     max-width: 500px;
-    padding: 20px 50px;
+    padding: 0px 50px;
     border-radius: 10px;
     /* box-shadow: 0px 0px 2px gray; */
     box-sizing: border-box;
+    text-align: left;
 }
 
 form h2 {
     text-align: center;
     color: #385B4F;
+    font-size: 2rem;
 }
 
 form div label {
     color: #3d3d3d;
     display: block;
     /* font-family: sans-serif; */
-    font-size: 14px;
+    font-size: .85rem;
+    padding: 2px;
     font-weight: 500;
     margin-bottom: 5px;
 }
@@ -121,6 +129,7 @@ form div input {
     padding: 6px;
     margin-bottom: 10px;
     text-align: left;
+    font-size: .85rem;
 }
 
 form button {

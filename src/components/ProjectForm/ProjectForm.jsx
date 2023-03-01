@@ -96,11 +96,12 @@ function ProjectForm(props) {
                     onChange={handleChange} 
                 />
                 </div>
-                <div>
-                <label htmlFor="is_open">Activate Project:</label>
+                <div style={{ display: 'flex', alignItems: 'center'}}>
+                <label htmlFor="is_open">Activate:</label>
                 <input 
                     type="checkbox"
                     id="is_open" 
+                    defaultChecked={projects.is_open}
                     onChange={handleChange} 
                 />
                 </div>

@@ -9,11 +9,7 @@ function RegistrationPage(props) {
     return (
         <>
             {!authToken ? ( 
-                <>
-                <h1>Join our Communitree of Tree-Huggers</h1>
-                <p>Register now to join us in making a real impact on the urban forest of our community.</p>
                 <RegistrationForm />
-                </>
             ) : 
             <>
             <h1>Welcome Tree-Hugger!</h1>

@@ -62,25 +62,29 @@ function HomePage() {
   }, [projectList]);
 
   return (
-    <div>
-      <h1>Welcome Tree-Hugger</h1>
-      <p>
-      Welcome to Communitree, the crowdfunding website where tree-huggers gather to make a real impact on the urban forest of our community; register now to join us in creating a greener, healthier future for all by accessing funds for your urban forest strategy plans or supporting community projects for busy bees and planting days/events.</p>
+    <>
+      <div className="hero-container">
+        <h1>Welcome Tree-Hugger</h1>
+        <p>
+        Welcome to Communitree, the crowdfunding website where tree-huggers gather to make a real impact on the urban forest of our community; register now to join us in creating a greener, healthier future for all by accessing funds for your urban forest strategy plans or supporting community projects for busy bees and planting days/events.</p>
+        <h2>Communitree Impact</h2>
+        <p>Get inspired by our "Communitree Impact", displaying the total funds raised and number of projects supported by our enthusiastic tree-huggers.</p>
 
-      <h2>Communitree Impact</h2>
-      <p>Get inspired by our "Communitree Impact", displaying the total funds raised and number of projects supported by our enthusiastic tree-huggers.</p>
-
-      <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
+        <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
+      </div>
       <h3>Featured Communitree Projects</h3>
       <button onClick={shuffleProjectList} className="button">Shuffle</button>       
       <button onClick={sortProjectList} className="button">A-Z</button>
+      <Link to="/create-project" className="button-link" style={{ width: '20px', borderRadius: '100px'}}>
+            +
+        </Link>
 
       <div id="project-list">
         {shuffledSortedProjectList.map((project, key) => {
           return <ProjectCard key={key} projectData={project} />;
         })}
       </div>
-    </div>
+    </>
   );
 }
 
