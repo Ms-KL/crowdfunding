@@ -45,20 +45,15 @@ function HomePage() {
     // set the state when the function is called
     // use for button in return
 
-  const shuffleProjectList = () => {
-    const shuffledList = [...projectList].sort(() => Math.random() - 0.5).slice(0, 6);
-    setShuffledSortedProjectList(shuffledList);
-  };
-
-  const sortProjectList = () => {
-    const sortedList = [...projectList].sort((a, b) => a.title.localeCompare(b.title));
-    setShuffledSortedProjectList(sortedList);
-  };
+    const shuffleProjectList = () => {
+      const shuffledList = [...projectList].sort(() => Math.random() - 0.5).slice(0, 6);
+      setShuffledSortedProjectList(shuffledList);
+    };
 
 
   // shuffle the first project list (without pressing shuffle)
   useEffect(() => {
-    sortProjectList();
+    shuffleProjectList();
   }, [projectList]);
 
   return (
@@ -73,11 +68,11 @@ function HomePage() {
         <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
       </div>
       <h3>Featured Communitree Projects</h3>
-      <button onClick={shuffleProjectList} className="button">Shuffle</button>       
-      <button onClick={sortProjectList} className="button">A-Z</button>
+      <button onClick={shuffleProjectList} className="button">Shuffle</button>     
       <Link to="/create-project" className="button-link" style={{ width: '20px', borderRadius: '100px'}}>
             +
         </Link>
+
 
       <div id="project-list">
         {shuffledSortedProjectList.map((project, key) => {

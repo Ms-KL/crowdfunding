@@ -36,6 +36,11 @@ function UsersPage(props) {
       setShuffledSortedUserList(sortedList);
     };
 
+    const resortUserList = () => {
+      const sortedList = [...userList].sort((a, b) => b.username.localeCompare(a.username));
+      setShuffledSortedUserList(sortedList);
+    };
+
       // sort the user list alphabetically on first render
       useEffect(() => {
         sortUserList();
@@ -51,7 +56,8 @@ function UsersPage(props) {
         <div>
           <h1>Our Tree-Huggers</h1>
           <button onClick={shuffleUserList} className="button">Shuffle</button>
-          <button onClick={sortUserList} className="button">A--Z</button>
+          <button onClick={sortUserList} className="button">A-Z</button>
+          <button onClick={resortUserList} className="button">Z-A</button>
           <div id="user-list">
             {shuffledSortedUserList.map((user, key) => {
             return <UserCard key={key} user={user} />;

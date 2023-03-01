@@ -16,8 +16,10 @@ function ProjectCard(props) {
       </div>
       <div className="project-card-text">
         <h3>{projectData.title}</h3>
+        <p>Started: {new Date(projectData.date_created).toLocaleDateString()} | Deadline: {new Date(projectData.deadline).toLocaleDateString()}</p>
         <p>{projectData.description}</p>
-        <h4>${projectData.sum_pledges} raised  &emsp; {projectData.funding_status}</h4>
+        <h4>${projectData.sum_pledges} raised  &emsp; {projectData.funding_status}  &emsp; ${projectData.goal} goal</h4>
+
         
       </div>
     </div>

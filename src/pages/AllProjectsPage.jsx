@@ -63,11 +63,21 @@ function AllProjectsPage(props) {
     setShuffledSortedProjectList(sortedList);
   };
 
+  const deadlineNowProjectList = () => {
+    const prioritisedList = [...projectList].sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+    setShuffledSortedProjectList(prioritisedList);
+  };
+
+  const deadlineLaterProjectList = () => {
+    const prioritisedList = [...projectList].sort((a, b) => new Date(b.deadline) - new Date(a.deadline));
+    setShuffledSortedProjectList(prioritisedList);
+  };
+
 
 
   // alphabetically rendered first
   useEffect(() => {
-    sortProjectList();
+    resortProjectList();
   }, [projectList]);
 
   return (
@@ -81,6 +91,8 @@ function AllProjectsPage(props) {
       <button onClick={resortProjectList} className="button">Z-A</button>
       <button onClick={orderProjectList} className="button">new - old</button>
       <button onClick={reorderProjectList} className="button">old - new</button>
+      <button onClick={deadlineNowProjectList} className="button">end soon</button>
+      <button onClick={deadlineLaterProjectList} className="button">end later</button>
       {loggedIn && (
         <Link to="/create-project" className="button-link" style={{ width: '20px', borderRadius: '100px'}}>
             +
