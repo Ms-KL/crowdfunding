@@ -1,0 +1,30 @@
+/* --------------- COMMENT CARD STRUCTURE  ---------------  */
+.comment-card {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 15px;
+    min-height: 50px;
+    max-height: 700px;
+    border: 1px solid #EBEAE8;
+    text-align: center;
+    background-color: #EBEAE8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 15%;
+    flex-grow: 1;
+
+}
+
+.comment-card-text {
+    text-decoration: none;
+}
+
+.comment-card img {
+    object-fit: cover;
+    margin: 15px;
+    max-width: 100px;
+    max-height: 100px;
+    box-shadow: 0px 4px 5px 0 #CAC7B7, 0px 6px 20px 0 #CAC7B7;
+}
