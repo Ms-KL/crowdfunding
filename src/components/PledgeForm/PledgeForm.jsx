@@ -96,11 +96,20 @@ function PledgeForm(props) {
                     onChange={handleChange}
                 />
                 </div>
-                <div>
+                {/* <div>
                 <label htmlFor="anonymous">Anonymous:</label>
                 <input 
                     type="checkbox"
                     id="anonymous" 
+                    onChange={handleChange} 
+                />
+                </div> */}
+                <div style={{ display: 'flex', alignItems: 'center'}}>
+                <label htmlFor="anonymous">Anonymous:</label>
+                <input 
+                    type="checkbox"
+                    id="anonymous" 
+                    defaultChecked={pledges.anonymous}
                     onChange={handleChange} 
                 />
                 </div>
