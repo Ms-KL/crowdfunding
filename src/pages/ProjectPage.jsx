@@ -35,6 +35,9 @@ function ProjectPage() {
     return (
         <div className="project-detail">
             <h2>{project.title}</h2>
+            <div className="project-owner-avatar">
+                {project.owner_avatar && <img src={project.owner_avatar} alt="avatar" />}
+            </div>
             <h4>Started by Tree-Hugger: {project.owner}  </h4>
             <img src={project.image} />
 

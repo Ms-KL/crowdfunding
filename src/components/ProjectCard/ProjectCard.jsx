@@ -18,7 +18,7 @@ function ProjectCard(props) {
         <h3>{projectData.title}</h3>
         <p>{projectData.description}</p>
         <h4>${projectData.sum_pledges} raised  &emsp; {projectData.funding_status}</h4>
-
+        
       </div>
     </div>
   );
