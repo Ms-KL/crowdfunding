@@ -27,8 +27,4 @@ function CommentCard(props) {
 
 export default CommentCard;
 
-// MAP ISSUE:
-// https://stackoverflow.com/questions/71135587/react-js-typeerror-cannot-read-properties-of-undefined-reading-map
-// https://java2blog.com/typeerror-map-is-not-function-javascript/
-
 

@@ -101,40 +101,6 @@ function ProjectPage() {
 
 export default ProjectPage;
 
-{/* <ul>
-{project.pledges &&
-    project.pledges.map((pledgeData, key) => (
-        <li key={key}>
-            <div className="avatar-container">
-                {pledgeData.supporter_avatar && <img src={pledgeData.supporter_avatar} alt="avatar" />}
-            </div>
-            {new Date(pledgeData.date_pledged).toLocaleString()}: 
-            <p>${pledgeData.amount} from {pledgeData.supporter}</p>
-            <p>{pledgeData.comment}</p>
-        </li>
-    ))}
-</ul> */}
-
-
-
-
-{/* <p className="kl-to-do">Add comments: w/ avatar (usermodel),</p>
-<p className="kl-to-do">Avatar next to pledge item? part of diff model (users) how to call?</p>
-<p className="kl-to-do">Will I need to change db scheme to FK avatar to be accessible to pledge and comment?</p>  */}
-
-
-
-
-
-// Ctrl + D = select all the same fields
-// Alt to ASYNC change:
-    // useEffect(() => {
-    //     fetch(`${import.meta.env.VITE_API_URL}projects/${id}`)
-    //     .then(results => {
-    //         return results.json();
-    //     })
-    //     .then((data) => {
-    //         setProject(data);
-    //     });
-
-    // }, []);
+// MAP ISSUE:
+// https://stackoverflow.com/questions/71135587/react-js-typeerror-cannot-read-properties-of-undefined-reading-map
+// https://java2blog.com/typeerror-map-is-not-function-javascript/
