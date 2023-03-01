@@ -20,15 +20,15 @@ function PledgePage() {
         .then((data) => {
             setPledgeList(data);
         });
-
     }, []);
-    
+
     // calc totals
     const pledgesTotal = pledgeList.length;
     const pledgesTotalFunds = pledgeList
         .map(pledge => pledge.amount)
         .reduce((runningTotal, amount) => runningTotal + amount,0);
 
+        // map: access the pledgedata and the supporter data in the pledge page
     return (
         <div>
             <h2>Communitree Support Totals</h2>
