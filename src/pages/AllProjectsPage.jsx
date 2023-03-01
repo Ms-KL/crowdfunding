@@ -39,14 +39,30 @@ function AllProjectsPage(props) {
   }, []);
 
   const shuffleProjectList = () => {
-    const shuffledList = [...projectList].sort(() => Math.random() - 0.5).slice(0, 6);
+    const shuffledList = [...projectList].sort(() => Math.random() - 0.5);
     setShuffledSortedProjectList(shuffledList);
+  };
+
+  const orderProjectList = () => {
+    const orderedList = [...projectList].sort((a, b) => new Date(b.date_created) - new Date(a.date_created));
+    setShuffledSortedProjectList(orderedList);
+  };
+
+  const reorderProjectList = () => {
+    const orderedList = [...projectList].sort((a, b) => new Date(a.date_created) - new Date(b.date_created));
+    setShuffledSortedProjectList(orderedList);
   };
 
   const sortProjectList = () => {
     const sortedList = [...projectList].sort((a, b) => a.title.localeCompare(b.title));
     setShuffledSortedProjectList(sortedList);
   };
+
+  const resortProjectList = () => {
+    const sortedList = [...projectList].sort((a, b) => b.title.localeCompare(a.title));
+    setShuffledSortedProjectList(sortedList);
+  };
+
 
 
   // alphabetically rendered first
@@ -62,6 +78,9 @@ function AllProjectsPage(props) {
 
       <button onClick={shuffleProjectList} className="button">Shuffle</button>       
       <button onClick={sortProjectList} className="button">A-Z</button>
+      <button onClick={resortProjectList} className="button">Z-A</button>
+      <button onClick={orderProjectList} className="button">new - old</button>
+      <button onClick={reorderProjectList} className="button">old - new</button>
       {loggedIn && (
         <Link to="/create-project" className="button-link" style={{ width: '20px', borderRadius: '100px'}}>
             +

@@ -25,6 +25,10 @@ function ProjectPage() {
             try {
                 const response = await fetch(`${import.meta.env.VITE_API_URL}projects/${id}`);
                 const data = await response.json();
+                // Sort the pledges in reverse chronological order
+                data.pledges.sort((a, b) => new Date(b.date_pledged) - new Date(a.date_pledged));
+                // Sort the comments in reverse chronological order
+                data.comments.sort((a, b) => new Date(b.created) - new Date(a.created));
                 setProject(data);
             } catch (err) {
                 console.log(err);
@@ -32,7 +36,6 @@ function ProjectPage() {
         };
         fetchProject();
 }, []);
-
 
     return (
         <div className="project-detail">
@@ -70,9 +73,8 @@ function ProjectPage() {
 
             <p>-------------------------------</p>
             {/* if project comments exist, post them */}
-            <ProjectCommentForm project={project} />
             <div>
-                <h3>Comments:</h3>
+                <h2>Comments:</h2>
                     <div id="comment-list">
                         {project.comments &&
                         project.comments.map((comment, key) => {
@@ -80,19 +82,21 @@ function ProjectPage() {
                         })}
                     </div>
             </div>
+            <ProjectCommentForm project={project} />
 
             <p>-------------------------------</p>
             {/* if pledges exist, post them */}
             {/* passes project from project page into the pledge form. so can use as project in form */}
-            <PledgeForm project={project} /> 
+            
                 <div>
-                    <h3>Pledges:</h3>
+                    <h2>Pledges:</h2>
                     <div id="pledge-list">
                         {project.pledges &&
                         project.pledges.map((pledge, key) => {
                             return <PledgeCard key={key} pledge={pledge} />;
                         })}
-            </div>
+                </div>
+                <PledgeForm project={project} /> 
  
                 </div>
         </div>

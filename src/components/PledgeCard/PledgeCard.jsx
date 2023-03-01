@@ -17,9 +17,12 @@ function PledgeCard(props) {
                     </div>
                 {/* </Link> */}
                 <div className="pledge-card-text">
-                    <h3>{pledge.supporter}</h3>            
-                    <p>${pledge.amount} pledged to {pledge.project} @ {new Date(pledge.date_pledged).toLocaleString()}</p>
-                    <p>"{pledge.comment}"</p>
+                    <h3>{pledge.supporter}</h3>
+                    <p id="pledgeAmount">${pledge.amount}</p>
+                    <p>"{pledge.comment}"</p>  
+                    <p id="pledgeDate">{new Date(pledge.date_pledged).toLocaleDateString()} </p>          
+                    {/* <p> {pledge.project} </p> */}
+                    
                 </div>
             </div>
         </>

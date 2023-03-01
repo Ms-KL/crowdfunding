@@ -21,7 +21,7 @@ h1 {
 
 /* --------------- HOMEPAGE, USERS PAGE  ---------------  */
 
-#project-list, #user-list {
+#project-list, #user-list, #pledge-list, #comment-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -61,6 +61,7 @@ td {
     padding: 5px;
 
     }
+
 
 /* --------------- ALL BUTTONS & LINKS ---------------  */
 
