@@ -35,7 +35,7 @@ function ProjectPage() {
     return (
         <div className="project-detail">
             <h2>{project.title}</h2>
-            <div className="project-owner-avatar">
+            <div className="avatar-container">
                 {project.owner_avatar && <img src={project.owner_avatar} alt="avatar" />}
             </div>
             <h4>Started by Tree-Hugger: {project.owner}  </h4>
@@ -75,13 +75,17 @@ function ProjectPage() {
                     {project.comments &&
                         project.comments.map((commentData, key) => (
                             <li key={key}>
+                                <div className="avatar-container">
+                                    {commentData.commenter_avatar && <img src={commentData.commenter_avatar} alt="avatar" />}
+                                </div>
                                 {new Date(commentData.created).toLocaleString()}: 
                                 <p>{commentData.commenter} says "{commentData.body}"</p>
-                                
+
                             </li>
                         ))
                     }
                     </ul>
+
                 </div>
 
             <p>-------------------------------</p>
@@ -94,6 +98,9 @@ function ProjectPage() {
                         {project.pledges &&
                             project.pledges.map((pledgeData, key) => (
                                 <li key={key}>
+                                    <div className="avatar-container">
+                                        {pledgeData.supporter_avatar && <img src={pledgeData.supporter_avatar} alt="avatar" />}
+                                    </div>
                                     {new Date(pledgeData.date_pledged).toLocaleString()}: 
                                     <p>${pledgeData.amount} from {pledgeData.supporter}</p>
                                     <p>{pledgeData.comment}</p>

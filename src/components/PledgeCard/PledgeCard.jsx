@@ -12,7 +12,7 @@ function PledgeCard(props) {
         <>
             <div className="pledge-card">
                 {/* <Link to={`/user/${supporterID}`}> */}
-                    <div className="pledge-image-container">
+                <div className="avatar-container">
                         {pledgeData.supporter_avatar && <img src={pledgeData.supporter_avatar} alt="avatar" />}
                     </div>
                 {/* </Link> */}
