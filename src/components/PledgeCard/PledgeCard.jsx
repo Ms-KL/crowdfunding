@@ -12,11 +12,11 @@ function PledgeCard(props) {
         <>
             <div className="pledge-card">
                 {/* <Link to={`/user/${supporterID}`}> */}
-                    <div className="user-image-container">
+                    <div className="pledge-image-container">
                         {pledgeData.supporter_avatar && <img src={pledgeData.supporter_avatar} alt="avatar" />}
                     </div>
                 {/* </Link> */}
-                <div className="user-card-text">
+                <div className="pledge-card-text">
                     <h3>{pledgeData.supporter}</h3>            
                     <p>${pledgeData.amount} pledged to {pledgeData.project} @ {pledgeData.date_pledged}</p>
                     <p>"{pledgeData.comment}"</p>
