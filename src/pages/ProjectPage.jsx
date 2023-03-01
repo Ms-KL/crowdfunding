@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom";
 // Components
 import PledgeForm from "../components/PledgeForm/PledgeForm";
 import ProjectCommentForm from "../components/ProjectCommentForm/ProjectCommentForm";
+import PledgeCard from "../components/PledgeCard/PledgeCard";
+import CommentCard from "../components/CommentCard/CommentCard";
 
 
 function ProjectPage() {
@@ -69,24 +71,15 @@ function ProjectPage() {
             <p>-------------------------------</p>
             {/* if project comments exist, post them */}
             <ProjectCommentForm project={project} />
-                <div>
-                    <h3>Comments:</h3>
-                    <ul>
-                    {project.comments &&
-                        project.comments.map((commentData, key) => (
-                            <li key={key}>
-                                <div className="avatar-container">
-                                    {commentData.commenter_avatar && <img src={commentData.commenter_avatar} alt="avatar" />}
-                                </div>
-                                {new Date(commentData.created).toLocaleString()}: 
-                                <p>{commentData.commenter} says "{commentData.body}"</p>
-
-                            </li>
-                        ))
-                    }
-                    </ul>
-
-                </div>
+            <div>
+                <h3>Comments:</h3>
+                    <div id="comment-list">
+                        {project.comments &&
+                        project.comments.map((comment, key) => {
+                            return <CommentCard key={key} comment={comment} />;
+                        })}
+                    </div>
+            </div>
 
             <p>-------------------------------</p>
             {/* if pledges exist, post them */}
@@ -94,25 +87,36 @@ function ProjectPage() {
             <PledgeForm project={project} /> 
                 <div>
                     <h3>Pledges:</h3>
-                    <ul>
+                    <div id="pledge-list">
                         {project.pledges &&
-                            project.pledges.map((pledgeData, key) => (
-                                <li key={key}>
-                                    <div className="avatar-container">
-                                        {pledgeData.supporter_avatar && <img src={pledgeData.supporter_avatar} alt="avatar" />}
-                                    </div>
-                                    {new Date(pledgeData.date_pledged).toLocaleString()}: 
-                                    <p>${pledgeData.amount} from {pledgeData.supporter}</p>
-                                    <p>{pledgeData.comment}</p>
-                                </li>
-                            ))}
-                    </ul>
+                        project.pledges.map((pledge, key) => {
+                            return <PledgeCard key={key} pledge={pledge} />;
+                        })}
+            </div>
+ 
                 </div>
         </div>
     );
 }
 
 export default ProjectPage;
+
+{/* <ul>
+{project.pledges &&
+    project.pledges.map((pledgeData, key) => (
+        <li key={key}>
+            <div className="avatar-container">
+                {pledgeData.supporter_avatar && <img src={pledgeData.supporter_avatar} alt="avatar" />}
+            </div>
+            {new Date(pledgeData.date_pledged).toLocaleString()}: 
+            <p>${pledgeData.amount} from {pledgeData.supporter}</p>
+            <p>{pledgeData.comment}</p>
+        </li>
+    ))}
+</ul> */}
+
+
+
 
 {/* <p className="kl-to-do">Add comments: w/ avatar (usermodel),</p>
 <p className="kl-to-do">Avatar next to pledge item? part of diff model (users) how to call?</p>

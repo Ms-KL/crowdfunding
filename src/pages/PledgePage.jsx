@@ -37,7 +37,7 @@ function PledgePage() {
             <h3>All Pledges</h3>
             <div id="pledge-list">
                 {pledgeList.map((pledge, key) => {
-                    return <PledgeCard key={key} pledgeData={pledge} />;
+                    return <PledgeCard key={key} pledge={pledge} />;
                 })}
             </div>
         </div>

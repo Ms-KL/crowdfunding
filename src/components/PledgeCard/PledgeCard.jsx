@@ -5,7 +5,7 @@ import "./PledgeCard.css";
 
 
 function PledgeCard(props) {
-    const { pledgeData } = props;
+    const { pledge } = props;
 
 
     return (
@@ -13,13 +13,13 @@ function PledgeCard(props) {
             <div className="pledge-card">
                 {/* <Link to={`/user/${supporterID}`}> */}
                 <div className="avatar-container">
-                        {pledgeData.supporter_avatar && <img src={pledgeData.supporter_avatar} alt="avatar" />}
+                        {pledge.supporter_avatar && <img src={pledge.supporter_avatar} alt="avatar" />}
                     </div>
                 {/* </Link> */}
                 <div className="pledge-card-text">
-                    <h3>{pledgeData.supporter}</h3>            
-                    <p>${pledgeData.amount} pledged to {pledgeData.project} @ {pledgeData.date_pledged}</p>
-                    <p>"{pledgeData.comment}"</p>
+                    <h3>{pledge.supporter}</h3>            
+                    <p>${pledge.amount} pledged to {pledge.project} @ {new Date(pledge.date_pledged).toLocaleString()}</p>
+                    <p>"{pledge.comment}"</p>
                 </div>
             </div>
         </>
