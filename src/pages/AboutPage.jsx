@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"
 
 
 function AboutPage () {
@@ -14,6 +15,8 @@ function AboutPage () {
             
             Supporters can pledge resources to help these projects become a reality, making it easier for everyone to get involved in creating a greener, healthier future for all. Let's work together to create a better environment for ourselves and future generations.
             </p>
+            <Link to="/users">Get to know our Tree-Huggers</Link><br />
+            <Link to="/projects">Explore our Communitree Projects</Link>
         </>
     );
 }

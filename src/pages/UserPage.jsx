@@ -44,7 +44,8 @@ function UserPage() {
             )}
             {!user.id && (
                 <>
-                <h1>Sorry, No Tree-Huggers here!</h1>
+                <h1>Oh No! <br/> <br/>We couldn't find this Tree-Hugger!</h1>
+                <p>Visit our Communitree Tree-Huggers page to locate one.</p>
                 </>
             )}
         </div>

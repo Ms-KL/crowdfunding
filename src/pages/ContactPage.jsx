@@ -9,7 +9,7 @@ function ContactPage () {
     return (
         <>
             <h1>Contact Us</h1>
-            <p>We will be in touch within 48 hours.</p>
+            <p>A tree hugger will be in touch within 48 hours.</p>
             <ContactForm />
         </>
     );

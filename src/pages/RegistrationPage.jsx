@@ -10,17 +10,17 @@ function RegistrationPage(props) {
         <>
             {!authToken ? ( 
                 <>
-                <h1>Join our Communitree</h1>
-                <p>Register now on the Communitree website to join us in making a real impact on the urban forest of our community through crowdfunding.</p>
-                <RegistrationForm />;
+                <h1>Join our Communitree of Tree-Huggers</h1>
+                <p>Register now to join us in making a real impact on the urban forest of our community.</p>
+                <RegistrationForm />
                 </>
             ) : 
             <>
-            <h1>You are already logged in!</h1>
-            <Link to="/">Go back to Home Page</Link>
+            <h1>Welcome Tree-Hugger!</h1>
+            <Link to="/projects">Start exploring our Communitree of Projects</Link>
             </>}
         </>
-    );
+    )
 }
 
 export default RegistrationPage;

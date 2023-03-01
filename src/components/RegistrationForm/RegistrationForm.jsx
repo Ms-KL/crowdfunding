@@ -50,7 +50,7 @@ function RegistrationForm() {
     return (
         <div>
         <form onSubmit={handleSubmit}>
-        <h2>Register as a new Tree-Hugger</h2>
+        <h2>Become a Tree-Hugger</h2>
             <div>
             <label htmlFor="username">Username:</label>
             <input
@@ -98,7 +98,7 @@ function RegistrationForm() {
             <button type="submit">Register User</button>
         </form>
         </div>
-    );
+    )
 }
 
 export default RegistrationForm;

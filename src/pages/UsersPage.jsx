@@ -49,7 +49,7 @@ function UsersPage(props) {
         
     return (
         <div>
-          <h1>All Users</h1>
+          <h1>Our Tree-Huggers</h1>
           <button onClick={shuffleUserList} className="button">Shuffle</button>
           <button onClick={sortUserList} className="button">A--Z</button>
           <div id="user-list">
