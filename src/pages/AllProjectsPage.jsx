@@ -11,6 +11,7 @@ function AllProjectsPage(props) {
   const [projectList, setProjectList] = useState([]);
   const [pledgeList, setPledgeList] = useState([]);
   const [loggedIn] = useOutletContext();
+  const [shuffledSortedProjectList, setShuffledSortedProjectList] = useState([]);
 
   // ACTIONS
 
@@ -37,19 +38,37 @@ function AllProjectsPage(props) {
 
   }, []);
 
+  const shuffleProjectList = () => {
+    const shuffledList = [...projectList].sort(() => Math.random() - 0.5).slice(0, 6);
+    setShuffledSortedProjectList(shuffledList);
+  };
+
+  const sortProjectList = () => {
+    const sortedList = [...projectList].sort((a, b) => a.title.localeCompare(b.title));
+    setShuffledSortedProjectList(sortedList);
+  };
+
+
+  // alphabetically rendered first
+  useEffect(() => {
+    sortProjectList();
+  }, [projectList]);
+
   return (
     <div>
       <h1>All Projects</h1>
 
       <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
 
+      <button onClick={shuffleProjectList} className="button">Shuffle</button>       
+      <button onClick={sortProjectList} className="button">A-Z</button>
       {loggedIn && (
-        <Link to="/create-project" className="button-link">
-            Create Project
+        <Link to="/create-project" className="button-link" style={{ width: '20px', borderRadius: '100px'}}>
+            +
         </Link>
       )}
       <div id="project-list">
-        {projectList.map((project, key) => {
+        {shuffledSortedProjectList.map((project, key) => {
           return <ProjectCard key={key} projectData={project} />;
         })}
       </div>
