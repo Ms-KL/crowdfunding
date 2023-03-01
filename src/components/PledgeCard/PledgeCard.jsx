@@ -13,15 +13,17 @@ function PledgeCard(props) {
             <div className="pledge-card">
                 {/* <Link to={`/user/${supporterID}`}> */}
                 <div className="avatar-container">
-                        {pledge.supporter_avatar && <img src={pledge.supporter_avatar} alt="avatar" />}
-                    </div>
+                    
+                 {/* {pledge.anonymous && } */}
+                    {!pledge.anonymous && (pledge.supporter_avatar && <img src={pledge.supporter_avatar} alt="avatar" />)}
+                    {pledge.anonymous && (pledge.supporter_avatar && <img src="https://images.pexels.com/photos/6505027/pexels-photo-6505027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />)}
+                </div>
                 {/* </Link> */}
                 <div className="pledge-card-text">
                     <h3>{pledge.supporter}</h3>
                     <p id="pledgeAmount">${pledge.amount}</p>
                     <p>"{pledge.comment}"</p>  
                     <p id="pledgeDate">{new Date(pledge.date_pledged).toLocaleDateString()} </p>          
-                    {/* <p> {pledge.project} </p> */}
                     
                 </div>
             </div>
