@@ -86,13 +86,13 @@ function AllProjectsPage(props) {
 
       <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
 
-      <button onClick={shuffleProjectList} className="button">Shuffle</button>       
-      <button onClick={sortProjectList} className="button">A-Z</button>
-      <button onClick={resortProjectList} className="button">Z-A</button>
+      <button onClick={shuffleProjectList} className="button">shuffle</button>       
+      <button onClick={sortProjectList} className="button">a - z</button>
+      <button onClick={resortProjectList} className="button">z - a</button>
       <button onClick={orderProjectList} className="button">new - old</button>
       <button onClick={reorderProjectList} className="button">old - new</button>
-      <button onClick={deadlineNowProjectList} className="button">end soon</button>
-      <button onClick={deadlineLaterProjectList} className="button">end later</button>
+      <button onClick={deadlineNowProjectList} className="button">ends soon</button>
+      <button onClick={deadlineLaterProjectList} className="button">ends later</button>
       {loggedIn && (
         <Link to="/create-project" className="button-link" style={{ width: '20px', borderRadius: '100px'}}>
             +

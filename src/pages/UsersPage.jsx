@@ -55,9 +55,11 @@ function UsersPage(props) {
     return (
         <div>
           <h1>Our Tree-Huggers</h1>
-          <button onClick={shuffleUserList} className="button">Shuffle</button>
-          <button onClick={sortUserList} className="button">A-Z</button>
-          <button onClick={resortUserList} className="button">Z-A</button>
+          <button onClick={shuffleUserList} className="button">shuffle</button>
+          <button onClick={sortUserList} className="button">a - z</button>
+          <button onClick={resortUserList} className="button">z - a</button> 
+          <br />
+          <br />
           <div id="user-list">
             {shuffledSortedUserList.map((user, key) => {
             return <UserCard key={key} user={user} />;
