@@ -4,14 +4,14 @@
     padding: 15px;
     border-radius: 15px;
     min-height: 50px;
-    max-height: 700px;
+    height: auto; 
     border: 1px solid #EBEAE8;
     text-align: center;
     background-color: #EBEAE8;
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
     align-items: center;
-    flex-direction: column;
+    /* flex-direction: column; */
     flex-basis: 15%;
     flex-grow: 1;
 

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 //CSS
 import "./ProjectCard.css";
+import FundingStatusCard from "../FundingStatusCard/FundingStatusCard";
 
 
 function ProjectCard(props) {
@@ -11,16 +12,15 @@ function ProjectCard(props) {
     <div className="project-card">
       <div className="project-image-container">
         <Link to={`/project/${projectData.id}`}>
-        <img src={projectData.image} />
+          <img src={projectData.image} alt={projectData.title} />
         </Link>
       </div>
       <div className="project-card-text">
         <h3>{projectData.title}</h3>
         <p>Started: {new Date(projectData.date_created).toLocaleDateString()} | Deadline: {new Date(projectData.deadline).toLocaleDateString()}</p>
         <p>{projectData.description}</p>
-        <h4>${projectData.sum_pledges} raised  &emsp; {projectData.funding_status}  &emsp; ${projectData.goal} goal</h4>
-
-        
+        <FundingStatusCard project={projectData} /> 
+              
       </div>
     </div>
   );
