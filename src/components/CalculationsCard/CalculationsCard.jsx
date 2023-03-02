@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 //CSS
-// import "./CalculationsCard.css";
+import "./CalculationsCard.css";
 
 
 function CalculationsCard(props) {
@@ -16,7 +16,22 @@ function CalculationsCard(props) {
 
     return (
         <div className="calculations-card">
-            <p>Total Projects: {projectsTotal} | Total Pledges: {pledgesTotal} | Total Funds Raised: ${pledgesTotalFunds} </p>
+        <table>
+            <tbody>
+            <tr>
+                <td>Projects:</td>
+                <td>{projectsTotal}</td>
+            </tr>
+            <tr>
+                <td>Pledges:</td>
+                <td>{pledgesTotal}</td>
+            </tr>
+            <tr>
+                <td>Funds Raised:</td>
+                <td>${pledgesTotalFunds}</td>
+            </tr>
+            </tbody>
+        </table>
         </div>
     );
 }
