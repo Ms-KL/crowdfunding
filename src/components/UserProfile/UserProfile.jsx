@@ -44,11 +44,11 @@ function UserProfile(props) {
                         <div className="card-list">
                             {user.comments && user.comments.length > 0 ? (
                                 user.comments.map((comment, key) => {
-                                    return <CommentCard key={key} user={user} comment={comment} />;
+                                    return <CommentCard key={key} user={user} comment={comment} />
                                 })
                             ) : (
                                 <p>{user.username} hasn't made any comments</p>
-                            )};
+                            )}
                         </div>
                 </div>
 
@@ -57,11 +57,11 @@ function UserProfile(props) {
                     <h2>Pledges:</h2>
                     <div className="card-list">
                         {user.pledges && user.pledges.length > 0 ? (user.pledges.map((pledge, key) => {
-                                return <PledgeCard key={key} pledge={pledge} user={user} />;
+                                return <PledgeCard key={key} pledge={pledge} user={user} />
                             })
                         ) : (
                             <p>{user.username} hasn't pledged to any projects</p>
-                        )};
+                        )}
 
                     </div>
                 </div>

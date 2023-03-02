@@ -8,7 +8,7 @@ import "./ContactForm.css";
 function ContactForm() {
     const [state, handleSubmit] = useForm("xbjeygdj");
     if (state.succeeded) {
-        return <p>Thank you for contacting Communitree. We will be in contact soon.</p>;
+        return <p>Thank you for contacting Communitree.</p>;
     }
     return (
         <form onSubmit={handleSubmit}>
