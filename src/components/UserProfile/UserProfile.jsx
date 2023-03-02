@@ -33,7 +33,7 @@ function UserProfile(props) {
                                 })
                         ) : (
                             <p>{user.username} hasn't started any projects</p>
-                        )};
+                        )}
                     </div>
             </div>
 
