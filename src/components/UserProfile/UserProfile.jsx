@@ -4,68 +4,73 @@ import { useState, useEffect } from "react";
 //CSS
 import "./UserProfile.css";
 
+import PledgeCard from "../PledgeCard/PledgeCard";
+import CommentCard from "../CommentCard/CommentCard";
+import ProjectCard from "../ProjectCard/ProjectCard";
+
 function UserProfile(props) {
     const { user } = props;
 
+    // // Hooks
+    // const { id } = useParams();
+
 
     return (
+        <>
             <div className="user-profile">
                 <img src={user.avatar} />
-                <h3>{user.bio}</h3>
+                <p className="feature-text">"{user.bio}"</p>
         
-                <p>-------------------------------</p>
-                    <div>
-                        <h3>Projects:</h3>                           
-                            {user.projects && user.projects.length > 0 ? (
-                                <ul>
-                                {user.projects.map((projectData, key) => (
-                                    
-                                <li key={key}>
-                                {new Date(projectData.date_created).toLocaleDateString()}: {projectData.title} 
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>Make your first Project</p>
-                    )}
-                </div>
+{/* -------------------- Project Card -------------------- */}
 
-                <p>-------------------------------</p>
-                    <div>
-                        <h3>Comments:</h3>
-                        {user.comments && user.pledges.length > 0 ? (
-                        <ul>
-                            {user.comments.map((commentData, key) => (
-
-                                <li key={key}>
-                                {new Date(commentData.created).toLocaleDateString()}: {commentData.project}: says {commentData.body}
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>Make your first comment</p>
-                    )}
-                </div>
-
-                <p>-------------------------------</p>
-                <div>
-                    <h3>Pledges:</h3>
-                    {user.pledges && user.pledges.length > 0 ? (
-                        <ul>
-                            {user.pledges.map((pledgeData, key) => (
-                                <li key={key}>
-                                    {pledgeData.date_pledged}: ${pledgeData.amount} for {pledgeData.project}
-                                    {pledgeData.comment}
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>Make your first pledge</p>
-                    )}
-                </div>
-
+            <div>
+                <br />
+                    <h2>Projects:</h2>
+                <div className="card-list">
+                        {user.projects && user.projects.length > 0 ? (
+                            user.projects.map((projectData, key) => {
+                                return <ProjectCard key={key} projectData={projectData} user={user} />;
+                                })
+                        ) : (
+                            <p>{user.username} hasn't started any projects</p>
+                        )};
+                    </div>
             </div>
+
+{/* -------------------- Comment Card -------------------- */}
+                <div>
+                    <br />
+                    <h2>Comments:</h2>
+                        <div className="card-list">
+                            {user.comments && user.comments.length > 0 ? (
+                                user.comments.map((comment, key) => {
+                                    return <CommentCard key={key} user={user} comment={comment} />;
+                                })
+                            ) : (
+                                <p>{user.username} hasn't made any comments</p>
+                            )};
+                        </div>
+                </div>
+
+{/* -------------------- Pledge Card -------------------- */}
+                <div>
+                    <h2>Pledges:</h2>
+                    <div className="card-list">
+                        {user.pledges && user.pledges.length > 0 ? (user.pledges.map((pledge, key) => {
+                                return <PledgeCard key={key} pledge={pledge} user={user} />;
+                            })
+                        ) : (
+                            <p>{user.username} hasn't pledged to any projects</p>
+                        )};
+
+                    </div>
+                </div>
+        </div>
+
+
+        </>
         );
 }
 
 export default UserProfile;
+
