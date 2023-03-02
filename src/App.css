@@ -7,20 +7,31 @@ h1 {
     font-family: 'Open+Sans', Arial, sans-serif;
     text-decoration: none;
     text-align: center;
-    font-size: 1.80rem;
+    font-size: 1.90rem;
     margin: 0;
     padding: 30px;
     font-weight:bolder;
+    color:#385B4F;
 }
 
 /* --------------- ALL PAGES ---------------  */
 
 .hero-container {
     margin: auto;
-    max-width: 900px; 
+    max-width: 1000px; 
 }
 
-/* --------------- LIST FORMATTING  ---------------  */
+.feature-text {
+    font-size: 1.30rem;
+    margin: auto;
+    line-height: 40px;
+}
+
+strong {
+    color:#385B4F;
+}
+
+/* --------------- LIST FORMATTING W/ IMAGE ---------------  */
 
 .card-list {
     display: flex;
@@ -30,14 +41,15 @@ h1 {
 
 .project-detail img {
     width: calc(60% - 5px);
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 400px;
+    max-height: 400px;
     object-fit: cover;
     box-shadow: 0px 4px 5px 0 #CAC7B7,0px 6px 20px 0 #CAC7B7;
-    border-radius: 5px;
+    border-radius: 10px;
     }
 
-/* --------------- PROJECT PAGE  ---------------  */
+
+/* --------------- TABLES ---------------  */
 
 table {
     /* margin: 20px; */
@@ -152,3 +164,5 @@ form button {
     /* text-align: start; */
     box-shadow: 0px 2px 2px 0 #CAC7B7, 0px 2px 2px 0 #CAC7B7;
 }
+
+/* --------------- iama ---------------  */

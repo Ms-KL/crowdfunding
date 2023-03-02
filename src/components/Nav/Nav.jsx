@@ -14,7 +14,7 @@ function Nav(props) {
     return (
             <nav>
                 <div className="logo-container">
-                    <img src="/communitree__logo.png" alt="Communitree Logo" className="logo-image" />
+                    <img src= {window.location.origin + "/communitree__logo.png"} alt="Communitree Logo" className="logo-image" />
                 </div>
                 <div className="nav-container">
                         <div className="nav-control">
@@ -72,3 +72,6 @@ function Nav(props) {
 
 }
 export default Nav;
+
+/// image render issue
+// https://stackoverflow.com/questions/47196800/reactjs-and-images-in-public-folder
