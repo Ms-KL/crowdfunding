@@ -74,7 +74,7 @@ function HomePage() {
         </Link>
 
 
-      <div id="project-list">
+      <div className="card-list">
         {shuffledSortedProjectList.map((project, key) => {
           return <ProjectCard key={key} projectData={project} />;
         })}

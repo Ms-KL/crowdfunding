@@ -9,10 +9,7 @@ import PledgeForm from "../components/PledgeForm/PledgeForm";
 import ProjectCommentForm from "../components/ProjectCommentForm/ProjectCommentForm";
 import PledgeCard from "../components/PledgeCard/PledgeCard";
 import CommentCard from "../components/CommentCard/CommentCard";
-import ProjectCard from "../components/ProjectCard/ProjectCard";
-
-//Progress Bar
-import ProgressBar from "../components/ProgressBar/ProgressBar";
+import FundingStatusCard from "../components/FundingStatusCard/FundingStatusCard";
 
 
 function ProjectPage() {
@@ -59,33 +56,14 @@ function ProjectPage() {
 
 {/* -------------------- Funding Status -------------------- */}
 
-                <div id="funding-status">
-                    <ProgressBar
-                                bgcolor="#385B4F"
-                                completed={(project.sum_pledges / project.goal) * 100}
-                    />
-
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>Project Goal</th>
-                                <th>Funds Raised</th>
-                                <th>Funding Status</th>
-                            </tr>
-                            <tr>
-                                <td>${project.goal}</td>
-                                <td>${project.sum_pledges}</td>
-                                <td>{project.funding_status}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <FundingStatusCard project={project} />
             </div>
 
 {/* -------------------- Comment Card -------------------- */}
             <div>
+                <br />
                 <h2>Comments:</h2>
-                    <div id="comment-list">
+                    <div className="card-list">
                         {project.comments &&
                         project.comments.map((comment, key) => {
                             return <CommentCard key={key} comment={comment} />;
@@ -97,7 +75,7 @@ function ProjectPage() {
 {/* -------------------- Pledge Card -------------------- */}
                 <div>
                     <h2>Pledges:</h2>
-                    <div id="pledge-list">
+                    <div className="card-list">
                         {project.pledges &&
                         project.pledges.map((pledge, key) => {
                             return <PledgeCard key={key} pledge={pledge} />;
@@ -111,10 +89,10 @@ function ProjectPage() {
 
 export default ProjectPage;
 
-{/* -------------------- TroubleShooting -------------------- */}
+{/* -------------------- TroubleShooting --------------------
 // MAP ISSUE:
 // https://stackoverflow.com/questions/71135587/react-js-typeerror-cannot-read-properties-of-undefined-reading-map
 // https://java2blog.com/typeerror-map-is-not-function-javascript/
 
 // PROGRESS BAR:
-// https://dev.to/ramonak/react-how-to-create-a-custom-progress-bar-component-in-5-minutes-2lcl
+// https://dev.to/ramonak/react-how-to-create-a-custom-progress-bar-component-in-5-minutes-2lcl */}
