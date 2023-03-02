@@ -1,0 +1,8 @@
+#funding-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
