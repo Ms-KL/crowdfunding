@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 // Dummy Data
 // import { oneProject } from "../data";
@@ -9,6 +9,7 @@ import PledgeForm from "../components/PledgeForm/PledgeForm";
 import ProjectCommentForm from "../components/ProjectCommentForm/ProjectCommentForm";
 import PledgeCard from "../components/PledgeCard/PledgeCard";
 import CommentCard from "../components/CommentCard/CommentCard";
+import ProjectCard from "../components/ProjectCard/ProjectCard";
 
 //Progress Bar
 import ProgressBar from "../components/ProgressBar/ProgressBar";
@@ -43,43 +44,45 @@ function ProjectPage() {
     return (
         <div className="project-detail">
             <h2>{project.title}</h2>
-            <div className="avatar-container">
-                {project.owner_avatar && <img src={project.owner_avatar} alt="avatar" />}
-            </div>
-            <h4>Started by Tree-Hugger: {project.owner}  </h4>
+
             <img src={project.image} />
 
-            <br />
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Start Date</th>
-                        <th>Deadline</th>
-                        <th>Status:</th>
-                    </tr>
-                    <tr>
-                        <td>{new Date(project.date_created).toLocaleDateString()}</td>
-                        <td>{new Date(project.deadline).toLocaleDateString()}</td>
-                        <td>{project.is_open ? <p>Active</p> : <p>Inactive</p>}</td>
-                    </tr>
-                </tbody>
-            </table>
-            {/* <p>Project Started: {new Date(project.date_created).toLocaleDateString()} by {project.owner} </p>
-            <p>Project Deadline: {project.deadline}</p> */}
-            {/* <h3>{`Status: ${project.is_open}`}</h3> */}
-            <p>-------------------------------</p>
-            <div className="status-card">
-                <h3>{project.funding_status} Project!</h3>
-                <h4>Goal: ${project.goal} | Total Pledges: ${project.sum_pledges}</h4>
-                <h4>Balance: ${project.goal_balance}</h4>
-                <ProgressBar
-                    bgcolor="#385B4F"
-                    completed={(project.sum_pledges / project.goal) * 100}
+            <div className="hero-container">
+
+                <h2><div className="avatar-container" id="project-page-avatar">
+                    {project.owner_avatar && <img src={project.owner_avatar} alt="avatar" />}&emsp;
+                {project.owner}'s project</div></h2>
+
+                <h4>Project Start: {new Date(project.date_created).toLocaleDateString()} &emsp;|&emsp; Project Deadline: {new Date(project.deadline).toLocaleDateString()} &emsp;|&emsp; {project.is_open ? 'Active' : 'Inactive'}</h4>
+
+                <p>{project.description}</p>
+
+{/* -------------------- Funding Status -------------------- */}
+
+                <div id="funding-status">
+                    <ProgressBar
+                                bgcolor="#385B4F"
+                                completed={(project.sum_pledges / project.goal) * 100}
                     />
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Project Goal</th>
+                                <th>Funds Raised</th>
+                                <th>Funding Status</th>
+                            </tr>
+                            <tr>
+                                <td>${project.goal}</td>
+                                <td>${project.sum_pledges}</td>
+                                <td>{project.funding_status}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <p>-------------------------------</p>
-            {/* if project comments exist, post them */}
+{/* -------------------- Comment Card -------------------- */}
             <div>
                 <h2>Comments:</h2>
                     <div id="comment-list">
@@ -88,13 +91,10 @@ function ProjectPage() {
                             return <CommentCard key={key} comment={comment} />;
                         })}
                     </div>
-            </div>
             <ProjectCommentForm project={project} />
+            </div>
 
-            <p>-------------------------------</p>
-            {/* if pledges exist, post them */}
-            {/* passes project from project page into the pledge form. so can use as project in form */}
-            
+{/* -------------------- Pledge Card -------------------- */}
                 <div>
                     <h2>Pledges:</h2>
                     <div id="pledge-list">
@@ -102,9 +102,8 @@ function ProjectPage() {
                         project.pledges.map((pledge, key) => {
                             return <PledgeCard key={key} pledge={pledge} />;
                         })}
-                </div>
-                <PledgeForm project={project} /> 
- 
+                    </div>
+                    <PledgeForm project={project} /> 
                 </div>
         </div>
     );
@@ -112,6 +111,7 @@ function ProjectPage() {
 
 export default ProjectPage;
 
+{/* -------------------- TroubleShooting -------------------- */}
 // MAP ISSUE:
 // https://stackoverflow.com/questions/71135587/react-js-typeerror-cannot-read-properties-of-undefined-reading-map
 // https://java2blog.com/typeerror-map-is-not-function-javascript/
