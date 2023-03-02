@@ -1,7 +1,7 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { useState } from "react";
 
-// Pages
+// Pages to import and set to path in router
 import AboutPage from "./pages/AboutPage";
 import AllProjectsPage from "./pages/AllProjectsPage";
 import ContactPage from "./pages/ContactPage";
@@ -15,21 +15,14 @@ import SessionUserPage from "./pages/SessionUserPage";
 import UserPage from "./pages/UserPage";
 import UsersPage from "./pages/UsersPage";
 
-// Components
+// Components - to render on every page
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
 
 
-// CSS
+// CSS 
 import "./App.css";
 
-
-// const HeaderLayout = () => (
-//   <div>
-//     <Nav />
-//     <Outlet />
-//   </div>
-// );
 
 const Layout = () => {
   const [loggedIn, setLoggedIn] = useState(
@@ -55,7 +48,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <LoginPage />},
       { path: "/pledges", element: <PledgePage />},  
       { path: "/projects", element: <AllProjectsPage /> },       
-      { path: "/project/:id", element: <ProjectPage /> }, 
+      { path: "/projects/:id", element: <ProjectPage /> }, 
       { path: "/register", element: <RegistrationPage />},   
       { path: "/user/:id", element: <UserPage /> },   
       { path: "/user/session", element: <SessionUserPage /> }, 
@@ -63,10 +56,21 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-// : = path param
+
 
 function App() {
   return <RouterProvider router={router} />
 }
 
 export default App;
+
+// : = path param
+
+
+
+// const HeaderLayout = () => (
+//   <div>
+//     <Nav />
+//     <Outlet />
+//   </div>
+// );
