@@ -5,20 +5,23 @@ import "./CommentCard.css";
 
 
 function CommentCard(props) {
-    const { comment } = props;
+    const { comment, user } = props;
 
 
     return (
         <>
             <div className="comment-card">
                 <div className="avatar-container">
-                        {comment.commenter_avatar && <img src={comment.commenter_avatar} alt="avatar" />}
+                        {!user && comment.commenter_avatar && <img src={comment.commenter_avatar} alt="avatar" />}
                     </div>
                 {/* </Link> */}
                 <div className="comment-card-text">
-                    <h3>{comment.commenter}</h3>            
-                    <p>{new Date(comment.created).toLocaleString()}</p>
+                    <h3>{!user && comment.commenter}</h3>            
                     <p>"{comment.body}"</p>
+                    {user &&
+                        <p>{comment.project}</p>
+                    }
+                    <p>{new Date(comment.created).toLocaleDateString()}</p>
                 </div>
             </div>
         </>

@@ -5,7 +5,7 @@ import "./PledgeCard.css";
 
 
 function PledgeCard(props) {
-    const { pledge } = props;
+    const { pledge, user } = props;
 
 
     return (
@@ -15,16 +15,20 @@ function PledgeCard(props) {
                 <div className="avatar-container">
                     
                  {/* {pledge.anonymous && } */}
-                    {!pledge.anonymous && (pledge.supporter_avatar && <img src={pledge.supporter_avatar} alt="avatar" />)}
-                    {pledge.anonymous && (pledge.supporter_avatar && <img src="https://images.pexels.com/photos/6505027/pexels-photo-6505027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />)}
+                    {!user && !pledge.anonymous && (pledge.supporter_avatar && <img src={pledge.supporter_avatar} alt="avatar" />)}
+                    {!user && pledge.anonymous && (pledge.supporter_avatar && <img src="https://images.pexels.com/photos/6505027/pexels-photo-6505027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" />)}
                 </div>
                 {/* </Link> */}
                 <div className="pledge-card-text">
-                    <h3>{pledge.supporter}</h3>
+                    <h3>{!user && pledge.supporter}</h3>
                     <p id="pledgeAmount">${pledge.amount}</p>
                     <p>"{pledge.comment}"</p>  
+                    {user &&
+                        <p>{pledge.project}</p>
+                    }
                     <p id="pledgeDate">{new Date(pledge.date_pledged).toLocaleDateString()} </p>          
                     
+
                 </div>
             </div>
         </>

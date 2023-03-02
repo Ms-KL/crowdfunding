@@ -6,7 +6,7 @@ import FundingStatusCard from "../FundingStatusCard/FundingStatusCard";
 
 
 function ProjectCard(props) {
-  const { projectData } = props;
+  const { projectData, user } = props;
 
   return (
     <div className="project-card">
@@ -19,7 +19,9 @@ function ProjectCard(props) {
         <h3>{projectData.title}</h3>
         <p>Started: {new Date(projectData.date_created).toLocaleDateString()} | Deadline: {new Date(projectData.deadline).toLocaleDateString()}</p>
         <p>{projectData.description}</p>
+        {!user &&
         <FundingStatusCard project={projectData} /> 
+        }
               
       </div>
     </div>
