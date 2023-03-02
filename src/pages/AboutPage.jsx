@@ -7,14 +7,24 @@ function AboutPage () {
         <>
             <div className="hero-container">
                 <h1>About Communitree</h1>
-                <p>
-                Welcome to Communitree, a crowdfunding website where tree-huggers gather to make a real impact on the urban forest of their community. 
-                
-                Local governments, schools, and environmental organizations play a crucial role in shaping the urban forest, and with the WA Urban Forest strategies, they have the opportunity to make a real impact on the health, beauty, and sustainability of their city. By registering and contributing on this website, both organizations and community members can access funds to achieve their individual urban forest strategy plans.
+                <p className="feature-text">
+                    Welcome to Communitree, the crowdfunding platform where tree-huggers unite to branch out and make a real impact on our urban forest. Our roots run deep in the community, and we're committed to cultivating a greener, healthier future for all!
+                    <br />
+                    <br />
 
-                In addition, Communitree also offers a platform for local governments, schools, and environmental organizations to create projects that raise funds for community busy bees and planting days/events. 
-                
-                Supporters can pledge resources to help these projects become a reality, making it easier for everyone to get involved in creating a greener, healthier future for all. Let's work together to create a better environment for ourselves and future generations.
+                    Local governments, schools, and environmental organizations are leafing their mark on our urban forest. By registering and contributing on our site, both organizations and community members can access funds to make their plans for a healthier urban forest come to fruit-ion!
+
+                    <br />
+                    <br />
+
+                    But wait, there's more! Communitree also offers a bark-tastic platform for local governments, schools, and environmental organizations to create projects that raise funds for community planting events and other initiatives. Supporters can pledge resources to help make these projects grow, making it easy for everyone to get their hands dirty and create a better environment for ourselves and future generations.
+
+                    <br />
+                    <br />
+
+                    So let's stick together and sow the seeds of change in our community! Join us on Communitree and let's leaf a positive impact on our urban forest!
+                    <br />
+                    <br />
                 </p>
                 <Link to="/users">Get to know our Tree-Huggers</Link><br />
                 <Link to="/projects">Explore our Communitree Projects</Link>

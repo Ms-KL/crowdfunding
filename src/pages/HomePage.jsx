@@ -60,14 +60,14 @@ function HomePage() {
     <>
       <div className="hero-container">
         <h1>Welcome Tree-Hugger</h1>
-        <p>
-        Welcome to Communitree, the crowdfunding website where tree-huggers gather to make a real impact on the urban forest of our community; register now to join us in creating a greener, healthier future for all by accessing funds for your urban forest strategy plans or supporting community projects for busy bees and planting days/events.</p>
-        <h2>Communitree Impact</h2>
-        <p>Get inspired by our "Communitree Impact", displaying the total funds raised and number of projects supported by our enthusiastic tree-huggers.</p>
+        <p className="feature-text">
+        Welcome to Communitree, the crowdfunding platform where tree-huggers gather to branch out and make a real impact on our urban forest. Our roots run deep in the community, and we're committed to cultivating a greener, healthier future for all!
+        </p>
 
-        <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
+      <h2>Communitree Impact</h2>
+          <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
       </div>
-      <h3>Featured Communitree Projects</h3>
+      <h2>Featured Communitree Projects</h2>
       <button onClick={shuffleProjectList} className="button">Shuffle</button>     
       <Link to="/create-project" className="button-link" style={{ width: '20px', borderRadius: '100px'}}>
             +

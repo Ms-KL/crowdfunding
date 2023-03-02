@@ -84,8 +84,6 @@ function AllProjectsPage(props) {
     <div>
       <h1>All Projects</h1>
 
-      <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
-
       <button onClick={shuffleProjectList} className="button">shuffle</button>       
       <button onClick={sortProjectList} className="button">a - z</button>
       <button onClick={resortProjectList} className="button">z - a</button>
