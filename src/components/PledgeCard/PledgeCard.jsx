@@ -24,7 +24,7 @@ function PledgeCard(props) {
                     <p id="pledgeAmount">${pledge.amount}</p>
                     <p>"{pledge.comment}"</p>  
                     {user &&
-                        <p>{pledge.project}</p>
+                    <p>{pledge.project}</p>
                     }
                     <p id="pledgeDate">{new Date(pledge.date_pledged).toLocaleDateString()} </p>          
                     

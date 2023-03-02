@@ -3,7 +3,6 @@ import { Link, useOutletContext } from "react-router-dom";
 
 // Components
 import ProjectCard from "../components/ProjectCard/ProjectCard";
-import CalculationsCard from "../components/CalculationsCard/CalculationsCard";
 
 function AllProjectsPage(props) {
 
@@ -38,36 +37,43 @@ function AllProjectsPage(props) {
 
   }, []);
 
+  // SHUFFLE
   const shuffleProjectList = () => {
     const shuffledList = [...projectList].sort(() => Math.random() - 0.5);
     setShuffledSortedProjectList(shuffledList);
   };
 
+  // ORDER new - old
   const orderProjectList = () => {
     const orderedList = [...projectList].sort((a, b) => new Date(b.date_created) - new Date(a.date_created));
     setShuffledSortedProjectList(orderedList);
   };
 
+  // ORDER old - new
   const reorderProjectList = () => {
     const orderedList = [...projectList].sort((a, b) => new Date(a.date_created) - new Date(b.date_created));
     setShuffledSortedProjectList(orderedList);
   };
 
+  // SORT A - Z
   const sortProjectList = () => {
     const sortedList = [...projectList].sort((a, b) => a.title.localeCompare(b.title));
     setShuffledSortedProjectList(sortedList);
   };
 
+  // SORT Z - A
   const resortProjectList = () => {
     const sortedList = [...projectList].sort((a, b) => b.title.localeCompare(a.title));
     setShuffledSortedProjectList(sortedList);
   };
 
+  // ORDER ends soon - ends later
   const deadlineNowProjectList = () => {
     const prioritisedList = [...projectList].sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
     setShuffledSortedProjectList(prioritisedList);
   };
 
+  // ORDER ends later - ends soon
   const deadlineLaterProjectList = () => {
     const prioritisedList = [...projectList].sort((a, b) => new Date(b.deadline) - new Date(a.deadline));
     setShuffledSortedProjectList(prioritisedList);
@@ -91,6 +97,7 @@ function AllProjectsPage(props) {
       <button onClick={reorderProjectList} className="button">old - new</button>
       <button onClick={deadlineNowProjectList} className="button">ends soon</button>
       <button onClick={deadlineLaterProjectList} className="button">ends later</button>
+
       {loggedIn && (
         <Link to="/create-project" className="button-link" style={{ width: '20px', borderRadius: '100px'}}>
             +

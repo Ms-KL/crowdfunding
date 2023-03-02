@@ -20,15 +20,14 @@ function ProjectPage() {
     const { id } = useParams();
 
     // Effects
-    // ---- ASYNC change
     useEffect(() => {
         const fetchProject = async () => {
             try {
                 const response = await fetch(`${import.meta.env.VITE_API_URL}projects/${id}`);
                 const data = await response.json();
-                // Sort the pledges in reverse chronological order
+            // ----------- Sort new - old -----------
                 data.pledges.sort((a, b) => new Date(b.date_pledged) - new Date(a.date_pledged));
-                // Sort the comments in reverse chronological order
+            //  ----------- Sort old - new -----------
                 data.comments.sort((a, b) => new Date(b.created) - new Date(a.created));
                 setProject(data);
             } catch (err) {
@@ -40,15 +39,16 @@ function ProjectPage() {
 
     return (
         <div className="project-detail">
+{/* -------------------- Project Details -------------------- */}
             <h2>{project.title}</h2>
-
             <img src={project.image} />
-
+            
             <div className="hero-container">
-
                 <h2><div className="avatar-container" id="project-page-avatar">
                     {project.owner_avatar && <img src={project.owner_avatar} alt="avatar" />}&emsp;
                 {project.owner}'s project</div></h2>
+
+{/* -------------------- Project Timeline -------------------- */}
 
                 <h4>Project Start: {new Date(project.date_created).toLocaleDateString()} &emsp;|&emsp; Project Deadline: {new Date(project.deadline).toLocaleDateString()} &emsp;|&emsp; {project.is_open ? 'Active' : 'Inactive'}</h4>
 

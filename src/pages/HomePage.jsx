@@ -35,23 +35,16 @@ function HomePage() {
       .then((data) => {
         setPledgeList(data);
       });
-
   }, []);
 
-  // https://flaviocopes.com/how-to-shuffle-array-javascript/
-  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
-  // create new list, make it random ordered and only return 6. 
-    // set the state when the function is called
-    // use for button in return
 
+    // Shuffle function
     const shuffleProjectList = () => {
       const shuffledList = [...projectList].sort(() => Math.random() - 0.5).slice(0, 6);
       setShuffledSortedProjectList(shuffledList);
     };
 
-
-  // shuffle the first project list (without pressing shuffle)
+  // shuffle on first render
   useEffect(() => {
     shuffleProjectList();
   }, [projectList]);
@@ -63,16 +56,17 @@ function HomePage() {
         <p className="feature-text">
         Welcome to Communitree, the crowdfunding platform where tree-huggers gather to branch out and make a real impact on our urban forest. Our roots run deep in the community, and we're committed to cultivating a greener, healthier future for all!
         </p>
-
+{/* -------------------- Calculations Card-------------------- */}
       <h2>Communitree Impact</h2>
           <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
       </div>
+
+{/* -------------------- Projects Card -------------------- */}
       <h2>Featured Communitree Projects</h2>
       <button onClick={shuffleProjectList} className="button">Shuffle</button>     
       <Link to="/create-project" className="button-link" style={{ width: '20px', borderRadius: '100px'}}>
             +
         </Link>
-
 
       <div className="card-list">
         {shuffledSortedProjectList.map((project, key) => {
@@ -104,4 +98,13 @@ export default HomePage;
       // https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d
 
       // import React from "react"; not required as it's already a jsx file
+
+
+      
+  // https://flaviocopes.com/how-to-shuffle-array-javascript/
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+  // create new list, make it random ordered and only return 6. 
+    // set the state when the function is called
+    // use for button in return
   

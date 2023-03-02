@@ -8,7 +8,7 @@ function AboutPage () {
             <div className="hero-container">
                 <h1>About Communitree</h1>
                 <p className="feature-text">
-                    Welcome to Communitree, the crowdfunding platform where tree-huggers unite to branch out and make a real impact on our urban forest. Our roots run deep in the community, and we're committed to cultivating a greener, healthier future for all!
+                    Welcome to <strong>Communitree</strong>, the crowdfunding platform where tree-huggers unite to branch out and make a real impact on our urban forest. Our roots run deep in the community, and we're committed to cultivating a greener, healthier future for all!
                     <br />
                     <br />
 

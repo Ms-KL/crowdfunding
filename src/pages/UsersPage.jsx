@@ -1,21 +1,20 @@
 import { useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
 
 // Components
 import UserCard from "../components/UserCard/UserCard";
 
-function UsersPage(props) {
+function UsersPage() {
 
-  // State
-    // State
+  // State: used to store values as required
     const [userList, setUserList] = useState([]);
-    const [user,  ] = useState({});
+    // const [user,  ] = useState({});
     const [shuffledSortedUserList, setShuffledSortedUserList] = useState([]);
 
-    // ACTIONS
-    const { id } = useParams();
+  // ACTIONS
+    // const { id } = useParams();
 
-    // User Data
+    // Fetch User Data
+      // GET the data, then when results are returned, turn it to JSON as "data" and update setUserList with "data"
     useEffect(() => {
         fetch(`${import.meta.env.VITE_API_URL}users`)
         .then((results) => {
@@ -26,32 +25,32 @@ function UsersPage(props) {
         });
     }, []);
 
+    // Shuffle
     const shuffleUserList = () => {
       const shuffledList = [...userList].sort(() => Math.random() - 0.5);
       setShuffledSortedUserList(shuffledList);
     };
 
+    // Sort A - Z
     const sortUserList = () => {
       const sortedList = [...userList].sort((a, b) => a.username.localeCompare(b.username));
       setShuffledSortedUserList(sortedList);
     };
 
+    // Sort Z - A
     const resortUserList = () => {
       const sortedList = [...userList].sort((a, b) => b.username.localeCompare(a.username));
       setShuffledSortedUserList(sortedList);
     };
 
-      // sort the user list alphabetically on first render
+      // sort the A - Z on first render
       useEffect(() => {
         sortUserList();
       }, [userList]);
 
     // runs the first time after the first render
 
-    const isAdmin = () => {
-        return user.id === 1;
-    };
-        
+
     return (
         <div>
           <h1>Our Tree-Huggers</h1>
@@ -71,6 +70,9 @@ function UsersPage(props) {
 
 
 export default UsersPage;
+
+
+
 // you then need to import without { }
 // without default you import using { }
 
