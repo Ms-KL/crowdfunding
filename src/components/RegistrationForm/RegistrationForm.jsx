@@ -22,10 +22,23 @@ function RegistrationForm() {
         }));
     };
 
+    const defaultAvatarUrl = window.location.origin + '/communitree_image.png';
+    // public folder not auto working, had to point to root
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         if (!authToken) {
+            // adding avatar if not submitted on registration
+            // based on project handle change structure
+            // if (!users.avatar) {
+            //     // const { avatar, defaultAvatarUrl } = event.target;
+            //     setUsers((prevUsers) => ({
+            //     ...prevUsers,
+            //     avatar: defaultAvatarUrl,
+            //     }));
+            // }
+
             try {
                 const response = await fetch(
                     `${import.meta.env.VITE_API_URL}users/`,
@@ -36,16 +49,22 @@ function RegistrationForm() {
                 },
                 body: JSON.stringify(users),
                 }
-            );
-            navigate(`/login`);
-        } catch (err) {
-            console.error(err);
+                );
+                if (!response.ok) {
+                    throw new Error(await response.text());
+                }
+                console.log(users);
+                navigate(`/login`);
+            } catch (err) {
+                // console.error(err);
+                alert(`Error: ${err.message}`);
+            }
+        } else {
+        // redirect to login page
+        navigate(`/`);
         }
-    } else {
-    // redirect to login page
-    navigate(`/`);
-    }
-    };
+        };
+    
 
     return (
         <div>
@@ -91,7 +110,7 @@ function RegistrationForm() {
             <label htmlFor="avatar">Avatar Image URL:</label>
             <input 
                 type="text"
-                id="avatar" 
+                id="avatar"
                 onChange={handleChange} 
             />
             </div>
@@ -102,3 +121,6 @@ function RegistrationForm() {
 }
 
 export default RegistrationForm;
+
+// image render issue
+// https://stackoverflow.com/questions/47196800/reactjs-and-images-in-public-folder
