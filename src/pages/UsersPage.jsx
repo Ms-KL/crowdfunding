@@ -60,7 +60,7 @@ function UsersPage(props) {
           <button onClick={resortUserList} className="button">z - a</button> 
           <br />
           <br />
-          <div id="user-list">
+          <div className="card-list">
             {shuffledSortedUserList.map((user, key) => {
             return <UserCard key={key} user={user} />;
             })};

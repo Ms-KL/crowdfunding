@@ -35,7 +35,7 @@ function PledgePage() {
             <p>Total Pledges: {pledgesTotal} | Total Funds Raised: ${pledgesTotalFunds} </p> 
 
             <h3>All Pledges</h3>
-            <div id="pledge-list">
+            <div className="card-list">
                 {pledgeList.map((pledge, key) => {
                     return <PledgeCard key={key} pledge={pledge} />;
                 })}
