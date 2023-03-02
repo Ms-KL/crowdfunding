@@ -19,6 +19,7 @@ function ProjectForm(props) {
 
     const handleChange = (event) => {
         const { id, value } = event.target;
+        // adding new project ID and value to array 
         setProjects((prevProjects) => ({
         ...prevProjects,
         [id]: value,
