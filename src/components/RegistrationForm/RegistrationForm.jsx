@@ -22,29 +22,6 @@ function RegistrationForm() {
         }));
     };
 
-    // const setAvatar = (event) => {
-    //     const { value } = event.target;
-    //     if (value !== '') {
-    //     setUsers((prevUsers) => ({
-    //         ...prevUsers,
-    //         avatar: value,
-    //         }));
-    //     } else {
-    //         setUsers((prevUsers) => ({
-    //           ...prevUsers,
-    //           avatar: defaultAvatar,
-    //         }));
-    //       }
-    //     };
-
-    const setAvatar = (event) => {
-        const { value } = event.target;
-        setUsers((prevUsers) => ({
-            ...prevUsers,
-            avatar: value || defaultAvatar,
-            }));
-    };
-
     const defaultAvatar = window.location.origin + '/default_avatar.png';
     // process.env.PUBLIC_URL required me to go down rabbit hole.
         // this suggestion worked well for me: https://stackoverflow.com/a/54844591
@@ -137,7 +114,7 @@ function RegistrationForm() {
             <input 
                 type="text"
                 id="avatar"
-                onChange={setAvatar} 
+                onChange={handleChange} 
             />
             </div>
             <button type="submit">Register User</button>
