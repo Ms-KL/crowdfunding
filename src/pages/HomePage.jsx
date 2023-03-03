@@ -56,6 +56,7 @@ function HomePage() {
         <p className="feature-text">
         Welcome to Communitree, the crowdfunding platform where tree-huggers gather to branch out and make a real impact on our urban forest. Our roots run deep in the community, and we're committed to cultivating a greener, healthier future for all!
         </p>
+        <Link to="/about" className="button-link">About</Link>
 {/* -------------------- Calculations Card-------------------- */}
       <h2>Communitree Impact</h2>
           <CalculationsCard projectList={projectList} pledgeList={pledgeList} />

@@ -42,7 +42,7 @@ function Nav(props) {
                     {/* </div> */}
                     {/* <div className="nav-user"> */}
                         {loggedIn && (
-                            <Link to="/user/session" className="button-link">
+                            <Link to="/users/session" className="button-link">
                             Profile
                             </Link>
                         )}

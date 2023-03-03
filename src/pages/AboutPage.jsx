@@ -26,8 +26,9 @@ function AboutPage () {
                     <br />
                     <br />
                 </p>
-                <Link to="/users">Get to know our Tree-Huggers</Link><br />
-                <Link to="/projects">Explore our Communitree Projects</Link>
+                <Link to="/contact" className="button-link">Contact</Link>
+                <Link to="/users" className="button-link">Users</Link>
+                <Link to="/projects" className="button-link">Projects</Link>
             </div>
         </>
     );

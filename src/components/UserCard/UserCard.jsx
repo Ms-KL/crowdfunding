@@ -13,7 +13,7 @@ function UserCard(props) {
         <>
 
             <div className="user-card">
-                <Link to={`/user/${user.id}`}>
+                <Link to={`/users/${user.id}`}>
                 <div className="user-image-container">
                     <img src={user.avatar} />
                 </div>

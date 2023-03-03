@@ -11,7 +11,7 @@ function UsersPage() {
     const [shuffledSortedUserList, setShuffledSortedUserList] = useState([]);
 
   // ACTIONS
-    // const { id } = useParams();
+  //   const { id } = useParams();
 
     // Fetch User Data
       // GET the data, then when results are returned, turn it to JSON as "data" and update setUserList with "data"
