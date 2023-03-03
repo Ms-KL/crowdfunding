@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 // components
 import UserProfile from "../components/UserProfile/UserProfile";
@@ -25,6 +26,7 @@ function SessionUserPage() {
                     }
                     });
                 const data = await response.json();
+                window.localStorage.setItem("userData", JSON.stringify(data));
                 setUser(data);
             } catch (err) {
                 console.log(err);
@@ -42,14 +44,12 @@ function SessionUserPage() {
                 {isAdmin() && (
                     <>
                         <AdminBlock />
-                        <UserProfile user={user}/>
                     </>
                     )}
                 <div id="user-block">
                     {user.id > 1 && !isAdmin() && (
                         <>
                         <h1>Welcome back {user.username}!</h1>
-                        <UserProfile user={user}/>
                         </>
                     )}
                     {!user.id && (
@@ -57,6 +57,7 @@ function SessionUserPage() {
                         <h1>Login to view your profile</h1>
                         </>
                     )}
+                <UserProfile user={user}/>
                 </div>
             </div>
         );
