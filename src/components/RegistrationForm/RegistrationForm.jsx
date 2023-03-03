@@ -22,23 +22,49 @@ function RegistrationForm() {
         }));
     };
 
-    const defaultAvatarUrl = window.location.origin + '/communitree_image.png';
-    // public folder not auto working, had to point to root
+    // const setAvatar = (event) => {
+    //     const { value } = event.target;
+    //     if (value !== '') {
+    //     setUsers((prevUsers) => ({
+    //         ...prevUsers,
+    //         avatar: value,
+    //         }));
+    //     } else {
+    //         setUsers((prevUsers) => ({
+    //           ...prevUsers,
+    //           avatar: defaultAvatar,
+    //         }));
+    //       }
+    //     };
+
+    const setAvatar = (event) => {
+        const { value } = event.target;
+        setUsers((prevUsers) => ({
+            ...prevUsers,
+            avatar: value || defaultAvatar,
+            }));
+    };
+
+    const defaultAvatar = window.location.origin + '/default_avatar.png';
+    // process.env.PUBLIC_URL required me to go down rabbit hole.
+        // this suggestion worked well for me: https://stackoverflow.com/a/54844591
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (!authToken) {
-            // adding avatar if not submitted on registration
-            // based on project handle change structure
-            // if (!users.avatar) {
-            //     // const { avatar, defaultAvatarUrl } = event.target;
-            //     setUsers((prevUsers) => ({
-            //     ...prevUsers,
-            //     avatar: defaultAvatarUrl,
-            //     }));
-            // }
+        // remove avatar element from users list and place the rest in a temp list
+        // create new users list. add the temp list to it 
+        // set the avatar value to avatar or default and add to the new users list.
+        // send this new list with the JSON for POST
+        // reference: rest property - destructuring: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring
+        
+        const { avatar, ...tempUsersNoAvatar } = users; //original list
+        const updatedUsersWithAvatar = {
+            ...tempUsersNoAvatar,
+            avatar: avatar || defaultAvatar,
+        }
 
+        if (!authToken) {
             try {
                 const response = await fetch(
                     `${import.meta.env.VITE_API_URL}users/`,
@@ -47,7 +73,7 @@ function RegistrationForm() {
                     headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(users),
+                body: JSON.stringify(updatedUsersWithAvatar),
                 }
                 );
                 if (!response.ok) {
@@ -111,7 +137,7 @@ function RegistrationForm() {
             <input 
                 type="text"
                 id="avatar"
-                onChange={handleChange} 
+                onChange={setAvatar} 
             />
             </div>
             <button type="submit">Register User</button>
