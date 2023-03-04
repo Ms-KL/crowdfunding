@@ -46,7 +46,7 @@ function PutSessionUserPage(props) {
                 const response = await fetch(
                     `${import.meta.env.VITE_API_URL}users/${sessionUserData.id}/`,
                     {
-                    method: "patch",
+                    method: "PATCH",
                     headers: {
                     "Content-Type": "application/json",
                     Authorization: `Token ${authToken}`,
