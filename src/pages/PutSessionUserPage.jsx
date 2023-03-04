@@ -58,7 +58,7 @@ function PutSessionUserPage(props) {
                     throw new Error(await response.text());
                 }
                 console.log(user);
-                window.localStorage.removeItem("userData");
+                // window.localStorage.removeItem("userData");
                 navigate(`/`);
             } catch (err) {
                 // console.error(err);
