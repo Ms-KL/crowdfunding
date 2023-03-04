@@ -16,7 +16,7 @@ function UserPage() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await fetch(`${import.meta.env.VITE_API_URL}users/${id}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL}users/${id}/`);
                 const data = await response.json();
                 setUser(data);
             } catch (err) {
