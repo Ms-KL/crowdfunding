@@ -4,7 +4,9 @@ Deployed Back End: https://icy-dew-540.fly.dev/
 # UX wishlist
 
 - linking between pages
-- EDIT and DELETE
+- REMOVE local storage on navigating away from any page
+- change password
+- edit & delete project, pledge and comment
 
 # UI wishlist
 
