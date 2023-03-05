@@ -17,9 +17,9 @@ function SessionUserPage() {
         const fetchUser = async () => {
             try {
                 const response = await fetch(
-                    `${import.meta.env.VITE_API_URL}users/session`, 
+                    `${import.meta.env.VITE_API_URL}users/session/`, 
                     {
-                    method: "get",
+                    method: "GET",
                     headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Token ${authToken}`,
@@ -50,6 +50,8 @@ function SessionUserPage() {
                     {user.id > 1 && !isAdmin() && (
                         <>
                         <h1>Welcome back {user.username}!</h1>
+                        <Link to="/users/session/edit" className="button-link">
+                Edit</Link>
                         </>
                     )}
                     {!user.id && (
