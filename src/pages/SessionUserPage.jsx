@@ -26,7 +26,7 @@ function SessionUserPage() {
                     }
                     });
                 const data = await response.json();
-                window.localStorage.setItem("userData", JSON.stringify(data));
+                window.sessionStorage.setItem("userData", JSON.stringify(data));
                 setUser(data);
             } catch (err) {
                 console.log(err);

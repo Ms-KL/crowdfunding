@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 
 function AboutPage () {
+    window.sessionStorage.removeItem("userData");
     return (
         <>
             <div className="hero-container">

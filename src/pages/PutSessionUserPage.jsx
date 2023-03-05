@@ -1,20 +1,28 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 function PutSessionUserPage(props) {
 
-    const { username, email, bio, avatar } = JSON.parse(window.localStorage.getItem("userData"));
-        // STEP 1: retrieve only the required items from local storage
+    useEffect(() => {
+    const userData = window.sessionStorage.getItem("userData");
+        if (!userData) {
+            navigate("/users/session");
+        }
+    }, []);
+
+    const { id, username, email, bio, avatar } = JSON.parse(window.sessionStorage.getItem("userData"));
+        // STEP 1: retrieve only the required items from session storage
     const authToken = window.localStorage.getItem("token")
         // STEP 2: retrieve the token to sent with Fetch request
     const [user, setUser] = useState({
+        "id": id,
         "username": username,
         "email": email,
         "bio": bio,
         "avatar": avatar,
     });
-        // STEP 3: set user's State using the retrieved local storage values
+        // STEP 3: set user's State using the retrieved session storage values
 
     const navigate = useNavigate();
 
@@ -29,7 +37,7 @@ function PutSessionUserPage(props) {
         ...prevUser,
         [id]: value,
         }));
-    };
+    };   
 
     const defaultAvatar = window.location.origin + '/default_avatar.png';
     // process.env.PUBLIC_URL required me to go down rabbit hole.
@@ -45,6 +53,7 @@ function PutSessionUserPage(props) {
                 //id =  new id. 
                 //value = user(state).value(userstatevalue)
         const updatedUser = {
+            id: user.id,
             username: user.username,
             email: user.email,
             bio: user.bio,
@@ -67,23 +76,23 @@ function PutSessionUserPage(props) {
                         body: JSON.stringify (updatedUser),
                     }
                 );
-                // STEP 9 : if request not successful, throw error, else, update local storage with updatedUser values
+                // STEP 9 : if request not successful, throw error, else, update session storage with updatedUser values
                 if (!response.ok) {
                     throw new Error(await response.text());
                 }
-                // updates the userData stored in local storage with the updatedUser values
-                window.localStorage.removeItem("userData");
-
+                // updates the userData stored in session storage with the updatedUser values
+                window.sessionStorage.removeItem("userData");
                 // Updates setUser to the updatedUser (new values)
                 setUser(updatedUser);
-                navigate(`/users/session/`);
+                navigate(`/users/${id}/`);
+
                 // console.log(user);
             } catch (err) {
                 // console.error(err);
                 alert(`Error: ${err.message}`);
             }
         } else {
-        window.localStorage.removeItem("userData");
+        window.sessionStorage.removeItem("userData");
         navigate(`/`);
         }
         };
@@ -92,7 +101,7 @@ function PutSessionUserPage(props) {
         <div>
         <form onSubmit={handleSubmit}>
         <h2>Edit your details</h2>
-        {/* defaultValue = prefill with local storage values for easy updating of details. HandleChange will watch for differences */}
+        {/* defaultValue = prefill with session storage values for easy updating of details. HandleChange will watch for differences */}
             <div>
             <label htmlFor="username">Username:</label>
             <input
@@ -140,6 +149,12 @@ function PutSessionUserPage(props) {
 
 export default PutSessionUserPage;
 
+
+// NOTES on SESSION STORAGE:
+    // Added user details into Session Storage
+    // as they navigate away from the edit page or the users/session page, the session storage data deletes
+    // I know not an ideal solution. Context would be better. Will polish in future
+
 // image render issue
 // https://stackoverflow.com/questions/47196800/reactjs-and-images-in-public-folder
 
@@ -156,3 +171,13 @@ export default PutSessionUserPage;
     // https://blog.logrocket.com/localstorage-javascript-complete-guide/
     // https://stackoverflow.com/questions/64093100/react-remove-localstorage-item-on-page-load
     // https://blog.logrocket.com/using-localstorage-react-hooks/
+
+    // FAILED trying to delete storage when navigating away from session and session/edit pages:
+        // useEffect (() => {
+        //     if(!window.location.href.includes('users/session/')) {
+        //         localStorage.removeItem("userData")
+        //     }});
+
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
+    // https://www.w3schools.com/jsref/jsref_includes.asp
+    // https://www.w3schools.com/JS/js_window_location.asp?output=printhttp://www.w3schools.com/JS/js_window_location.asp?output=print

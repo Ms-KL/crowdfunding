@@ -7,7 +7,7 @@ function Nav(props) {
 
     const handleClick = () => {
         window.localStorage.removeItem("token");
-        window.localStorage.removeItem("userData");
+        window.sessionStorage.removeItem("userData");
         setLoggedIn(false);
 
     }

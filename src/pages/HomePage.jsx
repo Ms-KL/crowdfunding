@@ -12,8 +12,8 @@ function HomePage() {
   const [pledgeList, setPledgeList] = useState([]);
   const [shuffledSortedProjectList, setShuffledSortedProjectList] = useState([]);
 
-
   // ACTIONS
+  window.sessionStorage.removeItem("userData");
 
   // Project Data
   useEffect(() => {

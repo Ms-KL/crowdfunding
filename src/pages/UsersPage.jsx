@@ -9,6 +9,7 @@ function UsersPage() {
     const [userList, setUserList] = useState([]);
     // const [user,  ] = useState({});
     const [shuffledSortedUserList, setShuffledSortedUserList] = useState([]);
+    window.sessionStorage.removeItem("userData");
 
   // ACTIONS
   //   const { id } = useParams();

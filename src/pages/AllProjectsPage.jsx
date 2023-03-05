@@ -13,6 +13,7 @@ function AllProjectsPage(props) {
   const [shuffledSortedProjectList, setShuffledSortedProjectList] = useState([]);
 
   // ACTIONS
+  window.sessionStorage.removeItem("userData");
 
   // Project Data
   useEffect(() => {
