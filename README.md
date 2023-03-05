@@ -7,7 +7,7 @@
 This is Crowdfunding Website was created by Kristy Leigh as a project for the [She Codes Plus](https://www.shecodes.com.au/) program.
 
 - Visit deployed backend [HERE](https://icy-dew-540.fly.dev/)
-- Visit deployed frontend: [HERE](https://https://prismatic-phoenix-20010b.netlify.app/-dew-540.fly.dev/)
+- Visit deployed frontend: [HERE](https://prismatic-phoenix-20010b.netlify.app/)
 
 ### Tech & Skills Learned:
 
@@ -35,10 +35,10 @@ This is Crowdfunding Website was created by Kristy Leigh as a project for the [S
 #### Project Requirements Checklist:
 
 - A link to the [GitHub repository](https://github.com/Ms-KL/crowdfunding) containing the code for your project
-- A link to the [deployed project](https://https://prismatic-phoenix-20010b.netlify.app/-dew-540.fly.dev/)
-- A screenshot of the [home page](project_submission\homepage.png).
-- A screenshot of the [project creation form](project_submission\createproject.png).
-- A screenshot of a project with pledges: [project page top](project_submission\project_a.png) | [project page bottom](project_submission\project_b.png)
+- A link to the [deployed project](https://prismatic-phoenix-20010b.netlify.app/)
+- A screenshot of the [home page](insert).
+- A screenshot of the [project creation form](insert).
+- A screenshot of a project with pledges: [project page top](insert) | [project page bottom](insert)
 
 <br>
 
