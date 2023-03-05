@@ -1,0 +1,8 @@
+Tour of Front End: https://www.loom.com/share/20ac35568e334f8dabdcdb89dd191359
+(in lieu of screenshots)
+
+Front End App: https://prismatic-phoenix-20010b.netlify.app/
+Front End Repo: https://github.com/Ms-KL/crowdfunding
+
+Back End App: https://icy-dew-540.fly.dev/
+Back End Repo: https://github.com/Ms-KL/she-codes-crowdfunding-api-project-Ms-KL
