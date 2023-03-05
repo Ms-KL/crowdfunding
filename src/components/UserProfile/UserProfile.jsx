@@ -20,9 +20,6 @@ function UserProfile(props) {
             <div className="user-profile">
                 <img src={user.avatar} />
                 <p className="feature-text">"{user.bio}"</p>
-                <br />
-                <Link to="/users/session/edit" className="button-link">
-                Edit</Link>
         
 {/* -------------------- Project Card -------------------- */}
 

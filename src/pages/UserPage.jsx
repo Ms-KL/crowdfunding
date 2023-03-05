@@ -30,7 +30,7 @@ function UserPage() {
         <div id="user-block">
             {user.id && (
                 <>
-                <h1>{user.username}'s Profile</h1>
+                <h1>Tree-Hugger: {user.username}</h1>
                 <UserProfile user={user}/>
                 </>
             )}
