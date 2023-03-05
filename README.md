@@ -36,9 +36,7 @@ This is Crowdfunding Website was created by Kristy Leigh as a project for the [S
 
 - A link to the [GitHub repository](https://github.com/Ms-KL/crowdfunding) containing the code for your project
 - A link to the [deployed project](https://prismatic-phoenix-20010b.netlify.app/)
-- A screenshot of the [home page](insert).
-- A screenshot of the [project creation form](insert).
-- A screenshot of a project with pledges: [project page top](insert) | [project page bottom](insert)
+- Tour of project: [Loom Video](https://www.loom.com/share/20ac35568e334f8dabdcdb89dd191359)
 
 <br>
 
