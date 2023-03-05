@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { useNavigate, useParams, useOutletContext } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function RegistrationForm() {
     const authToken = window.localStorage.getItem("token")
+
+    // STATE
     const [users, setUsers] = useState({
         "username": "",
         "email": "",
@@ -12,8 +14,6 @@ function RegistrationForm() {
     });
 
     const navigate = useNavigate();
-    const { id } = useParams();
-
     const handleChange = (event) => {
         const { id, value } = event.target;
         setUsers((prevUsers) => ({
@@ -23,8 +23,7 @@ function RegistrationForm() {
     };
 
     const defaultAvatar = window.location.origin + '/default_avatar.png';
-    // process.env.PUBLIC_URL required me to go down rabbit hole.
-        // this suggestion worked well for me: https://stackoverflow.com/a/54844591
+    // https://stackoverflow.com/a/54844591
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -56,14 +55,11 @@ function RegistrationForm() {
                 if (!response.ok) {
                     throw new Error(await response.text());
                 }
-                console.log(users);
                 navigate(`/login`);
             } catch (err) {
-                // console.error(err);
                 alert(`Error: ${err.message}`);
             }
         } else {
-        // redirect to login page
         navigate(`/`);
         }
         };

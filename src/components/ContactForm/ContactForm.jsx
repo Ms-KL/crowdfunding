@@ -1,15 +1,19 @@
-import { useState } from "react";
+
 import { useForm, ValidationError } from '@formspree/react';
 
 //CSS
 import "./ContactForm.css";
 
-// TODO: Make form functional
+
 function ContactForm() {
+
+    // formspree code
     const [state, handleSubmit] = useForm("xbjeygdj");
+
     if (state.succeeded) {
         return <p>Thank you for contacting Communitree.</p>;
     }
+
     return (
         <form onSubmit={handleSubmit}>
             <div className="contact-form">

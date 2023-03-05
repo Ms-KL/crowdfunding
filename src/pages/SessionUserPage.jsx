@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // components
 import UserProfile from "../components/UserProfile/UserProfile";
@@ -8,11 +8,12 @@ import AdminBlock from "../components/AdminBlock/AdminBlock";
 function SessionUserPage() {
     const authToken = window.localStorage.getItem("token")
 
-    // State
+    // --------------- STATE 
     const [user, setUser] = useState({});
 
-    // Effects
-    // ---- ASYNC change
+    // --------------- ACTIONS 
+
+    // GET session user data
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -33,8 +34,9 @@ function SessionUserPage() {
             }
         };
         fetchUser();
-}, [authToken]);
+    }, [authToken]);
 
+    // If user ID is 1, then they are admin
     const isAdmin = () => {
         return user.id === 1;
     };
@@ -44,6 +46,8 @@ function SessionUserPage() {
                 {isAdmin() && (
                     <>
                         <AdminBlock />
+                        <Link to="/users/session/edit" className="button-link">
+                Edit</Link>
                     </>
                     )}
                 <div id="user-block">

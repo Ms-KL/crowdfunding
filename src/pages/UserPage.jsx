@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 // Components
 import UserProfile from "../components/UserProfile/UserProfile";
 
 function UserPage() {
 
-    // State
+    // --------------- STATE 
     const [user, setUser] = useState({});
 
-    // Hooks
+    // --------------- HOOKS 
     const { id } = useParams();
 
-    // Effects
+    // --------------- ACTIONS 
+    // get user data
     useEffect(() => {
         const fetchUser = async () => {
             try {

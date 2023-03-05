@@ -1,26 +1,25 @@
 import React, { useState } from "react";
-import { useNavigate, useParams, useOutletContext, Link } from "react-router-dom";
+import { useNavigate, useOutletContext, Link } from "react-router-dom";
 
 
 function PledgeForm(props) {
+
+    // HOOKS
     const { project } = props;
     const authToken = window.localStorage.getItem("token")
     const [loggedIn] = useOutletContext();
     
+    // STATE
     const [pledges, setPledges] = useState({
         // from JSON Raw Body in Deployed (default values)
         "amount": null,
         "comment": "",
         "anonymous": false,
         "project": null,
-        // "date_pledged": null
     });
 
     // enables redirect
     const navigate = useNavigate();
-
-    // accesses project ID so the pledge can be connected to it
-    const { id } = useParams();
 
     // copies the original data, replaces the old data for each id/value pair to what is input in the form (changes state). this will be submitted to API below. 
     const handleChange = (event) => {
@@ -38,7 +37,7 @@ function PledgeForm(props) {
         event.preventDefault();
 
         // if the auth token exists (if logged in) 
-            // TRY to POST the data to your deployed, using fetch.
+            // TRY to POST the data to deployed, using fetch.
             // send the token with it to authorise the ability to post
                 // wait for the response - 
                 // if successful, return the JSON payload and reload the page with the data
@@ -96,14 +95,6 @@ function PledgeForm(props) {
                     onChange={handleChange}
                 />
                 </div>
-                {/* <div>
-                <label htmlFor="anonymous">Anonymous:</label>
-                <input 
-                    type="checkbox"
-                    id="anonymous" 
-                    onChange={handleChange} 
-                />
-                </div> */}
                 <div style={{ display: 'flex', alignItems: 'center'}}>
                 <label htmlFor="anonymous">Anonymous:</label>
                 <input 
@@ -113,10 +104,6 @@ function PledgeForm(props) {
                     onChange={handleChange} 
                 />
                 </div>
-                {/* <div>
-                <label htmlFor="date_pledged">Date Pledged:</label>
-                <input type="datetime-local" id="date_pledged" onChange={handleChange} />
-                </div> */}
                 <button type="submit">Submit</button>
             </form>
             </div>

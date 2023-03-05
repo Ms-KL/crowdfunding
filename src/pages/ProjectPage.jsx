@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 // Dummy Data
 // import { oneProject } from "../data";
@@ -13,13 +13,14 @@ import FundingStatusCard from "../components/FundingStatusCard/FundingStatusCard
 
 
 function ProjectPage() {
-    // State
+
+    // --------------- STATE 
     const [project, setProject] = useState({});
 
-    // Hooks
+    // --------------- HOOKS 
     const { id } = useParams();
 
-    // Effects
+    // --------------- EFFECTS 
     useEffect(() => {
         const fetchProject = async () => {
             try {
@@ -39,6 +40,7 @@ function ProjectPage() {
 
     return (
         <div className="project-detail">
+            
 {/* -------------------- Project Details -------------------- */}
             <h2>{project.title}</h2>
             <img src={project.image} />
@@ -89,10 +91,10 @@ function ProjectPage() {
 
 export default ProjectPage;
 
-{/* -------------------- TroubleShooting --------------------
+/* -------------------- TroubleShooting --------------------
 // MAP ISSUE:
 // https://stackoverflow.com/questions/71135587/react-js-typeerror-cannot-read-properties-of-undefined-reading-map
 // https://java2blog.com/typeerror-map-is-not-function-javascript/
 
 // PROGRESS BAR:
-// https://dev.to/ramonak/react-how-to-create-a-custom-progress-bar-component-in-5-minutes-2lcl */}
+// https://dev.to/ramonak/react-how-to-create-a-custom-progress-bar-component-in-5-minutes-2lcl */

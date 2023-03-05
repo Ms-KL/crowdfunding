@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 
 // components
-import PledgeForm from "../components/PledgeForm/PledgeForm";
 import PledgeCard from "../components/PledgeCard/PledgeCard";
 
 function PledgePage() {
 
-    // State
+    // --------------- STATE 
     const [pledgeList, setPledgeList] = useState([]);
 
-    // ACTIONS
+    // --------------- ACTIONS 
 
     // Pledge Data
     useEffect(() => {
@@ -22,13 +21,17 @@ function PledgePage() {
         });
     }, []);
 
-    // calc totals
+    // Number of pledges in pledgeList (length)
     const pledgesTotal = pledgeList.length;
+
+    /* use map to target amount value in pledgeList
+        runningTotal starts at 0, amount is each mapped amount value from pledgeList
+        for each value in amount mapped from Pledge list, add it to the running total
+        https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d */
     const pledgesTotalFunds = pledgeList
         .map(pledge => pledge.amount)
         .reduce((runningTotal, amount) => runningTotal + amount,0);
 
-        // map: access the pledgedata and the supporter data in the pledge page
     return (
         <div>
             <h2>Communitree Support Totals</h2>
@@ -38,6 +41,7 @@ function PledgePage() {
             <div className="card-list">
                 {pledgeList.map((pledge, key) => {
                     return <PledgeCard key={key} pledge={pledge} />;
+                    // send key and pledge to PledgeCard through props
                 })}
             </div>
         </div>
@@ -45,70 +49,3 @@ function PledgePage() {
 };
 
 export default PledgePage;
-
-
-
-
-// trying to link to Project Page within pledge card. Not working. Starter code below:
-// import { useState, useEffect } from "react";
-
-// // components
-// import PledgeForm from "../components/PledgeForm/PledgeForm";
-// import PledgeCard from "../components/PledgeCard/PledgeCard";
-
-// function PledgePage() {
-
-//     // State
-//     const [pledgeList, setPledgeList] = useState([]);
-
-//     // ACTIONS
-
-//     // Pledge Data
-//     useEffect(() => {
-//         fetch(`${import.meta.env.VITE_API_URL}pledges`)
-//         .then((results) => {
-//             return results.json();
-//         })
-//         .then((data) => {
-//             setPledgeList(data);
-//         });
-
-//     }, []);
-
-//     // Project Data
-//     useEffect(() => {
-//         const fetchProject = async () => {
-//             try {
-//                 const res = await fetch(`${import.meta.env.VITE_API_URL}projects/${id}`);
-//                 const data = await res.json();
-//                 setProject(data);
-//             } catch (err) {
-//                 console.log(err);
-//             }
-//         };
-//         fetchProject();
-//     }, []);
-    
-//     // calc totals
-//     const pledgesTotal = pledgeList.length;
-//     const pledgesTotalFunds = pledgeList
-//         .map(pledge => pledge.amount)
-//         .reduce((runningTotal, amount) => runningTotal + amount,0);
-
-//     return (
-//         <div>
-//             <h2>Communitree Support Totals</h2>
-//             <p>Total Pledges: {pledgesTotal} | Total Funds Raised: ${pledgesTotalFunds} </p> 
-
-//             <h3>All Pledges</h3>
-//             <div id="pledge-list">
-//                 {pledgeList.map((pledge, key) => {
-//                     return <PledgeCard key={key} pledgeData={pledge} projectData={pledge.projectData} />;
-//                 })}
-//             </div>        
-//             <PledgeForm />
-//         </div>
-//     );
-// };
-
-// export default PledgePage;

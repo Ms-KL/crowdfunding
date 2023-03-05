@@ -5,16 +5,16 @@ import UserCard from "../components/UserCard/UserCard";
 
 function UsersPage() {
 
-  // State: used to store values as required
+  // --------------- STATE  
     const [userList, setUserList] = useState([]);
-    // const [user,  ] = useState({});
     const [shuffledSortedUserList, setShuffledSortedUserList] = useState([]);
+
+  // --------------- CLEAN 
     window.sessionStorage.removeItem("userData");
 
-  // ACTIONS
-  //   const { id } = useParams();
+  // --------------- ACTIONS 
 
-    // Fetch User Data
+    // FETCH User Data
       // GET the data, then when results are returned, turn it to JSON as "data" and update setUserList with "data"
     useEffect(() => {
         fetch(`${import.meta.env.VITE_API_URL}users`)
@@ -49,9 +49,6 @@ function UsersPage() {
         sortUserList();
       }, [userList]);
 
-    // runs the first time after the first render
-
-
     return (
         <div>
           <h1>Our Tree-Huggers</h1>
@@ -74,12 +71,8 @@ export default UsersPage;
 
 
 
-// you then need to import without { }
-// without default you import using { }
-
-
 // NOTES:
-  // 
+    // useEffect runs the first time after the first render
     // fetch: built in request in browser to server
       // when the results get back, will receive JSON
       // JSON key:value pair

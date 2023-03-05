@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate, useParams, useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
-function ProjectForm(props) {
-    const { project } = props;
+function ProjectForm() {
+
     const authToken = window.localStorage.getItem("token")
     const [loggedIn] = useOutletContext();
     const [projects, setProjects] = useState({
@@ -15,7 +15,7 @@ function ProjectForm(props) {
     });
 
     const navigate = useNavigate();
-    const { id } = useParams();
+
 
     const handleChange = (event) => {
         const { id, value } = event.target;

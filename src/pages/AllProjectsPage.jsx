@@ -80,8 +80,6 @@ function AllProjectsPage(props) {
     setShuffledSortedProjectList(prioritisedList);
   };
 
-
-
   // alphabetically rendered first
   useEffect(() => {
     resortProjectList();

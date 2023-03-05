@@ -1,10 +1,11 @@
 import RegistrationForm from "../components/RegistrationForm/RegistrationForm";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
-function RegistrationPage(props) {
+function RegistrationPage() {
+
+    // if token exists, don't show registration form
     const authToken = window.localStorage.getItem("token")
-    const navigate = useNavigate();
 
     return (
         <>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import "./AdminBlock.css";
 
 
-function AdminBlock(props) {
+function AdminBlock() {
 
 
     return (

@@ -1,21 +1,64 @@
-Deployed Front End: https://prismatic-phoenix-20010b.netlify.app/
-Deployed Back End: https://icy-dew-540.fly.dev/
+<img src="https://github.com/Ms-KL/Ms-KL/raw/main/images/shecodes-icon.png" width="80px" height="80px" />
 
-# UX wishlist
+# She Codes Plus Project 5: Crowdfunding Website (Front-End)
+
+## About:
+
+This is Crowdfunding Website was created by Kristy Leigh as a project for the [She Codes Plus](https://www.shecodes.com.au/) program.
+
+- Visit deployed backend [HERE](https://icy-dew-540.fly.dev/)
+- Visit deployed frontend: [HERE](https://https://prismatic-phoenix-20010b.netlify.app/-dew-540.fly.dev/)
+
+### Tech & Skills Learned:
+
+- JavaScript
+- ReactJS
+- Deployment using Netlify
+- Network Calls
+- VS Code
+- Github Desktop
+- Insomnia
+  <br>
+
+---
+
+<br>
+
+### **MVP Submission & Part A Submission:**
+
+- Please view the [ReadMe](https://github.com/Ms-KL/she-codes-crowdfunding-api-project-Ms-KL#tldr-links) for MVP & Part A
+
+<br>
+
+### **Part B Submission:**
+
+#### Project Requirements Checklist:
+
+- A link to the [GitHub repository](https://github.com/Ms-KL/crowdfunding) containing the code for your project
+- A link to the [deployed project](https://https://prismatic-phoenix-20010b.netlify.app/-dew-540.fly.dev/)
+- A screenshot of the [home page](project_submission\homepage.png).
+- A screenshot of the [project creation form](project_submission\createproject.png).
+- A screenshot of a project with pledges: [project page top](project_submission\project_a.png) | [project page bottom](project_submission\project_b.png)
+
+<br>
+
+---
+
+---
+
+### UX wishlist
 
 - linking between pages
-- REMOVE local storage on navigating away from any page
+- use context instead of local & session storage
 - change password
 - edit & delete project, pledge and comment
 
-# UI wishlist
+### UI wishlist
 
 - burger nav
 - darkmode
-- color dif
-- change checkbox colour
 
-# Tried and failed:
+### Attempted + incomplete:
 
 - Tailwind:
 
@@ -25,8 +68,8 @@ Deployed Back End: https://icy-dew-540.fly.dev/
 
 - EDIT for CRUD:
 
+  - status: completed edit for user, but with session storage
   - problem: the resources I tried as a guide didn't translate easily. I think I was close, but ran out of time.
-  - reference: I have a branch named CRUD if you want to review. I didn't merge into main.
   - lesson: start with CRUD first as it's crucial for blueprint. Should have arranged a one on one specifically for this right at the beginning.
 
 - CONTEXT for user auth:
@@ -42,5 +85,6 @@ Deployed Back End: https://icy-dew-540.fly.dev/
   - lesson: once CRUD is complete, list the kinds of functions I want and start hunting and testing early before code gets too complex.
 
 - Using PROPS to pass down ID for Linking between pages:
+
   - problem: so many components and pages makes this process confusing and cumbersome. ID in particular. Tried to incorporate Context to help and confused myself further.
   - lesson: start with context during setup to avoid the props requirement when needing to connect a distance child from parent. Also map out structure visually for an easier view.

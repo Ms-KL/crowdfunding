@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 //CSS
 import "./CalculationsCard.css";
 
