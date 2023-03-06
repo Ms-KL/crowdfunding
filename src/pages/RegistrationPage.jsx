@@ -1,14 +1,18 @@
-import RegistrationForm from "../components/RegistrationForm/RegistrationForm";
 import { Link } from "react-router-dom";
+
+// ------- COMPONENTS -------
+import RegistrationForm from "../components/RegistrationForm/RegistrationForm";
 
 
 function RegistrationPage() {
 
-    // if token exists, don't show registration form
+    // ------- AUTH -------
     const authToken = window.localStorage.getItem("token")
 
+    // ------- RENDER -------
     return (
         <>
+        {/* -- REGISTRATION FORM -- */}
             {!authToken ? ( 
                 <RegistrationForm />
             ) : 

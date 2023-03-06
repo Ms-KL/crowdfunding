@@ -1,15 +1,19 @@
+// RENDERED ON PROJECTPAGE.JSX
+
 import React, { useState } from "react";
 import { useNavigate, useOutletContext, Link } from "react-router-dom";
 
-
 function PledgeForm(props) {
 
-    // HOOKS
-    const { project } = props;
+    // ------- AUTH -------
     const authToken = window.localStorage.getItem("token")
     const [loggedIn] = useOutletContext();
-    
-    // STATE
+
+    // ------- HOOKS -------
+    const { project } = props;
+    const navigate = useNavigate();
+
+    // ------- STATE -------    
     const [pledges, setPledges] = useState({
         // from JSON Raw Body in Deployed (default values)
         "amount": null,
@@ -18,10 +22,8 @@ function PledgeForm(props) {
         "project": null,
     });
 
-    // enables redirect
-    const navigate = useNavigate();
+    // ------- ACTIONS & EFFECTS -------
 
-    // copies the original data, replaces the old data for each id/value pair to what is input in the form (changes state). this will be submitted to API below. 
     const handleChange = (event) => {
         const { id, value } = event.target;
         setPledges((prevPledges) => ({
@@ -30,19 +32,12 @@ function PledgeForm(props) {
         project: project.title, 
         }));
     };
+    // copies the original data, replaces the old data for each id/value pair to what is input in the form (changes state). this will be submitted to API below. 
 
-    // submit the new data (state change) from handleChange.
-        // POST has been moved from separate function to be embedded and actioned when the submit button is pressed. 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        // if the auth token exists (if logged in) 
-            // TRY to POST the data to deployed, using fetch.
-            // send the token with it to authorise the ability to post
-                // wait for the response - 
-                // if successful, return the JSON payload and reload the page with the data
-                // if not successful, CATCH the error and display as a pop up alert
-        // if not logged in, redirect to login page
+    // submit the new data (state change) from handleChange.
+        // POST: moved from separate function to be embedded and actioned when the submit button is pressed. 
 
         if (loggedIn) {
             try {
@@ -70,7 +65,17 @@ function PledgeForm(props) {
         navigate(`/login`);
         }
     };
+    /* 
+    If authtoken exists (if logged in) --> 
+        --> TRY to POST the data to deployed, using fetch 
+        --> Send the token with it to auth the ability to post
+        --> wait for the response 
+        --> if successful, return the JSON payload and reload the page with the data --> 
+        --> if not successful, CATCH the error and display as a pop up alert
+        --> if not logged in, redirect to login page
+    */
 
+    // ------- RENDER -------
     return (
         <>
         {loggedIn ? 

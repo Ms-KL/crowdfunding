@@ -1,7 +1,4 @@
-
-
-
-// Components
+// ------- COMPONENTS -------
 import ContactForm from "../components/ContactForm/ContactForm";
 
 

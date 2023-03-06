@@ -1,13 +1,11 @@
+// RENDERED ON CONTACTPAGE.JSX
 
 import { useForm, ValidationError } from '@formspree/react';
 
-//CSS
-import "./ContactForm.css";
-
-
 function ContactForm() {
 
-    // formspree code
+    // ------- ACTIONS & EFFECTS -------
+        // formspree code
     const [state, handleSubmit] = useForm("xbjeygdj");
 
     if (state.succeeded) {

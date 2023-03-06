@@ -1,10 +1,14 @@
+// RENDERED ON REGISTRATIONPAGE.JSX
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function RegistrationForm() {
+    
+    // ------- AUTH -------
     const authToken = window.localStorage.getItem("token")
 
-    // STATE
+    // ------- STATE -------
     const [users, setUsers] = useState({
         "username": "",
         "email": "",
@@ -13,7 +17,10 @@ function RegistrationForm() {
         "avatar": "",
     });
 
+    // ------- HOOKS -------
     const navigate = useNavigate();
+
+    // ------- ACTIONS & EFFECTS -------
     const handleChange = (event) => {
         const { id, value } = event.target;
         setUsers((prevUsers) => ({
@@ -23,22 +30,22 @@ function RegistrationForm() {
     };
 
     const defaultAvatar = window.location.origin + '/default_avatar.png';
-    // https://stackoverflow.com/a/54844591
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // remove avatar element from users list and place the rest in a temp list
-        // create new users list. add the temp list to it 
-        // set the avatar value to avatar or default and add to the new users list.
-        // send this new list with the JSON for POST
-        // reference: rest property - destructuring: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring
-        
+        // replace blank avatar value with default
         const { avatar, ...tempUsersNoAvatar } = users; //original list
         const updatedUsersWithAvatar = {
             ...tempUsersNoAvatar,
             avatar: avatar || defaultAvatar,
         }
+        /* 
+            * remove avatar element from users list and place the rest in a temp list
+            * create new users list. add the temp list to it 
+            * set the avatar value to avatar or default and add to the new users list.
+            * send this new list with the JSON for POST
+        * */
 
         if (!authToken) {
             try {
@@ -64,7 +71,7 @@ function RegistrationForm() {
         }
         };
     
-
+    // ------- RENDER -------
     return (
         <div>
         <form onSubmit={handleSubmit}>
@@ -121,5 +128,9 @@ function RegistrationForm() {
 
 export default RegistrationForm;
 
-// image render issue
-// https://stackoverflow.com/questions/47196800/reactjs-and-images-in-public-folder
+
+/* 
+see _attempts_and_alternatives.md for unfinished and tried solutions
+
+see _references.md for links to references and notes
+*/

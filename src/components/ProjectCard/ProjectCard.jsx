@@ -1,7 +1,11 @@
+// RENDERED ON HOMEPAGE.JSX + ALLPROJECTSPAGE.JSX + USERPROFILE.JSX
+
 import { Link } from "react-router-dom";
 
 //CSS
 import "./ProjectCard.css";
+
+// ------- COMPONENTS -------
 import FundingStatusCard from "../FundingStatusCard/FundingStatusCard";
 
 
@@ -19,18 +23,14 @@ function ProjectCard(props) {
         <h3>{projectData.title}</h3>
         <p>Started: {new Date(projectData.date_created).toLocaleDateString()} | Deadline: {new Date(projectData.deadline).toLocaleDateString()}</p>
         <p>{projectData.description}</p>
+
+        {/* FUNDING STATUS CARD */}
         {!user &&
         <FundingStatusCard project={projectData} /> 
         }
-              
       </div>
     </div>
   );
 }
 
 export default ProjectCard;
-
-
-{/* <h3>{project.funding_status} Project!</h3>
-<h4>Goal: ${project.goal} | Total Pledges: ${project.sum_pledges}</h4>
-<h4>Balance: ${project.goal_balance}</h4> */}

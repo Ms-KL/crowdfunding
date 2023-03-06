@@ -1,6 +1,7 @@
+// RENDERED ON HOMEPAGE.JSX
+
 //CSS
 import "./CalculationsCard.css";
-
 
 function CalculationsCard(props) {
     const { projectList, pledgeList } = props;

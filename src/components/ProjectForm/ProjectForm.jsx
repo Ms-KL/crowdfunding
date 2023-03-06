@@ -1,10 +1,18 @@
+// RENDERED ON CREATEPROJECTPAGE.JSX
+
 import React, { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
 function ProjectForm() {
 
+    // ------- AUTH -------
     const authToken = window.localStorage.getItem("token")
     const [loggedIn] = useOutletContext();
+
+    // ------- HOOKS -------    
+    const navigate = useNavigate();
+
+    // ------- STATE -------
     const [projects, setProjects] = useState({
         "title": "",
         "description": "",
@@ -14,9 +22,7 @@ function ProjectForm() {
         "deadline": null,
     });
 
-    const navigate = useNavigate();
-
-
+    // ------- ACTIONS & EFFECTS -------
     const handleChange = (event) => {
         const { id, value } = event.target;
         // adding new project ID and value to array 
@@ -56,6 +62,7 @@ function ProjectForm() {
         }
     };
 
+    // ------- RENDER -------
     return (
         <>
         {loggedIn ? 

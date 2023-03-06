@@ -1,4 +1,4 @@
-/* --------------- FONTS  ---------------  */
+/* ------- FONTS  -------  */
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
@@ -10,7 +10,7 @@ html {
     text-align: center;
 }
 
-/* --------------- HEADINGS  ---------------  */
+/* ------- HEADINGS  -------  */
 
 h1 {
     /* font-size: 2rem;
@@ -25,7 +25,7 @@ h1 {
     color:#385B4F;
 }
 
-/* --------------- ALL PAGES ---------------  */
+/* ------- ALL PAGES -------  */
 
 .hero-container {
     margin: auto;
@@ -42,7 +42,7 @@ strong {
     color:#385B4F;
 }
 
-/* --------------- LIST FORMATTING W/ IMAGE ---------------  */
+/* ------- LIST FORMATTING W/ IMAGE -------  */
 
 .card-list {
     display: flex;
@@ -60,7 +60,7 @@ strong {
     }
 
 
-/* --------------- TABLES ---------------  */
+/* ------- TABLES -------  */
 
 table {
     /* margin: 20px; */
@@ -80,7 +80,7 @@ td {
     padding: 10px;
 }
 
-/* --------------- ALL BUTTONS & LINKS ---------------  */
+/* ------- ALL BUTTONS & LINKS -------  */
 
 .button-link,
 .button {
@@ -105,7 +105,7 @@ td {
     cursor: pointer;
 }
 
-/* --------------- ALL FORMS ---------------  */
+/* ------- ALL FORMS -------  */
 
 form {
     background: white;
@@ -160,7 +160,7 @@ form button {
     padding: 10px;
 }
 
-/* --------------- AVATARS ---------------  */
+/* ------- AVATARS -------  */
 .avatar-container img {
     object-fit: cover;
     width: 100px;

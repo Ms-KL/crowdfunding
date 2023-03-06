@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-// Components
+// ------- COMPONENTS -------
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import CalculationsCard from "../components/CalculationsCard/CalculationsCard";
 
 function HomePage() {
 
-  // --------------- STATE 
+  // ------- STATE -------
   const [projectList, setProjectList] = useState([]);
   const [pledgeList, setPledgeList] = useState([]);
   const [shuffledSortedProjectList, setShuffledSortedProjectList] = useState([]);
   
-  // --------------- CLEANUP 
+  // ------- CLEAN -------
   window.sessionStorage.removeItem("userData");
 
-  // --------------- ACTIONS 
+  // ------- ACTIONS & EFFECTS -------
 
   // Project Data
   useEffect(() => {
@@ -40,11 +40,7 @@ function HomePage() {
   }, []);
 
 
-    /* Shuffle function
-      https://flaviocopes.com/how-to-shuffle-array-javascript/
-      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
-    */
+    // Shuffle function
     const shuffleProjectList = () => {
       const shuffledList = [...projectList].sort(() => Math.random() - 0.5).slice(0, 6);
       setShuffledSortedProjectList(shuffledList);
@@ -54,6 +50,8 @@ function HomePage() {
   useEffect(() => {
     shuffleProjectList();
   }, [projectList]);
+  
+  // ------- RENDER -------
 
   return (
     <>
@@ -64,13 +62,13 @@ function HomePage() {
         </p>
         <Link to="/about" className="button-link">About</Link>
 
-{/* -------------------- Calculations Card-------------------- */}
+    {/* -- CALCULATIONS-- */}
 
       <h2>Communitree Impact</h2>
           <CalculationsCard projectList={projectList} pledgeList={pledgeList} />
       </div>
 
-{/* -------------------- Projects Card -------------------- */}
+    {/* -- PROJECTS -- */}
 
       <h2>Featured Communitree Projects</h2>
       <button onClick={shuffleProjectList} className="button">Shuffle</button>     
@@ -89,20 +87,8 @@ function HomePage() {
 
 export default HomePage;
 
-/* NOTES:
-  
-    fetch: built in request in browser to server
-      when the results get back, will receive JSON
-      JSON key:value pair
-      When you send data back, we send strings back
-      when the results return - need to turn it into JSON
-      set the JSON to the projectList --> async code
-      fetch, then do this, then do that
-  
-    map = create new array that only contains the pledge amounts
-    reduce = sum up pledge amounts in the new array, return the total
-      0 = initial value of reduce = 0
-      https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d
+/* 
+see _attempts_and_alternatives.md for unfinished and tried solutions
 
-      import React from "react"; not required as it's already a jsx file 
- */
+see _references.md for links to references and notes 
+*/

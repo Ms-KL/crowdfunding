@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-//CSS
-// import "./AdminBlock.css";
 
+// RENDERED ON SESSIONUSERPAGE.JSX
 
 function AdminBlock() {
 

@@ -1,3 +1,5 @@
+// RENDERED ON FUNDINGSTATUSCARD.JSX
+
 const ProgressBar = (props) => {
     const { bgcolor, completed } = props;
 

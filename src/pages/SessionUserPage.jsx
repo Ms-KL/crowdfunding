@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-// components
+// ------- COMPONENTS -------
 import UserProfile from "../components/UserProfile/UserProfile";
 import AdminBlock from "../components/AdminBlock/AdminBlock";
 
 function SessionUserPage() {
+
+    // ------- AUTH -------
     const authToken = window.localStorage.getItem("token")
 
-    // --------------- STATE 
+    // ------- STATE -------
     const [user, setUser] = useState({});
 
-    // --------------- ACTIONS 
+    // ------- ACTIONS & EFFECTS -------
 
-    // GET session user data
+    // FETCH (GET) session user data
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -41,10 +43,13 @@ function SessionUserPage() {
         return user.id === 1;
     };
 
+    // ------- RENDER -------
+
     return (
             <div>
                 {isAdmin() && (
                     <>
+                        {/* -- ADMIN BLOCK -- */}
                         <AdminBlock />
                         <Link to="/users/session/edit" className="button-link">
                 Edit</Link>
@@ -63,6 +68,7 @@ function SessionUserPage() {
                         <h1>Login to view your profile</h1>
                         </>
                     )}
+                {/* -- USER PROFILE -- */}
                 <UserProfile user={user}/>
                 </div>
             </div>

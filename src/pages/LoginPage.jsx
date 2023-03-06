@@ -1,7 +1,6 @@
 import React from "react";
 
-// components
-
+// ------- COMPONENTS -------
 import LoginForm from "../components/LoginForm/LoginForm";
 
 function LoginPage() {

@@ -1,6 +1,0 @@
-HomePage
-    https://stackoverflow.com/questions/54002792/
-
-    https://stackoverflow.com/questions/62358365/react-js-get-sum-of-numbers-in-array
-
-    https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d

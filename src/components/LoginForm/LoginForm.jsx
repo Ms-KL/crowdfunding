@@ -1,20 +1,25 @@
+// RENDERED ON LOGINPAGE.JSX
+
 import { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import '/src/App.css'
 
+import '/src/App.css'
 
 function LoginForm() {
 
-    // state 
+    // ------- AUTH -------
     const [, setLoggedIn] = useOutletContext();
+
+    // ------- STATE -------
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
     });
 
-    // HOOKS
+    // ------- HOOKS -------
     const navigate = useNavigate();
 
+    // ------- ACTIONS & EFFECTS -------
     const handleChange = (event) => {
         const { id, value } = event.target;
         // grab the id and value from target
@@ -41,7 +46,6 @@ function LoginForm() {
         return response.json();
     };
 
-    
     const handleSubmit = async(event) => {
         event.preventDefault();
         if (credentials.username && credentials.password) {
@@ -59,6 +63,7 @@ function LoginForm() {
         }
     };
 
+    // ------- RENDER -------
 
     return (
         <form onSubmit={handleSubmit}>

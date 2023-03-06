@@ -1,6 +1,9 @@
+// RENDERED ON USERPAGE.JSX AND SESSIONUSERPAGE.JSX
+
 //CSS
 import "./UserProfile.css";
 
+// ------- COMPONENTS -------
 import PledgeCard from "../PledgeCard/PledgeCard";
 import CommentCard from "../CommentCard/CommentCard";
 import ProjectCard from "../ProjectCard/ProjectCard";
@@ -8,18 +11,13 @@ import ProjectCard from "../ProjectCard/ProjectCard";
 function UserProfile(props) {
     const { user } = props;
 
-    // // Hooks
-    // const { id } = useParams();
-
-
     return (
         <>
             <div className="user-profile">
                 <img src={user.avatar} />
                 <p className="feature-text">"{user.bio}"</p>
         
-{/* -------------------- Project Card -------------------- */}
-
+    {/* -- PROJECT CARD -- */}
             <div>
                 <br />
                     <h2>Projects:</h2>
@@ -34,7 +32,7 @@ function UserProfile(props) {
                     </div>
             </div>
 
-{/* -------------------- Comment Card -------------------- */}
+    {/* -- COMMENT CARD -- */}
                 <div>
                     <br />
                     <h2>Comments:</h2>
@@ -49,7 +47,7 @@ function UserProfile(props) {
                         </div>
                 </div>
 
-{/* -------------------- Pledge Card -------------------- */}
+    {/* -- PLEDGE CARD -- */}
                 <div>
                     <h2>Pledges:</h2>
                     <div className="card-list">
@@ -59,12 +57,9 @@ function UserProfile(props) {
                         ) : (
                             <p>{user.username} hasn't pledged to any projects</p>
                         )}
-
                     </div>
                 </div>
         </div>
-
-
         </>
         );
 }

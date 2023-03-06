@@ -1,21 +1,25 @@
+// RENDERED ON PROJECTPAGE.JSX
+
 import React, { useState } from "react";
 import { useNavigate, useOutletContext, Link } from "react-router-dom";
 
 function ProjectCommentForm(props) {
+    
+    // ------- AUTH -------
     const authToken = window.localStorage.getItem("token")
+    const [loggedIn] = useOutletContext();
 
-    // STATE
+    // ------- STATE -------
     const [comments, setComments] = useState({
         "body": "",
         "project": null
     });
 
-    // HOOKS
+    // ------- HOOKS -------
     const { project } = props;
-    const [loggedIn] = useOutletContext();
     const navigate = useNavigate();
 
-    // ACTIONS
+    // ------- ACTIONS & EFFECTS -------
     const handleChange = (event) => {
         const { id, value } = event.target;
         setComments((prevComments) => ({

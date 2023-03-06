@@ -1,11 +1,10 @@
+// RENDERED ON PROJECTPAGE.JSX + USERPROFILE.JSX
 
 //CSS
 import "./CommentCard.css";
 
-
 function CommentCard(props) {
     const { comment, user } = props;
-
 
     return (
         <>

@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
-// components
+// ------- COMPONENTS -------
 import PledgeCard from "../components/PledgeCard/PledgeCard";
 
 function PledgePage() {
 
-    // --------------- STATE 
+    // ------- STATE -------
     const [pledgeList, setPledgeList] = useState([]);
 
-    // --------------- ACTIONS 
+    // ------- ACTIONS & EFFECTS -------
 
     // Pledge Data
     useEffect(() => {
@@ -24,14 +24,18 @@ function PledgePage() {
     // Number of pledges in pledgeList (length)
     const pledgesTotal = pledgeList.length;
 
-    /* use map to target amount value in pledgeList
-        runningTotal starts at 0, amount is each mapped amount value from pledgeList
-        for each value in amount mapped from Pledge list, add it to the running total
-        https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d */
+    // Running total of Pledges
     const pledgesTotalFunds = pledgeList
         .map(pledge => pledge.amount)
         .reduce((runningTotal, amount) => runningTotal + amount,0);
+    /* 
+    for each value in amount mapped from Pledge list, add it to the running total
+        map: target amount value in pledgeList
+        runningTotal: starts at 0
+        amount: each mapped amount value from pledgeList
+    */
 
+    // ------- RENDER -------
     return (
         <div>
             <h2>Communitree Support Totals</h2>
@@ -49,3 +53,10 @@ function PledgePage() {
 };
 
 export default PledgePage;
+
+/* 
+see _attempts_and_alternatives.md for unfinished and tried solutions
+
+see _references.md for links to references and notes 
+*/
+

@@ -1,17 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 function PutSessionUserPage() {
 
-    // --------------- STATE 
-
+    // ------- STORAGE -------
     // STEP 1: retrieve only the required items from session storage
     const { id, username, email, bio, avatar } = JSON.parse(window.sessionStorage.getItem("userData"));
         
+    // ------- AUTH  -------
     // STEP 2: retrieve the token to sent with Fetch request
     const authToken = window.localStorage.getItem("token")
-        
+
+    // ------- STATE -------
     // STEP 3: set user's State using the retrieved session storage values
     const [user, setUser] = useState({
         "id": id,
@@ -20,11 +21,11 @@ function PutSessionUserPage() {
         "bio": bio,
         "avatar": avatar,
     });
-        
+
+    // ------- HOOKS -------
     const navigate = useNavigate();
 
-    // --------------- ACTIONS 
-
+    // ------- ACTIONS & EFFECTS -------
     // STEP 4: user inputs data change
     const handleChange = (event) => {
         /*  
@@ -163,51 +164,8 @@ function PutSessionUserPage() {
 
 export default PutSessionUserPage;
 
-
-
 /* 
-Failed / unfinished:
+see _attempts_and_alternatives.md for unfinished and tried solutions
 
-    NOTES on SESSION STORAGE:
-        Added user details into Session Storage
-        as they navigate away from the edit page or the users/session page, the session storage data deletes
-        I know not an ideal solution. Context would be better. Will polish in future
-
-    Trying to delete storage when navigating away from session and session/edit pages:
-        useEffect (() => {
-            if(!window.location.href.includes('users/session/')) {
-                localStorage.removeItem("userData")
-            }});
-        
-        useEffect(() => {
-            const userData = window.sessionStorage.getItem("userData");
-                if (!userData) {
-                    navigate("/users/session");
-                }
-            }, []);
-
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
-    // https://www.w3schools.com/jsref/jsref_includes.asp
-    // https://www.w3schools.com/JS/js_window_location.asp?output=printhttp://www.w3schools.com/JS/js_window_location.asp?output=print
-*/
-
-/* References:
-        image render issue
-            https://stackoverflow.com/questions/47196800/reactjs-and-images-in-public-folder
-
-        react form structure reference:
-            https://reactjs.org/docs/forms.html
-            https://beta.reactjs.org/reference/react-dom/components/input
-
-        use effect: triggers AFTER first render
-
-        Local Storage:
-            use this to remove local storage data... only need it for FIRST render
-            https://openclassrooms.com/en/courses/7132446-create-a-web-application-with-react-js/7209016-trigger-effects-with-useeffect#:~:text=The%20hook%20useEffect%20is%20called,time%20your%20component%20is%20rendered.
-
-            Local Storage (get and delete)
-            freecodecamp.org/news/how-to-use-localstorage-with-react-hooks-to-set-and-get-items
-            https://blog.logrocket.com/localstorage-javascript-complete-guide/
-            https://stackoverflow.com/questions/64093100/react-remove-localstorage-item-on-page-load
-            https://blog.logrocket.com/using-localstorage-react-hooks/
+see _references.md for links to references and notes 
 */

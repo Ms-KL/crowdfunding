@@ -65,14 +65,3 @@ function App() {
 }
 
 export default App;
-
-// : = path param
-
-
-
-// const HeaderLayout = () => (
-//   <div>
-//     <Nav />
-//     <Outlet />
-//   </div>
-// );

@@ -1,5 +1,5 @@
 
-// components
+// ------- COMPONENTS -------
 import ProjectForm from "../components/ProjectForm/ProjectForm";
 
 function CreateProjectPage() {

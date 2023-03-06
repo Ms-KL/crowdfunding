@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 
+// CSS
 import './Nav.css';
 
 function Nav(props) {
+    
+    // ------- AUTH -------
     const { loggedIn, setLoggedIn } = props
+
+    // ------- ACTIONS & EFFECTS -------
 
     const handleClick = () => {
         window.localStorage.removeItem("token");
@@ -12,6 +17,7 @@ function Nav(props) {
 
     }
 
+    // ------- RENDER -------
     return (
             <nav>
                 <div className="logo-container">
@@ -40,8 +46,6 @@ function Nav(props) {
                         <Link to="/contact" className="button-link">
                             Contact
                         </Link>
-                    {/* </div> */}
-                    {/* <div className="nav-user"> */}
                         {loggedIn && (
                             <Link to="/users/session" className="button-link">
                             Profile
@@ -66,13 +70,9 @@ function Nav(props) {
                                 </button>
                         )}
                         </div>
-                    {/* </div> */}
                 </div>
             </nav>
         );
 
 }
 export default Nav;
-
-/// image render issue
-// https://stackoverflow.com/questions/47196800/reactjs-and-images-in-public-folder
