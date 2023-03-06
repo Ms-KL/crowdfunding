@@ -13,23 +13,6 @@
   );
   ```
 
-// ------- CSS -------
-// ------- COMPONENTS -------
-// ------- STORAGE -------
-// ------- AUTH -------
-// ------- STATE -------
-// ------- HOOKS -------
-// ------- CLEAN -------
-// ------- ACTIONS & EFFECTS -------
-// ------- RENDER -------
-{/_ -- PROJECT TIMELINE -- _/}
-/_ RENDERED ON USERPAGE.JSX _/
-/\*
-see \_attempts_and_alternatives.md for unfinished and tried solutions
-
-see \_references.md for links to references and notes
-\*/
-
 ---
 
 ## PledgeCard.jsx
