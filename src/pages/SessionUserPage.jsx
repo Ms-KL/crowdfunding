@@ -69,7 +69,9 @@ function SessionUserPage() {
                         </>
                     )}
                 {/* -- USER PROFILE -- */}
-                <UserProfile user={user}/>
+                {user.id && (
+                    <UserProfile user={user}/>
+                )}
                 </div>
             </div>
         );

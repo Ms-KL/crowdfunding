@@ -51,7 +51,7 @@ function ProjectForm() {
                 if (!response.ok) {
                     throw new Error(await response.text());
                 }
-                navigate(-1);
+                navigate(`/projects`);
             } catch (err) {
                 console.error(err);
                 alert(`Error: ${err.message}`);
