@@ -35,7 +35,8 @@ h1 {
 .feature-text {
     font-size: 1.30rem;
     margin: auto;
-    line-height: 40px;
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 strong {

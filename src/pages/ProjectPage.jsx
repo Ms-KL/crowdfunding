@@ -11,8 +11,13 @@ import FundingStatusCard from "../components/FundingStatusCard/FundingStatusCard
 
 function ProjectPage() {
 
+
     // ------- STATE -------
     const [project, setProject] = useState({});
+    const [user, setUser] = useState({});
+
+        // ------- AUTH -------
+        const authToken = window.localStorage.getItem("token")
 
     // ------- HOOKS -------
     const { id } = useParams();
@@ -35,6 +40,40 @@ function ProjectPage() {
         fetchProject();
 }, []);
 
+    // ------- ACTIONS & EFFECTS -------
+
+    // FETCH (GET) session user data
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await fetch(
+                    `${import.meta.env.VITE_API_URL}users/session/`, 
+                    {
+                    method: "GET",
+                    headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Token ${authToken}`,
+                    }
+                    });
+                const data = await response.json();
+                window.sessionStorage.setItem("userData", JSON.stringify(data));
+                setUser(data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchUser();
+    }, [authToken]);
+
+    // If user ID is the same as project, then they are owner
+    const isOwner = () => {
+        if (Object.keys(user).length === 0 || Object.keys(project).length === 0) {
+          return false;
+        }
+        return user.username === project.owner;
+      };
+      
+
     // ------- RENDER -------
 
     return (
@@ -42,7 +81,11 @@ function ProjectPage() {
             
             {/* -- PROJECT DETAILS -- */}
             <br />
-            <h2>{project.title}</h2>
+            <h1>{project.title}</h1>
+            {isOwner() && (
+            <Link to={`/projects/${project.id}/edit`} className="button-link">
+                Edit
+                </Link>)}
 
             <br />
             <br />
@@ -62,9 +105,6 @@ function ProjectPage() {
                 <h4><div className="avatar-container" id="project-page-avatar">
                 {project.owner_avatar && <img src={project.owner_avatar} alt="avatar" />}&emsp;
             {project.owner}'s project</div></h4>
-            <Link to={`/projects/${project.id}/edit`} className="button-link">
-                Edit
-                </Link>
 
             </div>
 
