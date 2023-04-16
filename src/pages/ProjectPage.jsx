@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 // ------- COMPONENTS -------
 import PledgeForm from "../components/PledgeForm/PledgeForm";
@@ -61,6 +61,9 @@ function ProjectPage() {
             <h3><div className="avatar-container" id="project-page-avatar">
                 {project.owner_avatar && <img src={project.owner_avatar} alt="avatar" />}&emsp;
             {project.owner}'s project</div></h3>
+            <Link to={`/projects/${project.id}/edit`} className="button-link">
+                Edit
+                </Link>
             </div>
 
             {/* -- COMMENT CARD + FORM -- */}
