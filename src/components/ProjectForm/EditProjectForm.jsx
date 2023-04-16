@@ -50,6 +50,7 @@ function EditProjectForm() {
     const { id, value } = event.target;
     setProject((prevProject) => ({
       ...prevProject,
+      deadline: new Date(value).toISOString().slice(0, 16),
       [id]: value,
     }));
   };
@@ -93,7 +94,9 @@ function EditProjectForm() {
       <label htmlFor="image">Image URL</label>
       <input type="text" id="image" defaultValue={project.image} onChange={handleChange} />
       <label htmlFor="deadline">Deadline</label>
-      <input type="datetime-local" id="deadline" defaultValue={project.deadline} onChange={handleChange} />
+      <input type="datetime-local" id="deadline" defaultValue="2023-01-28T14:14" onChange={handleChange} />
+
+
       <div style={{ display: 'flex', alignItems: 'center'}}>
 
         <label htmlFor="is_open">Activate</label>
