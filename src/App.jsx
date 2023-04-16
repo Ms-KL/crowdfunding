@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import PledgePage from "./pages/PledgePage";
 import ProjectPage from "./pages/ProjectPage";
+import PutProjectPage from "./pages/PutProjectPage";
 import PutSessionUserPage from "./pages/PutSessionUserPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import SessionUserPage from "./pages/SessionUserPage";
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
       { path: "/pledges", element: <PledgePage />},  
       { path: "/projects", element: <AllProjectsPage /> },       
       { path: "/projects/:id", element: <ProjectPage /> }, 
+      { path: "/projects/:id/edit", element: <PutProjectPage /> }, 
       { path: "/register", element: <RegistrationPage />},   
       { path: "/users/:id", element: <UserPage /> },   
       { path: "/users/session", element: <SessionUserPage /> }, 

@@ -42,12 +42,11 @@ function ProjectPage() {
             
             {/* -- PROJECT DETAILS -- */}
             <h2>{project.title}</h2>
-            <img src={project.image} />
+
             
             <div className="hero-container">
-                <h2><div className="avatar-container" id="project-page-avatar">
-                    {project.owner_avatar && <img src={project.owner_avatar} alt="avatar" />}&emsp;
-                {project.owner}'s project</div></h2>
+
+                <img src={project.image} />
 
             {/* -- PROJECT TIMELINE -- */}
 
@@ -58,6 +57,10 @@ function ProjectPage() {
             {/* -- FUNDING STATUS -- */}
 
                 <FundingStatusCard project={project} />
+
+            <h3><div className="avatar-container" id="project-page-avatar">
+                {project.owner_avatar && <img src={project.owner_avatar} alt="avatar" />}&emsp;
+            {project.owner}'s project</div></h3>
             </div>
 
             {/* -- COMMENT CARD + FORM -- */}
