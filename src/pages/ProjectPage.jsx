@@ -41,9 +41,11 @@ function ProjectPage() {
         <div className="project-detail">
             
             {/* -- PROJECT DETAILS -- */}
+            <br />
             <h2>{project.title}</h2>
 
-            
+            <br />
+            <br />
             <div className="hero-container">
 
                 <img src={project.image} />
@@ -55,15 +57,15 @@ function ProjectPage() {
                 <p>{project.description}</p>
 
             {/* -- FUNDING STATUS -- */}
-
                 <FundingStatusCard project={project} />
 
-            <h3><div className="avatar-container" id="project-page-avatar">
+                <h4><div className="avatar-container" id="project-page-avatar">
                 {project.owner_avatar && <img src={project.owner_avatar} alt="avatar" />}&emsp;
-            {project.owner}'s project</div></h3>
+            {project.owner}'s project</div></h4>
             <Link to={`/projects/${project.id}/edit`} className="button-link">
                 Edit
                 </Link>
+
             </div>
 
             {/* -- COMMENT CARD + FORM -- */}
