@@ -1,6 +1,6 @@
 <img src="https://github.com/Ms-KL/Ms-KL/raw/main/images/shecodes-icon.png" width="80px" height="80px" />
 
-# She Codes Plus Project 5: Crowdfunding Website (Front-End)
+# She Codes Plus Project 5: <br>Crowdfunding Website (Front-End)
 
 ## About:
 
@@ -42,47 +42,23 @@ This is Crowdfunding Website was created by Kristy Leigh as a project for the [S
 
 ---
 
----
-
 ### UX wishlist
 
 - linking between pages
 - use context instead of local & session storage
 - change password
-- edit & delete project, pledge and comment
+- complete CRUD
 
 ### UI wishlist
 
 - burger nav
 - darkmode
+- pixelate avatar if anonymous (attempted, but unsuccessful)
 
-### Attempted + incomplete:
+### Lessons Learned:
 
-- Tailwind:
-
-  - goal: create some cool styling easily to polish up my project
-  - problem: installed very late after I had styled and it distorted what I had established.
-  - lesson: start with imports first, then style. Give myself more time for this
-
-- EDIT for CRUD:
-
-  - status: completed edit for user, but with session storage
-  - problem: the resources I tried as a guide didn't translate easily. I think I was close, but ran out of time.
-  - lesson: start with CRUD first as it's crucial for blueprint. Should have arranged a one on one specifically for this right at the beginning.
-
-- CONTEXT for user auth:
-
-  - problem: I couldn't figure it out independently and by the time I tried to incorporate it into my code using Nirali's solution, but my code was already relying on props, so it complicated things.
-  - lesson: This works TOGETHER with CRUD. Should have started with this.
-
-- Pixelate avatar if anonymous using package:
-
-  - problem: I think I tried about 10 different packages, all of which ended up old, conflicting with my version of React or caused issues. I spent days on this. Gave up as I ran out of time
-  - alternative: created a conditional pointing to an alternative image instead. The image is hilarious, so I'm happy with that.
-  - silver lining: this lead me to thinking about if an avatar is blank on registration... which I then tackled to create an awesome function if it is.
-  - lesson: once CRUD is complete, list the kinds of functions I want and start hunting and testing early before code gets too complex.
-
-- Using PROPS to pass down ID for Linking between pages:
-
-  - problem: so many components and pages makes this process confusing and cumbersome. ID in particular. Tried to incorporate Context to help and confused myself further.
-  - lesson: start with context during setup to avoid the props requirement when needing to connect a distance child from parent. Also map out structure visually for an easier view.
+- start with imports first (eg Tailwind), then style.
+- start with CRUD first as it's crucial for blueprint
+- use Context where possible - works together with CRUD
+- limit props passing down through children
+- watch out for unsupported packages
